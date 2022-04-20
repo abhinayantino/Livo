@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import TopNav from "./components/topNav";
+import LeftNav from "./components/leftNav";
+import AllProperties from "./views/AllProperties";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TopNav />
+      <div style={{ display: "flex", background: "#FFE3D2" }}>
+        <LeftNav />
+        <AllProperties></AllProperties>
+      </div>
+    </>
   );
 }
 
