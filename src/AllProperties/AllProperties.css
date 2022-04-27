@@ -1,4 +1,6 @@
 .Property{
+        display: flex;
+        flex-direction: row;
         font-size: 20px;
         margin-top: 2rem;
         margin-bottom: 2rem;
@@ -6,4 +8,7 @@
         font-family: 'Barlow',
         sans-serif;
         line-height: 24px;
+        align-items:center;
+        
 }
+

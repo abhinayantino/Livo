@@ -1,16 +1,18 @@
 import "./App.css";
-import TopNav from "./components/topNav";
-import LeftNav from "./components/leftNav";
-import AllProperties from "./views/AllProperties";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AllProperties from "./AllProperties/index";
+import Units from "./Units";
+import PropertyName from "./PropertyName";
+
 function App() {
   return (
-    <>
-      <TopNav />
-      <div style={{ display: "flex", background: "#FFE3D2" }}>
-        <LeftNav />
-        <AllProperties></AllProperties>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AllProperties />}></Route>
+        <Route path="/units" element={<Units />}></Route>
+        <Route path="/property" element={<PropertyName />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

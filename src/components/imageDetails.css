@@ -1,0 +1,29 @@
+.image-details{
+    display: flex;
+        height: 135px;
+    margin-top: 44px;
+
+
+
+}
+.image-details > :not(:last-child){
+    margin-right: 16px;
+
+}
+.image-upload{
+    /* padding: 18px 76px; */
+    display:flex;
+    flex-direction: column;
+    border:1px dashed #DFE0E0;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+
+
+}
+.Addingimage{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 9px;
+}

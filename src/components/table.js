@@ -7,8 +7,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Pagination from "@mui/material/Pagination";
-function createData(name, calories, fat, carbs, protein, contact) {
-  return { name, calories, fat, carbs, protein, contact };
+import { Link } from "react-router-dom";
+
+function createData(id, propertyName, area, location, type, contact) {
+  return { id, propertyName, area, location, type, contact };
 }
 
 const rows = [
@@ -47,11 +49,13 @@ export default function BasicTable() {
                 key={row.name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell align="center">{row.name}</TableCell>
-                <TableCell align="center">{row.calories}</TableCell>
-                <TableCell align="center">{row.fat}</TableCell>
-                <TableCell align="center">{row.carbs}</TableCell>
-                <TableCell align="center">{row.protein}</TableCell>
+                <TableCell align="center">
+                  <Link to="/property">{row.id}</Link>
+                </TableCell>
+                <TableCell align="center">{row.propertyName}</TableCell>
+                <TableCell align="center">{row.area}</TableCell>
+                <TableCell align="center">{row.location}</TableCell>
+                <TableCell align="center">{row.type}</TableCell>
                 <TableCell align="center">{row.contact}</TableCell>
               </TableRow>
             ))}
