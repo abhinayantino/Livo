@@ -1,10 +1,9 @@
 import React from "react";
-import propertyImage1 from "../assets/property1.png";
-import propertyImage2 from "../assets/property2.png";
+
 import "./imageDetails.css";
 import { AiOutlinePlus } from "react-icons/ai";
 
-export default function ImageDetails() {
+export default function ImageDetails({ images }) {
   return (
     <>
       <div className="image-details">
@@ -40,10 +39,10 @@ export default function ImageDetails() {
             <p className="Addingimage">Add image</p>
           </div>
         </div>
-        <img classname="image" src={propertyImage1} alt="property-Image1" />
-        <img classname="image" src={propertyImage2} alt="property-Image2" />
-        <img classname="image" src={propertyImage2} alt="property-Image2" />
-        <img classname="image" src={propertyImage2} alt="property-Image2" />
+
+        {images.map((image, i) => (
+          <img classname="image" src={image} alt={`Property image ${i}`} />
+        ))}
       </div>
     </>
   );

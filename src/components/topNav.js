@@ -13,19 +13,21 @@ export default function TopNav() {
         <div>
           <img className="logo" src={logo} alt="logo" />
         </div>
-        {pathname === "/property" ? (
-          <AllPropertyNav style={{ marginleft: "200px" }} />
-        ) : null}
-        <div className="Top">
-          <div className="Notification">
-            <IoMdNotificationsOutline
-              style={{ width: "24px", height: "24px", marginRight: "50px" }}
-            />
+        <div className="TopBar-child">
+          {pathname === "/property" ? (
+            <AllPropertyNav style={{ marginleft: "200px" }} />
+          ) : null}
+          <div className="Top">
+            <div className="Notification">
+              <IoMdNotificationsOutline
+                style={{ width: "24px", height: "24px", marginRight: "50px" }}
+              />
+            </div>
+            <div style={{ marginRight: "12px" }}>
+              <p>Admin Name</p>
+            </div>
+            <div>Profile</div>
           </div>
-          <div style={{ marginRight: "12px" }}>
-            <p>Admin Name</p>
-          </div>
-          <div>Profile</div>
         </div>
       </div>
     </>

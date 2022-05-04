@@ -1,15 +1,15 @@
 import React from "react";
-import "./AllProperties.css";
-import BasicTable from "../components/BasicTable";
+import "./index.css";
 import SearchBar from "../components/SearchBar";
 import Button from "@mui/material/Button";
-export default function Home() {
+import UserTable from "../components/UserTable";
+export default function User() {
   return (
     <>
       <div className="home">
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="Property" style={{ marginRight: "40px" }}>
-            All Properties
+            Users
           </div>
           <div
             style={{
@@ -104,7 +104,7 @@ export default function Home() {
           </div>
         </div>
 
-        <BasicTable />
+        <UserTable />
       </div>
     </>
   );

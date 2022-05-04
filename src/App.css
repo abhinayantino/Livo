@@ -50,6 +50,10 @@
   border-bottom-right-radius: 20px;
   height: 50px;
 }
+.TopBar-child{
+  display: flex;
+  
+}
 .Top{
   display: flex;
   flex-direction: row;
@@ -119,6 +123,7 @@ ul:hover{
   height: 100%;
   border-top-left-radius: 30px ;
   background: white;
+  overflow: auto;
 
 
   

@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AllProperties from "./AllProperties/index";
 import Units from "./Units";
 import PropertyName from "./PropertyName";
+import User from "./User";
+import AddUser from "./AddUser";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
         <Route path="/" element={<AllProperties />}></Route>
         <Route path="/units" element={<Units />}></Route>
         <Route path="/property" element={<PropertyName />}></Route>
+        <Route path="/user" element={<User />}></Route>
+        <Route path="/adduser" element={<AddUser />}></Route>
       </Routes>
     </BrowserRouter>
   );

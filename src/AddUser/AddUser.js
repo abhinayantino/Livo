@@ -4,45 +4,44 @@ import TextField from "@mui/material/TextField";
 import "./index.css";
 import { MenuItem } from "@mui/material";
 import Button from "@mui/material/Button";
-import propertyimage from "../assets/property1.png";
-import Propertyimage from "../assets/property2.png";
+import Userimage from "../assets/user.jpg";
 
 import ImageDetails from "../components/ImageDetails";
 
-const Areas = [
+const Nationality = [
   {
-    value: "Area1",
-    label: "Area1",
+    value: "Indian",
+    label: "Indian",
   },
   {
-    value: "Area2",
-    label: "Area2",
+    value: "American",
+    label: "American",
   },
   {
-    value: "Area3",
-    label: "Area3",
+    value: "Arabian",
+    label: "Arabian",
   },
   {
-    value: "Area4",
-    label: "Area4",
+    value: "Canadian",
+    label: "Canadian",
   },
 ];
 const cities = [
   {
-    value: "city1",
-    label: "city1",
+    value: "owner",
+    label: "owner",
   },
   {
-    value: "city2",
-    label: "city2",
+    value: "tenat",
+    label: "tenat",
   },
   {
-    value: "city3",
-    label: "city3",
+    value: "broker",
+    label: "broker",
   },
   {
-    value: "city4",
-    label: "city4",
+    value: "superviser",
+    label: "superviser",
   },
 ];
 const buildings = [
@@ -87,18 +86,14 @@ export default function PropertyName() {
 
   // const [complete, setComplete] = useState(false);
   const [propertyfields, setPropertyfields] = useState({
-    name: "",
-    address: "",
-    area: "",
-    city: "",
-    pin: "",
-    latitude: "",
-    longitude: "",
-    building: "",
-    propertyid: "",
-    url: "",
-    swift: "",
-    iban: "",
+    userid: "",
+    firstname: "",
+    lastname: "",
+    usertype: "",
+    nationality: "",
+    nationalityid: "",
+    passportno: "",
+    Email: "",
     countryCode: "",
   });
   const _ref = useRef();
@@ -120,7 +115,7 @@ export default function PropertyName() {
     <>
       <div className="home">
         <div className="Property-top">
-          <div className="details">Property Details</div>
+          <div className="details">User Details</div>
           <div className="properties-button">
             <Button
               className="Button"
@@ -163,7 +158,7 @@ export default function PropertyName() {
           </div>
         </div>
 
-        <ImageDetails images={[propertyimage, Propertyimage]} />
+        <ImageDetails images={[Userimage, Userimage, Userimage]} />
         <Box
           component="form"
           sx={{
@@ -175,11 +170,11 @@ export default function PropertyName() {
         >
           <TextField
             id="standard-multiline-flexible"
-            label="Property Name"
+            label="User ID"
             multiline
             maxRows={4}
-            value={propertyfields.name}
-            onChange={(event) => updatePropertyfields(event, "name")}
+            value={propertyfields.userid}
+            onChange={(event) => updatePropertyfields(event, "userid")}
             variant="standard"
             style={{
               fontFamily: "Barlow",
@@ -189,128 +184,81 @@ export default function PropertyName() {
               lineHeight: "19px",
             }}
           />
+          <div>
+            <TextField
+              id="standard-multiline-flexible"
+              label="First Name"
+              multiline
+              maxRows={4}
+              value={propertyfields.firstname}
+              onChange={(event) => updatePropertyfields(event, "firstname")}
+              variant="standard"
+              style={{
+                fontFamily: "Barlow",
+                fontStyle: "normal",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "19px",
+                width: "278px",
+                marginRight: "75px",
+              }}
+            />
+            <TextField
+              id="standard-multiline-flexible"
+              label="Last Name"
+              multiline
+              maxRows={4}
+              value={propertyfields.lastname}
+              onChange={(event) => updatePropertyfields(event, "lastname")}
+              variant="standard"
+              style={{
+                fontFamily: "Barlow",
+                fontStyle: "normal",
+                fontWeight: 400,
+                fontSize: "16px",
+                lineHeight: "19px",
+                width: "278px",
+              }}
+            />
+          </div>
+
           <TextField
-            id="Area"
+            id="User Type"
             select
-            label="Select"
-            value={propertyfields.area}
-            onChange={(event) => updatePropertyfields(event, "area")}
+            label="User Type"
+            value={propertyfields.usertype}
+            onChange={(event) => updatePropertyfields(event, "usertype")}
             variant="standard"
           >
-            {Areas.map((option) => (
+            {cities.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
             ))}
           </TextField>
+
           <TextField
-            id="standard-multiline-flexible"
-            label="Address Line"
-            multiline
-            maxRows={4}
-            value={propertyfields.address}
-            onChange={(event) => updatePropertyfields(event, "address")}
-            variant="standard"
-            style={{
-              fontFamily: "Barlow",
-              fontStyle: "normal",
-              fontWeight: 400,
-              fontSize: "16px",
-              lineHeight: "19px",
-            }}
-          />
-          <div>
-            <TextField
-              id="City"
-              select
-              label="Select"
-              value={propertyfields.city}
-              onChange={(event) => updatePropertyfields(event, "city")}
-              variant="standard"
-              style={{ width: "278px", marginRight: "80px" }}
-            >
-              {cities.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-            <TextField
-              id="standard-multiline-flexible"
-              label="Pincode"
-              multiline
-              maxRows={4}
-              value={propertyfields.pin}
-              onChange={(event) => updatePropertyfields(event, "pin")}
-              variant="standard"
-              style={{
-                fontFamily: "Barlow",
-                fontStyle: "normal",
-                fontWeight: 400,
-                fontSize: "16px",
-                lineHeight: "19px",
-                width: "278px",
-              }}
-            />
-          </div>
-          <div>
-            <TextField
-              id="standard-multiline-flexible"
-              label="Latitude"
-              multiline
-              maxRows={4}
-              value={propertyfields.latitude}
-              onChange={(event) => updatePropertyfields(event, "latitude")}
-              variant="standard"
-              style={{
-                fontFamily: "Barlow",
-                fontStyle: "normal",
-                fontWeight: 400,
-                fontSize: "16px",
-                lineHeight: "19px",
-                width: "278px",
-                marginRight: "80px",
-              }}
-            />
-            <TextField
-              id="standard-multiline-flexible"
-              label="Latitude"
-              multiline
-              maxRows={4}
-              value={propertyfields.longitude}
-              onChange={(event) => updatePropertyfields(event, "longitude")}
-              variant="standard"
-              style={{
-                fontFamily: "Barlow",
-                fontStyle: "normal",
-                fontWeight: 400,
-                fontSize: "16px",
-                lineHeight: "19px",
-                width: "278px",
-              }}
-            />
-          </div>
-          <TextField
-            id="building"
+            id="Nationality"
             select
-            label="Building"
-            value={propertyfields.building}
-            onChange={(event) => updatePropertyfields(event, "building")}
+            label="Nationality"
+            value={propertyfields.nationality}
+            onChange={(event) => updatePropertyfields(event, "nationality")}
             variant="standard"
           >
-            {buildings.map((option) => (
+            {Nationality.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
             ))}
           </TextField>
+
           <TextField
             id="standard-multiline-flexible"
-            label="Government Property ID"
+            label="Nationality ID"
             multiline
             maxRows={4}
-            value={propertyfields.propertyid}
-            onChange={(event) => updatePropertyfields(event, "propertyid")}
+            value={propertyfields.nationalityid}
+            onChange={(event) => updatePropertyfields(event, "nationalityid")}
             variant="standard"
             style={{
               fontFamily: "Barlow",
@@ -320,13 +268,14 @@ export default function PropertyName() {
               lineHeight: "19px",
             }}
           />
+
           <TextField
             id="standard-multiline-flexible"
-            label="Government Property ID"
+            label="Passport Number"
             multiline
             maxRows={4}
-            value={propertyfields.url}
-            onChange={(event) => updatePropertyfields(event, "url")}
+            value={propertyfields.passportno}
+            onChange={(event) => updatePropertyfields(event, "passportno")}
             variant="standard"
             style={{
               fontFamily: "Barlow",
@@ -336,24 +285,14 @@ export default function PropertyName() {
               lineHeight: "19px",
             }}
           />
-          <TextField
-            id="filled-multiline-static"
-            multiline
-            rows={4}
-            placeholder="Description"
-            variant="filled"
-            style={{ borderRadius: "12px" }}
-          />
-          <div>
-            <h2>Bank Details</h2>
-          </div>
+
           <TextField
             id="standard-multiline-flexible"
-            label="Property Name"
+            label="Email ID"
             multiline
             maxRows={4}
-            value={propertyfields.name}
-            onChange={(event) => updatePropertyfields(event, "name")}
+            value={propertyfields.Email}
+            onChange={(event) => updatePropertyfields(event, "Email")}
             variant="standard"
             style={{
               fontFamily: "Barlow",
@@ -361,46 +300,8 @@ export default function PropertyName() {
               fontWeight: 400,
               fontSize: "16px",
               lineHeight: "19px",
-              marginTop: "46px",
             }}
           />
-          <div>
-            <TextField
-              id="standard-multiline-flexible"
-              label="IBAN Number"
-              multiline
-              maxRows={4}
-              value={propertyfields.iban}
-              onChange={(event) => updatePropertyfields(event, "iban")}
-              variant="standard"
-              style={{
-                fontFamily: "Barlow",
-                fontStyle: "normal",
-                fontWeight: 400,
-                fontSize: "16px",
-                lineHeight: "19px",
-                width: "278px",
-                marginRight: "80px",
-              }}
-            />
-            <TextField
-              id="standard-multiline-flexible"
-              label="SWIFT Number"
-              multiline
-              maxRows={4}
-              value={propertyfields.swift}
-              onChange={(event) => updatePropertyfields(event, "swift")}
-              variant="standard"
-              style={{
-                fontFamily: "Barlow",
-                fontStyle: "normal",
-                fontWeight: 400,
-                fontSize: "16px",
-                lineHeight: "19px",
-                width: "278px",
-              }}
-            />
-          </div>
           <div>
             <TextField
               id="standard-select-currency"
@@ -420,7 +321,7 @@ export default function PropertyName() {
             <TextField
               id="standard-helperText"
               variant="standard"
-              style={{ marginTop: "24px" }}
+              style={{ marginTop: "24px", width: "565px" }}
             />
           </div>
         </Box>
