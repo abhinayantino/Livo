@@ -5,6 +5,7 @@ import Units from "./Units";
 import PropertyName from "./PropertyName";
 import User from "./User";
 import AddUser from "./AddUser";
+import VisitorManagement from "./VisitorManagement";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/property" element={<PropertyName />}></Route>
         <Route path="/user" element={<User />}></Route>
         <Route path="/adduser" element={<AddUser />}></Route>
+        <Route path="/visitor" element={<VisitorManagement />}></Route>
       </Routes>
     </BrowserRouter>
   );

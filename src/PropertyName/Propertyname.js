@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import "./index.css";
@@ -6,45 +6,15 @@ import { MenuItem } from "@mui/material";
 import Button from "@mui/material/Button";
 import propertyimage from "../assets/property1.png";
 import Propertyimage from "../assets/property2.png";
+import {
+  buildingsAPI,
+  citiesAPI,
+  localitiesAPI,
+} from "../services/allPropertiesAPI";
 
 import ImageDetails from "../components/ImageDetails";
+import { DisabledByDefault } from "@mui/icons-material";
 
-const Areas = [
-  {
-    value: "Area1",
-    label: "Area1",
-  },
-  {
-    value: "Area2",
-    label: "Area2",
-  },
-  {
-    value: "Area3",
-    label: "Area3",
-  },
-  {
-    value: "Area4",
-    label: "Area4",
-  },
-];
-const cities = [
-  {
-    value: "city1",
-    label: "city1",
-  },
-  {
-    value: "city2",
-    label: "city2",
-  },
-  {
-    value: "city3",
-    label: "city3",
-  },
-  {
-    value: "city4",
-    label: "city4",
-  },
-];
 const buildings = [
   {
     value: "type-A",
@@ -83,17 +53,17 @@ const countrycode = [
 ];
 
 export default function PropertyName() {
-  // const [editing, setEditing] = useState(false);
-
-  // const [complete, setComplete] = useState(false);
+  const [complete, setComplete] = useState(false);
+  const [cities, setCities] = useState([]);
+  const [area, setArea] = useState([]);
+  const [disabled, SetDisabled] = useState(true);
   const [propertyfields, setPropertyfields] = useState({
     name: "",
     address: "",
     area: "",
     city: "",
     pin: "",
-    latitude: "",
-    longitude: "",
+    location: [],
     building: "",
     propertyid: "",
     url: "",
@@ -101,8 +71,26 @@ export default function PropertyName() {
     iban: "",
     countryCode: "",
   });
-  const _ref = useRef();
+
+  // const _ref = useRef();
   const updatePropertyfields = (event, key) => {
+    if (key === "latitude") {
+      return setPropertyfields((preState) => {
+        return {
+          ...preState,
+          location: [preState.location[0], event.target.value],
+        };
+      });
+    }
+    if (key === "longitude") {
+      return setPropertyfields((preState) => {
+        return {
+          ...preState,
+          location: [event.target.value, preState.location[1]],
+        };
+      });
+    }
+
     setPropertyfields((preState) => {
       return {
         ...preState,
@@ -110,12 +98,24 @@ export default function PropertyName() {
       };
     });
   };
+  useEffect(() => {
+    citiesAPI().then((response) => {
+      setCities(response.data.data);
+    });
+  }, []);
+  useEffect(() => {
+    if (propertyfields.city.trim().length === 0) return;
+    localitiesAPI(propertyfields.city).then((response) => {
+      setArea(response.data.data);
+    });
+  }, [propertyfields.city]);
+  console.log(propertyfields.city);
 
-  // const onSubmit = async () => {
-  //   console.log("submitting");
-  //   setComplete(false);
-  //   setEditing(false);
-  // };
+  const onSubmit = async () => {
+    console.log("submitting");
+    setComplete(false);
+    await buildingsAPI(propertyfields);
+  };
   return (
     <>
       <div className="home">
@@ -126,40 +126,61 @@ export default function PropertyName() {
               className="Button"
               variant="contained"
               color="success"
-              onClick={() => _ref.current.click()}
+              // onClick={() => _ref.current.click()}
+              onClick={() => SetDisabled(false)}
               style={{
                 border: "1px solid #0C344E",
                 color: "#0C344E",
                 background: "white",
                 width: "80px",
                 height: "48px",
+                display: !disabled ? "none" : "block",
               }}
             >
               Edit
             </Button>
 
-            {/* <Button
-              variant="outline-success"
-              type="submit"
-              disabled={!complete}
-              className="Button"
-              onClick={() => {
-                setEditing(false);
-                onSubmit();
-              }}
-            >
-              Save
-            </Button>
-            <Button
-              variant="outline-danger"
-              type="submit"
-              className="btn"
-              onClick={() => {
-                setEditing(false);
-              }}
-            >
-              Cancel
-            </Button> */}
+            <div style={{ display: "flex" }}>
+              <Button
+                variant="outline-success"
+                type="submit"
+                // disabled={!complete}
+                className="Button"
+                onClick={() => {
+                  SetDisabled(true);
+                  onSubmit();
+                }}
+                style={{
+                  border: "1px solid #0C344E",
+                  color: "#0C344E",
+                  background: "white",
+                  width: "80px",
+                  height: "48px",
+                  marginLeft: "12px",
+                  display: !disabled ? "block" : "none",
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="outline-danger"
+                type="submit"
+                className="btn"
+                onClick={() => {
+                  SetDisabled(true);
+                }}
+                style={{
+                  border: "1px solid #0C344E",
+                  color: "#0C344E",
+                  background: "white",
+                  width: "80px",
+                  height: "48px",
+                  display: !disabled ? "block" : "none",
+                }}
+              >
+                Save
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -178,6 +199,7 @@ export default function PropertyName() {
             label="Property Name"
             multiline
             maxRows={4}
+            disabled={disabled}
             value={propertyfields.name}
             onChange={(event) => updatePropertyfields(event, "name")}
             variant="standard"
@@ -193,13 +215,14 @@ export default function PropertyName() {
             id="Area"
             select
             label="Select"
+            disabled={disabled}
             value={propertyfields.area}
             onChange={(event) => updatePropertyfields(event, "area")}
             variant="standard"
           >
-            {Areas.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
+            {area?.map((option) => (
+              <MenuItem key={option.id} value={option.id}>
+                {option.name}
               </MenuItem>
             ))}
           </TextField>
@@ -208,6 +231,7 @@ export default function PropertyName() {
             label="Address Line"
             multiline
             maxRows={4}
+            disabled={disabled}
             value={propertyfields.address}
             onChange={(event) => updatePropertyfields(event, "address")}
             variant="standard"
@@ -225,13 +249,14 @@ export default function PropertyName() {
               select
               label="Select"
               value={propertyfields.city}
+              disabled={disabled}
               onChange={(event) => updatePropertyfields(event, "city")}
               variant="standard"
               style={{ width: "278px", marginRight: "80px" }}
             >
-              {cities.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
+              {cities?.map((option) => (
+                <MenuItem key={option.id} value={option.id}>
+                  {option.name}
                 </MenuItem>
               ))}
             </TextField>
@@ -241,6 +266,7 @@ export default function PropertyName() {
               multiline
               maxRows={4}
               value={propertyfields.pin}
+              disabled={disabled}
               onChange={(event) => updatePropertyfields(event, "pin")}
               variant="standard"
               style={{
@@ -259,7 +285,8 @@ export default function PropertyName() {
               label="Latitude"
               multiline
               maxRows={4}
-              value={propertyfields.latitude}
+              value={propertyfields.location[1]}
+              disabled={disabled}
               onChange={(event) => updatePropertyfields(event, "latitude")}
               variant="standard"
               style={{
@@ -274,10 +301,11 @@ export default function PropertyName() {
             />
             <TextField
               id="standard-multiline-flexible"
-              label="Latitude"
+              label="Longitude"
               multiline
               maxRows={4}
-              value={propertyfields.longitude}
+              value={propertyfields.location[0]}
+              disabled={disabled}
               onChange={(event) => updatePropertyfields(event, "longitude")}
               variant="standard"
               style={{
@@ -295,6 +323,7 @@ export default function PropertyName() {
             select
             label="Building"
             value={propertyfields.building}
+            disabled={disabled}
             onChange={(event) => updatePropertyfields(event, "building")}
             variant="standard"
           >
@@ -310,6 +339,7 @@ export default function PropertyName() {
             multiline
             maxRows={4}
             value={propertyfields.propertyid}
+            disabled={disabled}
             onChange={(event) => updatePropertyfields(event, "propertyid")}
             variant="standard"
             style={{
@@ -326,6 +356,7 @@ export default function PropertyName() {
             multiline
             maxRows={4}
             value={propertyfields.url}
+            disabled={disabled}
             onChange={(event) => updatePropertyfields(event, "url")}
             variant="standard"
             style={{
@@ -340,6 +371,7 @@ export default function PropertyName() {
             id="filled-multiline-static"
             multiline
             rows={4}
+            disabled={disabled}
             placeholder="Description"
             variant="filled"
             style={{ borderRadius: "12px" }}
@@ -353,6 +385,7 @@ export default function PropertyName() {
             multiline
             maxRows={4}
             value={propertyfields.name}
+            disabled={disabled}
             onChange={(event) => updatePropertyfields(event, "name")}
             variant="standard"
             style={{
@@ -371,6 +404,7 @@ export default function PropertyName() {
               multiline
               maxRows={4}
               value={propertyfields.iban}
+              disabled={disabled}
               onChange={(event) => updatePropertyfields(event, "iban")}
               variant="standard"
               style={{
@@ -389,6 +423,7 @@ export default function PropertyName() {
               multiline
               maxRows={4}
               value={propertyfields.swift}
+              disabled={disabled}
               onChange={(event) => updatePropertyfields(event, "swift")}
               variant="standard"
               style={{
@@ -406,6 +441,7 @@ export default function PropertyName() {
               id="standard-select-currency"
               select
               value={propertyfields.countryCode}
+              disabled={disabled}
               label="Ph. "
               onChange={(event) => updatePropertyfields(event, "countryCode")}
               variant="standard"
@@ -420,6 +456,7 @@ export default function PropertyName() {
             <TextField
               id="standard-helperText"
               variant="standard"
+              disabled={disabled}
               style={{ marginTop: "24px" }}
             />
           </div>
