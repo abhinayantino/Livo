@@ -6,6 +6,10 @@ import PropertyName from "./PropertyName";
 import User from "./User";
 import AddUser from "./AddUser";
 import VisitorManagement from "./VisitorManagement";
+import AddNewProperty from "./AllProperties/AddNewProperty";
+import EditProperty from "./EditProperty/EditProperty";
+import EditUnitDetail from "./EditUnitDetail.js";
+import UnitDetail from "./UnitDetail";
 
 function App() {
   return (
@@ -13,7 +17,11 @@ function App() {
       <Routes>
         <Route path="/" element={<AllProperties />}></Route>
         <Route path="/units" element={<Units />}></Route>
+        <Route path="/unitdetail" element={<UnitDetail />}></Route>
+        <Route path="/editunitdetail" element={<EditUnitDetail />}></Route>
         <Route path="/property" element={<PropertyName />}></Route>
+        <Route path="/addnewproperty" element={<AddNewProperty />}></Route>
+        <Route path="/editproperty" element={<EditProperty />}></Route>
         <Route path="/user" element={<User />}></Route>
         <Route path="/adduser" element={<AddUser />}></Route>
         <Route path="/visitor" element={<VisitorManagement />}></Route>

@@ -1,16 +1,18 @@
 import React from "react";
 import LeftNav from "../components/leftNav";
 import TopNav from "../components/topNav";
-import UnitsPage from "./UnitsPage";
+import EditUnitDetailPage from "./EditUnitDetail";
 
-export default function Units() {
+const EditUnitDetail = () => {
   return (
     <>
       <TopNav />
       <div style={{ display: "flex", background: "#FFE3D2" }}>
         <LeftNav />
-        <UnitsPage />
+        <EditUnitDetailPage />
       </div>
     </>
   );
-}
+};
+
+export default EditUnitDetail;

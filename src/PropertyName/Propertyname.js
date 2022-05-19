@@ -6,6 +6,7 @@ import { MenuItem } from "@mui/material";
 import Button from "@mui/material/Button";
 import propertyimage from "../assets/property1.png";
 import Propertyimage from "../assets/property2.png";
+import { Link } from "react-router-dom";
 import {
   buildingsAPI,
   citiesAPI,
@@ -120,7 +121,7 @@ export default function PropertyName() {
     <>
       <div className="home">
         <div className="Property-top">
-          <div className="details">Property Details</div>
+          <div className="details">Property Name</div>
           <div className="properties-button">
             <Button
               className="Button"
@@ -134,6 +135,8 @@ export default function PropertyName() {
                 background: "white",
                 width: "80px",
                 height: "48px",
+                borderRadius: "0.5rem",
+                marginTop: "-1rem",
                 display: !disabled ? "none" : "block",
               }}
             >
@@ -156,7 +159,8 @@ export default function PropertyName() {
                   background: "white",
                   width: "80px",
                   height: "48px",
-                  marginLeft: "12px",
+                  marginRight: "1.5rem",
+                  marginTop: "-1rem",
                   display: !disabled ? "block" : "none",
                 }}
               >
@@ -171,10 +175,12 @@ export default function PropertyName() {
                 }}
                 style={{
                   border: "1px solid #0C344E",
-                  color: "#0C344E",
-                  background: "white",
+                  color: "white",
+                  background: "#0C344E",
                   width: "80px",
                   height: "48px",
+                  marginTop: "-1rem",
+                  marginRight: "1rem",
                   display: !disabled ? "block" : "none",
                 }}
               >
@@ -185,6 +191,12 @@ export default function PropertyName() {
         </div>
 
         <ImageDetails images={[propertyimage, Propertyimage]} />
+        <div
+          className="details"
+          style={{ marginTop: "3.5rem", marginBottom: "1rem" }}
+        >
+          Property Details
+        </div>
         <Box
           component="form"
           sx={{
@@ -209,6 +221,7 @@ export default function PropertyName() {
               fontWeight: 400,
               fontSize: "16px",
               lineHeight: "19px",
+              marginLeft: "-0.1rem",
             }}
           />
           <TextField
@@ -219,6 +232,7 @@ export default function PropertyName() {
             value={propertyfields.area}
             onChange={(event) => updatePropertyfields(event, "area")}
             variant="standard"
+            style={{ marginLeft: "-0.1rem" }}
           >
             {area?.map((option) => (
               <MenuItem key={option.id} value={option.id}>
@@ -241,6 +255,7 @@ export default function PropertyName() {
               fontWeight: 400,
               fontSize: "16px",
               lineHeight: "19px",
+              marginLeft: "-0.1rem",
             }}
           />
           <div>
@@ -252,7 +267,11 @@ export default function PropertyName() {
               disabled={disabled}
               onChange={(event) => updatePropertyfields(event, "city")}
               variant="standard"
-              style={{ width: "278px", marginRight: "80px" }}
+              style={{
+                width: "278px",
+                marginRight: "80px",
+                marginLeft: "-0.1rem",
+              }}
             >
               {cities?.map((option) => (
                 <MenuItem key={option.id} value={option.id}>
@@ -276,6 +295,7 @@ export default function PropertyName() {
                 fontSize: "16px",
                 lineHeight: "19px",
                 width: "278px",
+                marginLeft: "-0.1rem",
               }}
             />
           </div>
@@ -297,6 +317,7 @@ export default function PropertyName() {
                 lineHeight: "19px",
                 width: "278px",
                 marginRight: "80px",
+                marginLeft: "-0.1rem",
               }}
             />
             <TextField
@@ -315,17 +336,19 @@ export default function PropertyName() {
                 fontSize: "16px",
                 lineHeight: "19px",
                 width: "278px",
+                marginLeft: "-0.1rem",
               }}
             />
           </div>
           <TextField
             id="building"
             select
-            label="Building"
+            label="Building Type"
             value={propertyfields.building}
             disabled={disabled}
             onChange={(event) => updatePropertyfields(event, "building")}
             variant="standard"
+            style={{ marginLeft: "-0.1rem" }}
           >
             {buildings.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -348,11 +371,12 @@ export default function PropertyName() {
               fontWeight: 400,
               fontSize: "16px",
               lineHeight: "19px",
+              marginLeft: "-0.1rem",
             }}
           />
           <TextField
             id="standard-multiline-flexible"
-            label="Government Property ID"
+            label="URL (Optional)"
             multiline
             maxRows={4}
             value={propertyfields.url}
@@ -365,8 +389,41 @@ export default function PropertyName() {
               fontWeight: 400,
               fontSize: "16px",
               lineHeight: "19px",
+              marginLeft: "-0.1rem",
             }}
           />
+          <div>
+            <TextField
+              id="standard-select-currency"
+              select
+              value={propertyfields.countryCode}
+              disabled={disabled}
+              label="Ph. "
+              onChange={(event) => updatePropertyfields(event, "countryCode")}
+              variant="standard"
+              style={{
+                width: "55px",
+                marginRight: "16px",
+                marginLeft: "-0.1rem",
+              }}
+            >
+              {countrycode.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              id="standard-helperText"
+              variant="standard"
+              disabled={disabled}
+              style={{
+                marginTop: "24px",
+                marginLeft: "-0.1rem",
+                width: "35rem",
+              }}
+            />
+          </div>
           <TextField
             id="filled-multiline-static"
             multiline
@@ -374,9 +431,47 @@ export default function PropertyName() {
             disabled={disabled}
             placeholder="Description"
             variant="filled"
-            style={{ borderRadius: "12px" }}
+            style={{
+              borderRadius: "12px",
+              marginLeft: "-0.1rem",
+              marginTop: "1.5rem",
+            }}
           />
           <div>
+            <h2 style={{ marginTop: "3rem" }}>Customize Units</h2>
+            <p>
+              Upload an Excel file of the categorization of units in the below
+              format.
+            </p>
+
+            {/* <ImageDetails images={[]} /> */}
+
+            <Button
+              variant="outline-success"
+              type="submit"
+              // disabled={!complete}
+              className="Button"
+              onClick={() => {
+                SetDisabled(true);
+                onSubmit();
+              }}
+              style={{
+                color: "#0C344E",
+                borderRadius: "4px",
+                background: "white",
+                width: "13rem",
+                height: "45px",
+                marginLeft: "-0.3rem",
+                marginTop: "0.5rem",
+                fontSize: "0.7rem",
+                boxShadow: "0px 3px 9px rgba(112, 112, 112, 0.22)",
+                //   display: !disabled ? "block" : "none",
+              }}
+            >
+              Download Excel Template
+            </Button>
+          </div>
+          <div style={{ marginTop: "3rem", marginBottom: "-2.5rem" }}>
             <h2>Bank Details</h2>
           </div>
           <TextField
@@ -395,6 +490,7 @@ export default function PropertyName() {
               fontSize: "16px",
               lineHeight: "19px",
               marginTop: "46px",
+              marginLeft: "-0.1rem",
             }}
           />
           <div>
@@ -415,6 +511,7 @@ export default function PropertyName() {
                 lineHeight: "19px",
                 width: "278px",
                 marginRight: "80px",
+                marginLeft: "-0.1rem",
               }}
             />
             <TextField
@@ -433,6 +530,7 @@ export default function PropertyName() {
                 fontSize: "16px",
                 lineHeight: "19px",
                 width: "278px",
+                marginLeft: "-0.1rem",
               }}
             />
           </div>
@@ -445,7 +543,11 @@ export default function PropertyName() {
               label="Ph. "
               onChange={(event) => updatePropertyfields(event, "countryCode")}
               variant="standard"
-              style={{ width: "55px", marginRight: "16px" }}
+              style={{
+                width: "55px",
+                marginRight: "16px",
+                marginLeft: "-0.1rem",
+              }}
             >
               {countrycode.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -457,7 +559,7 @@ export default function PropertyName() {
               id="standard-helperText"
               variant="standard"
               disabled={disabled}
-              style={{ marginTop: "24px" }}
+              style={{ marginTop: "24px", marginLeft: "-0.1rem" }}
             />
           </div>
         </Box>

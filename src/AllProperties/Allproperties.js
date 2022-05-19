@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./AllProperties.css";
 import BasicTable from "../components/BasicTable";
 import SearchBar from "../components/SearchBar";
@@ -50,56 +51,60 @@ export default function Home() {
                   border: "1px solid #0C344E",
                   color: "#0C344E",
                   background: "white",
-                  width: "80px",
+                  width: "8rem",
                   height: "48px",
                   marginRight: "24px",
+                  fontSize: "14px",
                 }}
               >
                 Add Filter
               </Button>
             </div>
             <div className="properties-button">
-              <Button
-                className="Button"
-                variant="contained"
-                color="success"
-                style={{
-                  border: "1px solid #0C344E",
-                  color: "#0C344E",
-                  background: "white",
-                  width: "187px",
-                  height: "48px",
-                  fontFamily: "Barlow",
-                  fontStyle: "normal",
-                  fontweight: "500",
-                  fontSize: "16px",
-                  lineHeight: "19px",
-                }}
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+              <Link to="/addnewproperty" style={{ textDecoration: "none" }}>
+                <Button
+                  className="Button"
+                  variant="contained"
+                  color="success"
+                  style={{
+                    border: "1px solid #0C344E",
+                    color: "#0C344E",
+                    background: "white",
+                    width: "12rem",
+                    height: "48px",
+                    fontFamily: "Barlow",
+                    fontStyle: "normal",
+                    fontweight: "500",
+                    fontSize: "14px",
+                    lineHeight: "19px",
+                  }}
                 >
-                  <path
-                    d="M12 5V19"
-                    stroke="#0C344E"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M5 12H19"
-                    stroke="#0C344E"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                Add New Property
-              </Button>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{ marginRight: "0.5rem", marginLeft: "-0.8rem" }}
+                  >
+                    <path
+                      d="M12 5V19"
+                      stroke="#0C344E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M5 12H19"
+                      stroke="#0C344E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Add New Property
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

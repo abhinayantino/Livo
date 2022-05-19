@@ -14,10 +14,17 @@ import SettingsImage from "../assets/settings.svg";
 export default function LeftNav() {
   return (
     <>
-      <Accordion className="header">
+      <Accordion
+        className="header"
+        style={{ width: "20rem", marginTop: "-2rem" }}
+      >
         <div
           className="feature"
-          style={{ display: "flex", flexDirection: "row" }}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            marginTop: "6rem",
+          }}
         >
           <div style={{ marginLeft: "1.5rem" }}>
             <img
@@ -30,9 +37,15 @@ export default function LeftNav() {
         </div>
         <div
           className="feature "
-          style={{ display: "flex", flexDirection: "row" }}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+          }}
         >
-          <Accordion.Item eventKey="1" className="upper">
+          <Accordion.Item
+            eventKey="1"
+            className="upper border border-0 border-dark"
+          >
             <Accordion.Header>
               <img
                 style={{ marginRight: "10px" }}
@@ -51,7 +64,11 @@ export default function LeftNav() {
           </Accordion.Item>
         </div>
 
-        <Accordion.Item eventKey="2" className="upper">
+        <Accordion.Item
+          eventKey="2"
+          className="upper border border-0 border-dark"
+          style={{ marginTop: "-2.5rem" }}
+        >
           <Accordion.Header className="feature">
             <img
               style={{ marginRight: "10px" }}
@@ -62,7 +79,11 @@ export default function LeftNav() {
           </Accordion.Header>
           <Accordion.Body></Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item eventKey="3" className="upper">
+        <Accordion.Item
+          eventKey="3"
+          className="upper"
+          style={{ marginTop: "-2.5rem" }}
+        >
           <Accordion.Header className="feature">
             <img
               style={{ marginRight: "10px" }}
@@ -75,7 +96,11 @@ export default function LeftNav() {
         </Accordion.Item>
         <div
           className="feature"
-          style={{ display: "flex", flexDirection: "row" }}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            marginTop: "-1.5rem",
+          }}
         >
           <div className="feature" style={{ marginLeft: "1rem" }}>
             <img
@@ -87,7 +112,11 @@ export default function LeftNav() {
           </div>
         </div>
 
-        <Accordion.Item eventKey="4">
+        <Accordion.Item
+          eventKey="4"
+          style={{ marginTop: "-1.5rem" }}
+          className="border border-0 border-dark"
+        >
           <Accordion.Header className="feature">
             <img
               style={{ marginRight: "10px" }}
@@ -98,7 +127,11 @@ export default function LeftNav() {
           </Accordion.Header>
           <Accordion.Body></Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item eventKey="5">
+        <Accordion.Item
+          eventKey="5"
+          style={{ marginTop: "-2rem" }}
+          className="border border-0 border-dark"
+        >
           <Accordion.Header className="feature">
             <img
               style={{ marginRight: "10px" }}

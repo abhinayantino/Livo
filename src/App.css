@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Lobster&family=Permanent+Marker&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,500;1,900&display=swap');
+
 .App {
   text-align: center;
 }
@@ -12,9 +14,12 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.logo{
+
+.logo {
   width: 117px;
   height: 43.31px;
+  margin-top: 0.8rem;
+  margin-left: 0.5rem;
 }
 
 .App-header {
@@ -32,65 +37,73 @@
   color: #61dafb;
 }
 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-.TopBar{
+
+.TopBar {
   display: flex;
   justify-content: space-between;
-  flex-wrap:wrap ;
+  flex-wrap: wrap;
   padding: 10px;
-
   background: #FFE3D2;
-  border-bottom-right-radius: 20px;
+  border-bottom-right-radius: 35px;
   height: 50px;
 }
-.TopBar-child{
+
+.TopBar-child {
   display: flex;
-  
-}
-.Top{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
 
 }
-.Notification{
+
+.Top {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  /* justify-content: space-between; */
+
+}
+
+.Notification {
   width: 24px;
   height: 24px;
   align-items: center;
 }
 
-.LeftBar{
+.LeftBar {
   display: flex;
   flex-direction: column;
 
-  width:fit-content;
+  width: fit-content;
   height: fit-content;
   background: #FFE3D2;
 
 }
-.feature{
+
+.feature {
   margin-top: 3rem;
   /* margin-left: 2.5rem; */
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 800;
   font-family: 'Barlow',
-  sans-serif;
+    sans-serif;
   background: #FFE3D2;
 
 }
-.accordion-header > .accordion-button{
+
+.accordion-header>.accordion-button {
   background-color: #FFE3D2;
   border-color: none;
 }
-.accordion-header > 
-.elements{
+
+.accordion-header>.elements {
   background-color: #FFE3D2;
   font-family: 'Barlow';
   font-style: normal;
@@ -98,35 +111,40 @@
   font-size: 16px;
   line-height: 19px;
 }
-.accordion-collapse{
-  background-color: #FFE3D2;;
+
+.accordion-collapse {
+  background-color: #FFE3D2;
+
 }
-ul{
+
+ul {
   left: 0px;
   top: 195px;
 }
-ul:hover{
-  background-color:white ;
+
+ul:hover {
+  background-color: white;
 }
-.feature.button{
+
+.feature.button {
   background: black;
 }
-.collapsed{
 
-}
-.upper{
+.collapsed {}
+
+.upper {
   background-color: #FFE3D2;
+  margin-top: -1.5rem;
 }
-.home{
+
+.home {
   padding: 44px 40px;
   width: 100%;
   height: 100%;
-  border-top-left-radius: 30px ;
+  border-top-left-radius: 45px;
   background: white;
   overflow: auto;
 
-
-  
 }
 
 .container {
@@ -173,6 +191,11 @@ ul:hover{
   background-color: #f7f7f7;
   padding: 20px;
 }
+
+/* .accordion-header{
+  border
+} */
+
 
 /* activate toggle */
 .accordion_item.active .button {

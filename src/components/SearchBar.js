@@ -10,9 +10,9 @@ export default function SearchBar() {
           style={{
             background: "#EFF0F6",
             height: "50px",
-            borderTopLeftRadius: "4px",
-            borderBottomLeftRadius: "4px",
-            width: "50px",
+            borderTopLeftRadius: "15px",
+            borderBottomLeftRadius: "15px",
+            width: "40px",
             padding: "10px",
           }}
         />
@@ -20,8 +20,8 @@ export default function SearchBar() {
           style={{
             background: "#EFF0F6",
             height: "50px",
-            borderTopRightRadius: "4px",
-            borderBottomRightRadius: "4px",
+            borderTopRightRadius: "15px",
+            borderBottomRightRadius: "15px",
             width: "500px",
           }}
           placeholder="Search"

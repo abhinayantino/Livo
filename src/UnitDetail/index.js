@@ -1,16 +1,18 @@
 import React from "react";
 import LeftNav from "../components/leftNav";
 import TopNav from "../components/topNav";
-import UnitsPage from "./UnitsPage";
+import UnitDetailPage from "./UnitDetail";
 
-export default function Units() {
+const UnitDetail = () => {
   return (
     <>
       <TopNav />
       <div style={{ display: "flex", background: "#FFE3D2" }}>
         <LeftNav />
-        <UnitsPage />
+        <UnitDetailPage />
       </div>
     </>
   );
-}
+};
+
+export default UnitDetail;
