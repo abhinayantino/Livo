@@ -15,7 +15,7 @@ export default function TopNav() {
           <img className="logo" src={logo} alt="logo" />
         </div>
         <div className="TopBar-child">
-          {pathname === "/property" ? (
+          {pathname === "/property" || pathname === "/user" ? (
             <AllPropertyNav style={{ marginleft: "200px" }} />
           ) : null}
           <div className="Top">

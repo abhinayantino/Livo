@@ -10,6 +10,8 @@ import AddNewProperty from "./AllProperties/AddNewProperty";
 import EditProperty from "./EditProperty/EditProperty";
 import EditUnitDetail from "./EditUnitDetail.js";
 import UnitDetail from "./UnitDetail";
+import EditUserDetail from "./EditUserDetail";
+import UserDetail from "./UserDetail";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/editproperty" element={<EditProperty />}></Route>
         <Route path="/user" element={<User />}></Route>
         <Route path="/adduser" element={<AddUser />}></Route>
+        <Route path="/userdetail" element={<UserDetail />}></Route>
+        <Route path="/edituserdetail" element={<EditUserDetail />}></Route>
         <Route path="/visitor" element={<VisitorManagement />}></Route>
       </Routes>
     </BrowserRouter>

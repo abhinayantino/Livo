@@ -1,11 +1,10 @@
 import React, { useRef, useState } from "react";
+import "./UserDetail.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import "./index.css";
 import { MenuItem } from "@mui/material";
 import Button from "@mui/material/Button";
 import Userimage from "../assets/user.jpg";
-
 import ImageDetails from "../components/ImageDetails";
 
 const Nationality = [
@@ -81,10 +80,7 @@ const countrycode = [
   },
 ];
 
-export default function PropertyName() {
-  // const [editing, setEditing] = useState(false);
-
-  // const [complete, setComplete] = useState(false);
+const UserDetailPage = () => {
   const [propertyfields, setPropertyfields] = useState({
     userid: "",
     firstname: "",
@@ -115,7 +111,10 @@ export default function PropertyName() {
     <>
       <div className="home">
         <div className="Property-top">
-          <div className="details">Add New User</div>
+          <div className="details">UserName</div>
+          <p style={{ marginLeft: "-63.5rem", marginTop: "1.5rem" }}>
+            Unit Number-AH 123
+          </p>
           <div className="properties-button">
             <Button
               className="Button"
@@ -134,89 +133,65 @@ export default function PropertyName() {
                 //   display: !disabled ? "none" : "block",
               }}
             >
-              Cancel
+              Edit
             </Button>
-            <Button
-              className="Button"
-              variant="contained"
-              color="success"
-              // onClick={() => _ref.current.click()}
-              // onClick={() => SetDisabled(false)}
-              style={{
-                border: "1px solid #0C344E",
-                color: "white",
-                background: "#0C344E",
-                width: "80px",
-                height: "48px",
-                marginTop: "-1rem",
-                //   display: !disabled ? "none" : "block",
-              }}
-            >
-              Save
-            </Button>
-
-            {/* <div style={{ display: "flex" }}>
-              <Button
-                variant="outline-success"
-                type="submit"
-                // disabled={!complete}
-                className="Button"
-                onClick={() => {
-                  SetDisabled(true);
-                  onSubmit();
-                }}
-                style={{
-                  border: "1px solid #0C344E",
-                  color: "#0C344E",
-                  background: "white",
-                  width: "80px",
-                  height: "48px",
-                  marginLeft: "12px",
-                  display: !disabled ? "block" : "none",
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                variant="outline-danger"
-                type="submit"
-                className="btn"
-                onClick={() => {
-                  SetDisabled(true);
-                }}
-                style={{
-                  border: "1px solid #0C344E",
-                  color: "#0C344E",
-                  background: "white",
-                  width: "80px",
-                  height: "48px",
-                  display: !disabled ? "block" : "none",
-                }}
-              >
-                Save
-              </Button>
-            </div> */}
           </div>
         </div>
 
-        <ImageDetails images={[]} />
+        <ImageDetails images={[Userimage]} />
         <div
           className="details"
           style={{ marginTop: "3.5rem", marginBottom: "1rem" }}
         >
           User Details
         </div>
+
         <div
           className="details"
           style={{
-            marginTop: "-2.2rem",
+            marginTop: "-3rem",
             marginBottom: "1rem",
             display: "flex",
             flexDirection: "column",
             marginLeft: "55rem",
           }}
         >
-          Attached Documents
+          Passport
+          <Button
+            variant="outline-success"
+            type="submit"
+            // disabled={!complete}
+            className="Button"
+            // onClick={() => {
+            //   SetDisabled(true);
+            //   onSubmit();
+            // }}
+            style={{
+              border: "1px dotted #0C344E",
+              color: "#0C344E",
+              borderRadius: "0.5rem",
+              background: "white",
+              width: "13rem",
+              height: "48px",
+              marginLeft: "0rem",
+              marginTop: "1rem",
+              //   display: !disabled ? "block" : "none",
+            }}
+          >
+            Add Document
+          </Button>
+        </div>
+        <div
+          className="details"
+          style={{
+            marginTop: "2rem",
+            marginBottom: "1rem",
+            display: "flex",
+            flexDirection: "column",
+            marginLeft: "55rem",
+          }}
+        >
+          Contract
           <Button
             variant="outline-success"
             type="submit"
@@ -251,7 +226,7 @@ export default function PropertyName() {
           style={{
             display: "flex",
             flexDirection: "column",
-            marginTop: "-5rem",
+            marginTop: "-12rem",
           }}
         >
           <TextField
@@ -430,4 +405,6 @@ export default function PropertyName() {
       </div>
     </>
   );
-}
+};
+
+export default UserDetailPage;
