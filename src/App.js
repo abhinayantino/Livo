@@ -12,6 +12,7 @@ import EditUnitDetail from "./EditUnitDetail.js";
 import UnitDetail from "./UnitDetail";
 import EditUserDetail from "./EditUserDetail";
 import UserDetail from "./UserDetail";
+import Aminities from "./Aminities";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/adduser" element={<AddUser />}></Route>
         <Route path="/userdetail" element={<UserDetail />}></Route>
         <Route path="/edituserdetail" element={<EditUserDetail />}></Route>
+        <Route path="/aminities" element={<Aminities />}></Route>
         <Route path="/visitor" element={<VisitorManagement />}></Route>
       </Routes>
     </BrowserRouter>
