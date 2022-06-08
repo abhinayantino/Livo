@@ -6,20 +6,21 @@ import PropertyName from "./PropertyName";
 import User from "./User";
 import AddUser from "./AddUser";
 import VisitorManagement from "./VisitorManagement";
-
+import AllPosts from "./communityNotices/AllPost/index";
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<AllProperties />}></Route>
-        <Route path="/units" element={<Units />}></Route>
-        <Route path="/property" element={<PropertyName />}></Route>
-        <Route path="/user" element={<User />}></Route>
-        <Route path="/adduser" element={<AddUser />}></Route>
-        <Route path="/visitor" element={<VisitorManagement />}></Route>
-      </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<AllProperties />}></Route>
+                <Route path="/units" element={<Units />}></Route>
+                <Route path="/property" element={<PropertyName />}></Route>
+                <Route path="/user" element={<User />}></Route>
+                <Route path="/adduser" element={<AddUser />}></Route>
+                <Route path="/visitor" element={<VisitorManagement />}></Route>
+                <Route path="/allposts" element={<AllPosts />}></Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;

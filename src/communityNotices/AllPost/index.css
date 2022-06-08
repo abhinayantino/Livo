@@ -1,0 +1,33 @@
+.post{
+    width: 460px;
+    min-height: 1040px;
+    margin-bottom: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.round{
+    border-radius: 34px;
+    padding: 2px 20px;
+    background-color:#0C344E;
+    color: white;
+}
+.change{
+    background-color: #EFF0F6;
+    color:#0C344E;
+    border-radius: 8px;
+    padding: 2px 20px;
+    
+}
+.announce{
+    background-color: #EFF0F6;
+    color:#0C344E;
+    border-radius: 8px;
+}
+.juned{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0px;
+    padding: 6px;
+    border-radius: 4px;
+}

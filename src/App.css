@@ -111,9 +111,7 @@ ul:hover{
 .feature.button{
   background: black;
 }
-.collapsed{
 
-}
 .upper{
   background-color: #FFE3D2;
 }
@@ -131,7 +129,7 @@ ul:hover{
 
 .container {
   max-width: 600px;
-  margin: 6rem auto 4rem;
+  /* margin: 6rem auto 4rem; */
   padding: 0 10px;
 }
 

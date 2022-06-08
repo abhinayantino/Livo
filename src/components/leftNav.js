@@ -73,7 +73,9 @@ export default function LeftNav() {
                         Community Notices
                     </Accordion.Header>
                     <Accordion.Body>
-                        <ul>All Posts</ul>
+                        <Link to="/allposts">
+                            <ul>All Posts</ul>
+                        </Link>
                         <ul>Create Announcement</ul>
                         <ul>Create Event</ul>
                     </Accordion.Body>
