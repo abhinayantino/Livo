@@ -7,6 +7,7 @@ import User from "./User";
 import AddUser from "./AddUser";
 import VisitorManagement from "./VisitorManagement";
 import AllPosts from "./communityNotices/AllPost/index";
+import ReportedPostMain from "./communityNotices/ReportedPost/index";
 function App() {
     return (
         <BrowserRouter>
@@ -18,6 +19,10 @@ function App() {
                 <Route path="/adduser" element={<AddUser />}></Route>
                 <Route path="/visitor" element={<VisitorManagement />}></Route>
                 <Route path="/allposts" element={<AllPosts />}></Route>
+                <Route
+                    path="/reportedpost"
+                    element={<ReportedPostMain />}
+                ></Route>
             </Routes>
         </BrowserRouter>
     );

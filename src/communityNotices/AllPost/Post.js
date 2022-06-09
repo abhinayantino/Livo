@@ -4,7 +4,8 @@ import { MdAccessTimeFilled } from "react-icons/md";
 import { BsFillCalendarDateFill } from "react-icons/bs";
 import maincart from "../../assets/maincart.png";
 import pdf from "../../assets/pdf.png";
-import {MdDownloadForOffline} from "react-icons/md";
+import { MdDownloadForOffline } from "react-icons/md";
+import { Link } from "react-router-dom";
 const Post = () => {
     return (
         <div className="post">
@@ -13,7 +14,9 @@ const Post = () => {
                 <div className="d-flex justify-content-between mt-3 mb-3">
                     <button className="round">Events</button>
                     <button className="round spam">Announcements</button>
-                    <button className="round">Reported Posts</button>
+                    <Link to="/reportedpost">
+                        <button className="round">Reported Posts</button>
+                    </Link>
                 </div>
                 <div>
                     <div
@@ -95,10 +98,12 @@ const Post = () => {
                     </div>
                     <div>
                         <p style={{ fontWeight: "500" }}>Notice Document</p>
-                        <div className="d-flex justify-content-berween align-center juned">
-                            <div className="d-flex " >
-                                <img src={pdf}  />
-                                <p>Document name.pdf</p>
+                        <div className="d-flex justify-content-between align-items-center juned">
+                            <div className="d-flex align-items-center">
+                                <img src={pdf} />
+                                <p style={{ padding: "12px 0px 0px 10px" }}>
+                                    Document name.pdf
+                                </p>
                             </div>
                             <div>
                                 <MdDownloadForOffline />

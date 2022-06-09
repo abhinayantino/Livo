@@ -1,17 +1,23 @@
 .post{
     width: 460px;
-    min-height: 1040px;
+    min-height: 1030px;
     margin-bottom: 10px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
+    box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.round:hover{
+   background-color: #0C344E;
+   color: white; 
 }
 .round{
     border-radius: 34px;
     padding: 2px 20px;
-    background-color:#0C344E;
-    color: white;
+    background-color:transparent;
+    color: #0C344E;
+    
 }
 .change{
     background-color: #EFF0F6;
@@ -26,8 +32,28 @@
     border-radius: 8px;
 }
 .juned{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2) ;
     margin: 0px;
-    padding: 6px;
+    padding: 0px 8px 0px 8px;
     border-radius: 4px;
+}
+.select{
+    border-top-left-radius: 50px;
+}
+.reportedpost{
+    width: 460px;
+    height:770px;
+    margin-bottom: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.name{
+    width: 10vw;
+    font-size: 13px;
+    font-weight: bold;
+    color: #0C344E;
+    margin-bottom: 0px;
 }

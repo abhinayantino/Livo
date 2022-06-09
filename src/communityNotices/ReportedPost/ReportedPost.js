@@ -1,10 +1,8 @@
 import React from "react";
 import SearchBar from "../../components/SearchBar";
 import { MdDateRange } from "react-icons/md";
-import Post from "./Post";
-import "./index.css";
-
-const AllPost = () => {
+import SinglePost from "./SinglePost";
+const ReportedPost = () => {
     return (
         <div
             className="container bg-white"
@@ -14,7 +12,6 @@ const AllPost = () => {
                 <div style={{ marginRight: "15px" }}>
                     <SearchBar />
                 </div>
-
                 <button
                     style={{
                         padding: "0px 29px 0px 16px",
@@ -28,10 +25,10 @@ const AllPost = () => {
                 </button>
             </div>
             <div className="d-flex justify-content-center mt-5">
-                <Post />
+                <SinglePost />
             </div>
         </div>
     );
 };
 
-export default AllPost;
+export default ReportedPost;
