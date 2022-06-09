@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AllProperties from "./AllProperties/index";
 import Units from "./Units";
 import PropertyName from "./PropertyName";
+import MyProfile from "./MyProfile";
 import User from "./User";
 import AddUser from "./AddUser";
 import VisitorManagement from "./VisitorManagement";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/unitdetail" element={<UnitDetail />}></Route>
         <Route path="/editunitdetail" element={<EditUnitDetail />}></Route>
         <Route path="/property" element={<PropertyName />}></Route>
+        <Route path="/profile" element={<MyProfile />}></Route>
         <Route path="/addnewproperty" element={<AddNewProperty />}></Route>
         <Route path="/editproperty" element={<EditProperty />}></Route>
         <Route path="/user" element={<User />}></Route>
