@@ -76,8 +76,12 @@ export default function LeftNav() {
                         <Link to="/allposts">
                             <ul>All Posts</ul>
                         </Link>
-                        <ul>Create Announcement</ul>
-                        <ul>Create Event</ul>
+                        <Link to="/createannouncement">
+                            <ul>Create Announcement</ul>
+                        </Link>
+                        <Link to="/createvent">
+                            <ul>Create Event</ul>
+                        </Link>
                     </Accordion.Body>
                 </Accordion.Item>
                 <div

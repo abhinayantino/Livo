@@ -8,6 +8,8 @@ import AddUser from "./AddUser";
 import VisitorManagement from "./VisitorManagement";
 import AllPosts from "./communityNotices/AllPost/index";
 import ReportedPostMain from "./communityNotices/ReportedPost/index";
+import CreateAnnouncement from "./communityNotices/CreateAnnouncement/index";
+import CreateEvent from "./communityNotices/CreateEvent/index";
 function App() {
     return (
         <BrowserRouter>
@@ -23,6 +25,11 @@ function App() {
                     path="/reportedpost"
                     element={<ReportedPostMain />}
                 ></Route>
+                <Route
+                    path="/createannouncement"
+                    element={<CreateAnnouncement />}
+                ></Route>
+                <Route path="/createvent" element={<CreateEvent />}></Route>
             </Routes>
         </BrowserRouter>
     );
