@@ -34,7 +34,7 @@ export default function BasicTable() {
       <TableContainer component={Paper}>
         <Table sx={{}} aria-label="simple table">
           <TableHead>
-            <TableRow>
+            <TableRow style={{ backgroundColor: "#FFF9F6" }}>
               <TableCell align="center">Property ID</TableCell>
               <TableCell align="center">Property Name</TableCell>
               <TableCell align="center">Area</TableCell>

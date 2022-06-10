@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./index.css";
+import "./Aminities.css";
 import BasicTable from "../components/BasicTable";
 import SearchBar from "../components/SearchBar";
 import Button from "@mui/material/Button";
-export default function Home() {
+export default function AminitiesPage() {
   return (
     <>
       <div className="home">
@@ -102,7 +102,7 @@ export default function Home() {
                       stroke-linejoin="round"
                     />
                   </svg>
-                  Add New Property
+                  Add New Aminity
                 </Button>
               </Link>
             </div>

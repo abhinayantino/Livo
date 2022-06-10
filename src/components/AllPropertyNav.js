@@ -28,7 +28,7 @@ export default function AllPropertyNav() {
   };
   return (
     <>
-      <div>
+      <div style={{ marginTop: "1.05rem" }}>
         <TextField
           id="filled-select-currency-native"
           select
