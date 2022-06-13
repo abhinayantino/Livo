@@ -6,7 +6,8 @@ import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import "./Menu.css";
 import { RiDeleteBin5Line } from "react-icons/ri";
-import { FaRegCheckCircle } from "react-icons/fa";
+//import { FaRegCheckCircle } from "react-icons/fa";
+import { BiEditAlt } from "react-icons/bi";
 
 //    const useStyles = makeStyles((theme) => ({
 //         root: {
@@ -14,7 +15,8 @@ import { FaRegCheckCircle } from "react-icons/fa";
 //         }
 //       });
 
-export default function MenuPopupState() {
+export default function oMenuPopupState({ data: { icons, texts } }) {
+    
     return (
         <PopupState variant="popover" popupId="demo-popup-menu">
             {(popupState) => (
@@ -27,21 +29,24 @@ export default function MenuPopupState() {
                         className="menubtn"
                     >
                         <BsThreeDotsVertical />
-                        <BsThreeDotsVertical />
                     </Button>
                     <Menu
                         {...bindMenu(popupState)}
                         style={{ overflow: "hidden" }}
                         className="menu-popup"
                     >
-                        <MenuItem onClick={popupState.close}>
-                            <RiDeleteBin5Line />
-                            &nbsp; Ignore
+                        <MenuItem
+                            onClick={popupState.close}
+                            style={{ display: "flex", columnGap: "10px" }}
+                        >
+                            {icons[0]} {texts[0]}
                         </MenuItem>
-                        <MenuItem onClick={popupState.close}>
-                            {" "}
-                            <FaRegCheckCircle />
-                            &nbsp; Remove
+                        <MenuItem
+                            onClick={popupState.close}
+                            style={{ display: "flex", columnGap: "10px" }}
+                        >
+                            {icons[1]}
+                            {texts[1]}
                         </MenuItem>
                     </Menu>
                 </React.Fragment>

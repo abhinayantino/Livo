@@ -10,6 +10,7 @@ import AllPosts from "./communityNotices/AllPost/index";
 import ReportedPostMain from "./communityNotices/ReportedPost/index";
 import CreateAnnouncement from "./communityNotices/CreateAnnouncement/index";
 import CreateEvent from "./communityNotices/CreateEvent/index";
+import Signup from "./Signup/Signup";
 function App() {
     return (
         <BrowserRouter>
@@ -30,6 +31,7 @@ function App() {
                     element={<CreateAnnouncement />}
                 ></Route>
                 <Route path="/createvent" element={<CreateEvent />}></Route>
+                <Route path="/signup" element={<Signup />}></Route>
             </Routes>
         </BrowserRouter>
     );

@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../AllPost/index.css";
 import profile from "../../assets/profile.png";
 import man from "../../assets/man.png";
 import pman from "../../assets/pman.png";
 import MenuPopupState from "../../components/Menu";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { BiCheckCircle } from "react-icons/bi";
+import { getReportedPosts } from "../../services/allCommunityApi";
+
 const SinglePost = () => {
+    const [posts, setPosts] = React.useState([]);
+    const ReportedPost = async () => {
+        const response = await getReportedPosts();
+        setPosts(response.data);
+        console.log(response.data);
+    };
+
+    useEffect(() => {
+        ReportedPost();
+    }, []);
     return (
         <div className="reportedpost">
             <div className="posttitle">
@@ -41,7 +55,15 @@ const SinglePost = () => {
                         </div>
                     </div>
                     <div>
-                        <MenuPopupState />
+                        <MenuPopupState
+                            data={{
+                                icons: [
+                                    <BiCheckCircle />,
+                                    <RiDeleteBin6Line />,
+                                ],
+                                texts: ["Ignore", "Delete"],
+                            }}
+                        />
                     </div>
                 </div>
                 <div>

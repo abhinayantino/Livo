@@ -10,7 +10,7 @@ const CreateEvents = () => {
             <div style={{ padding: "0px 25px 0px 25px" }}>
                 <div className="d-flex justify-content-between align-items-center mt-5">
                     <div>
-                        <h5>Create New Announcement</h5>
+                        <h5>Create New Events</h5>
                     </div>
                     <div>
                         <button

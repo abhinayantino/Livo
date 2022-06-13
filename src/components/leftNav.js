@@ -73,13 +73,31 @@ export default function LeftNav() {
                         Community Notices
                     </Accordion.Header>
                     <Accordion.Body>
-                        <Link to="/allposts">
+                        <Link
+                            to="/allposts"
+                            style={{
+                                textDecoration: "none",
+                                color: "black",
+                            }}
+                        >
                             <ul>All Posts</ul>
                         </Link>
-                        <Link to="/createannouncement">
+                        <Link
+                            to="/createannouncement"
+                            style={{
+                                textDecoration: "none",
+                                color: "black",
+                            }}
+                        >
                             <ul>Create Announcement</ul>
                         </Link>
-                        <Link to="/createvent">
+                        <Link
+                            to="/createvent"
+                            style={{
+                                textDecoration: "none",
+                                color: "black",
+                            }}
+                        >
                             <ul>Create Event</ul>
                         </Link>
                     </Accordion.Body>

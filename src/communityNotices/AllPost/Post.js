@@ -6,14 +6,19 @@ import maincart from "../../assets/maincart.png";
 import pdf from "../../assets/pdf.png";
 import { MdDownloadForOffline } from "react-icons/md";
 import { Link } from "react-router-dom";
-//import MenuPopupState from "../../components/MenuPopupState";
+import MenuPopupState from "../../components/Menu";
+import { BiEditAlt } from "react-icons/bi";
+import { RiDeleteBin6Line } from "react-icons/ri";
+
 const Post = () => {
     return (
         <div className="post">
             <div className="posttitle">
                 <h5 className="m-2">All Posts</h5>
                 <div className="d-flex justify-content-between mt-3 mb-3">
-                    <button className="round">Events</button>
+                    <Link to="/allposts">
+                        <button className="round">Events</button>
+                    </Link>
                     <button className="round spam">Announcements</button>
                     <Link to="/reportedpost">
                         <button className="round">Reported Posts</button>
@@ -22,7 +27,7 @@ const Post = () => {
                 <div>
                     <div
                         className="d-flex justify-content-start align-center"
-                        style={{ columnGap: "200px" }}
+                        style={{ columnGap: "180px" }}
                     >
                         <div
                             className="d-flex justify-content-start"
@@ -32,7 +37,15 @@ const Post = () => {
                             <p className="change">Event</p>
                         </div>
                         <div>
-                            <BsThreeDotsVertical />
+                            <MenuPopupState
+                                data={{
+                                    icons: [
+                                        <BiEditAlt />,
+                                        <RiDeleteBin6Line />,
+                                    ],
+                                    texts: ["Edit", "Delete"],
+                                }}
+                            />
                         </div>
                     </div>
                     <div>
