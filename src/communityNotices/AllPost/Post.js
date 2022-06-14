@@ -26,7 +26,7 @@ const Post = () => {
                 </div>
                 <div>
                     <div
-                        className="d-flex justify-content-start align-center"
+                        className="d-flex justify-content-start align-center "
                         style={{ columnGap: "180px" }}
                     >
                         <div
@@ -79,7 +79,7 @@ const Post = () => {
                         </p>
                     </div>
                     <div className="d-flex justify-content-center align-center">
-                        <img src={maincart} />
+                        <img src={maincart} alt="postimage" />
                     </div>
                     <div
                         className="d-flex justify-content-start align-center"
@@ -112,7 +112,7 @@ const Post = () => {
                     </div>
                     <div>
                         <p style={{ fontWeight: "500" }}>Notice Document</p>
-                        <div className="d-flex justify-content-between align-items-center juned">
+                        <div className="d-flex justify-content-between align-items-center paros">
                             <div className="d-flex align-items-center">
                                 <img src={pdf} />
                                 <p style={{ padding: "12px 0px 0px 10px" }}>

@@ -29,7 +29,7 @@ const SinglePost = () => {
                     <button className="round">Reported Posts</button>
                 </div>
                 <div
-                    className="d-flex justify-content-start align-items-center mt-5"
+                    className="d-flex justify-content-start align-items-center mt-5 poster"
                     style={{ columnGap: "340px" }}
                 >
                     <div
@@ -40,7 +40,7 @@ const SinglePost = () => {
                             height: "48px",
                         }}
                     >
-                        <img src={profile} alt="" />
+                        <img src={profile} alt="profile" />
                         <div className="d-flex align-items-center flex-column">
                             <p className="name">Sabina Ahmed</p>
                             <p

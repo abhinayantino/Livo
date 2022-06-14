@@ -10,6 +10,7 @@ import CommunityImage from "../assets/Payments.svg";
 import VisitorImage from "../assets/Visitor.svg";
 import ReportsImage from "../assets/Reports.svg";
 import SettingsImage from "../assets/settings.svg";
+import ServicesImage from "../assets/servicerequest.svg";
 import { Link } from "react-router-dom";
 
 export default function LeftNav() {
@@ -29,6 +30,25 @@ export default function LeftNav() {
                         Dashboard
                     </div>
                 </div>
+                <Accordion.Item eventKey="8" className="upper">
+                    <Accordion.Header>
+                        <img
+                            style={{ marginRight: "10px" }}
+                            src={ServicesImage}
+                            alt="My Properties"
+                        />
+                        Service Requests
+                    </Accordion.Header>
+                    <Accordion.Body className="elements">
+                        <Link to="/allrequest">
+                            <ul>All request</ul>
+                        </Link>
+
+                        <ul>Charges Catalogue</ul>
+
+                        <ul>Generate invoice</ul>
+                    </Accordion.Body>
+                </Accordion.Item>
                 <div
                     className="feature "
                     style={{ display: "flex", flexDirection: "row" }}

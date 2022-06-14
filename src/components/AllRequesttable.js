@@ -10,31 +10,71 @@ import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
 
 function createData(
-    visitorCategory,
-    visitorName,
+    RequestID,
+    Urgency,
     unitNo,
-    contactNo,
-    dateOfVisit,
-    duration,
-    inTime,
-    outTime
+    RequestType,
+    Category,
+    RequestStatus,
+    StaffAssigned,
+    UserName
 ) {
     return {
-        visitorCategory,
-        visitorName,
+        RequestID,
+        Urgency,
         unitNo,
-        contactNo,
-        dateOfVisit,
-        duration,
-        inTime,
-        outTime,
+        RequestType,
+        Category,
+        RequestStatus,
+        StaffAssigned,
+        UserName,
     };
 }
 
 const rows = [
     createData(
-        "Courier",
-        "Visitor Name",
+        "000123456",
+        "Urgen",
+        "123",
+        "Request Type",
+        "Accomodation",
+        "In Process",
+        "Yes",
+        "Inzamamul Haq"
+    ),
+    createData(
+        "00002673",
+        "",
+        "123",
+        "Maintenance",
+        "Plumbing",
+        "Plumbing",
+        "No",
+        "Faiz Abdullah"
+    ),
+    createData(
+        "243453455",
+        "urgent",
+        "123",
+        "Other Charges",
+        "Electrical",
+        "Pending",
+        "yes",
+        "Inzamamul Haq"
+    ),
+    createData(
+        "355536464",
+        "Urgent",
+        "123",
+        "Individual",
+        "Other",
+        "Complted",
+        "Yes",
+        "Inzamamul Haq"
+    ),
+    createData(
+        "3454636",
+        "",
         "123",
         "9876543210",
         "02 Feb.,2022",
@@ -69,138 +109,26 @@ const rows = [
         "9876543210",
         "02 Feb.,2022",
         "2 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Courier",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "1 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Guest",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "2 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Courier",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "1 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Guest",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "2 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Courier",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "1 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Guest",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "2 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Courier",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "1 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Guest",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "2 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Courier",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "1 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Guest",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "2 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Courier",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "1 Day",
         "00:00AM",
         "00:00AM"
     ),
 ];
 
-export default function UserTable() {
+export default function AllRequesttable() {
     return (
         <>
             <TableContainer component={Paper}>
                 <Table sx={{}} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell align="center">
-                                Visitor Category
-                            </TableCell>
-                            <TableCell align="center">Vistiors Name</TableCell>
+                            <TableCell align="center">Request ID</TableCell>
+                            <TableCell align="center">Urgency</TableCell>
                             <TableCell align="center">Unit No.</TableCell>
-                            <TableCell align="center">Contact No.</TableCell>
-                            <TableCell align="center">Date of Visit</TableCell>
-                            <TableCell align="center">Duration</TableCell>
-                            <TableCell align="center">In Time</TableCell>
-                            <TableCell align="center">Out Time</TableCell>
+                            <TableCell align="center">Request Type</TableCell>
+                            <TableCell align="center">Category</TableCell>
+                            <TableCell align="center">Request Status</TableCell>
+                            <TableCell align="center">Staff Assigned</TableCell>
+                            <TableCell align="center">User Name</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -214,28 +142,28 @@ export default function UserTable() {
                                 }}
                             >
                                 <TableCell align="center">
-                                    {row.visitorCategory}
+                                    {row.RequestID}
                                 </TableCell>
                                 <TableCell align="center">
-                                    <Link to="/adduser">{row.visitorName}</Link>
+                                    <Link to="/adduser">{row.Urgency}</Link>
                                 </TableCell>
                                 <TableCell align="center">
                                     {row.unitNo}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.contactNo}
+                                    {row.RequestType}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.dateOfVisit}
+                                    {row.Category}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.duration}
+                                    {row.RequestStatus}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.inTime}
+                                    {row.StaffAssigned}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.outTime}
+                                    {row.UserName}
                                 </TableCell>
                                 <TableCell align="center">
                                     {row.EmailID}
