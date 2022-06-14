@@ -46,7 +46,9 @@ export default function LeftNav() {
 
                         <ul>Charges Catalogue</ul>
 
-                        <ul>Generate invoice</ul>
+                        <Link to="/generateinvoice">
+                            <ul>Generate invoice</ul>
+                        </Link>
                     </Accordion.Body>
                 </Accordion.Item>
                 <div
