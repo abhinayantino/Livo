@@ -1,0 +1,15 @@
+.thead{
+    background-color:#FFF7F3;
+
+    width:100%;
+}
+
+.bold{
+    font-weight: bold;
+}
+.bgurgent{
+    background-color: #FFEAEA;
+    padding:5px 10px;
+    border-radius: 10px;
+    color:#C24C4C;
+}

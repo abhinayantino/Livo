@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
-
+import "./AllRequesttable.css";
 function createData(
     RequestID,
     Urgency,
@@ -119,16 +119,32 @@ export default function AllRequesttable() {
         <>
             <TableContainer component={Paper}>
                 <Table sx={{}} aria-label="simple table">
-                    <TableHead>
+                    <TableHead className="thead">
                         <TableRow>
-                            <TableCell align="center">Request ID</TableCell>
-                            <TableCell align="center">Urgency</TableCell>
-                            <TableCell align="center">Unit No.</TableCell>
-                            <TableCell align="center">Request Type</TableCell>
-                            <TableCell align="center">Category</TableCell>
-                            <TableCell align="center">Request Status</TableCell>
-                            <TableCell align="center">Staff Assigned</TableCell>
-                            <TableCell align="center">User Name</TableCell>
+                            <TableCell align="center" className="bold">
+                                Request ID
+                            </TableCell>
+                            <TableCell align="center" className="bold">
+                                Urgency
+                            </TableCell>
+                            <TableCell align="center" className="bold">
+                                Unit No.
+                            </TableCell>
+                            <TableCell align="center" className="bold">
+                                Request Type
+                            </TableCell>
+                            <TableCell align="center" className="bold">
+                                Category
+                            </TableCell>
+                            <TableCell align="center" className="bold">
+                                Request Status
+                            </TableCell>
+                            <TableCell align="center" className="bold">
+                                Staff Assigned
+                            </TableCell>
+                            <TableCell align="center" className="bold">
+                                User Name
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -142,11 +158,16 @@ export default function AllRequesttable() {
                                 }}
                             >
                                 <TableCell align="center">
-                                    {row.RequestID}
+                                    <Link to="/allrequestproperty">
+                                        {row.RequestID}
+                                    </Link>
                                 </TableCell>
                                 <TableCell align="center">
-                                    <Link to="/adduser">{row.Urgency}</Link>
+                                    <div className="bgurgent d-flex justify-content-center align-items-center">
+                                        {row.Urgency}
+                                    </div>
                                 </TableCell>
+
                                 <TableCell align="center">
                                     {row.unitNo}
                                 </TableCell>

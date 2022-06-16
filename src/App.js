@@ -12,6 +12,7 @@ import CreateAnnouncement from "./communityNotices/CreateAnnouncement/index";
 import CreateEvent from "./communityNotices/CreateEvent/index";
 import AllRequest from "./ServisesRequest/AllRequest/index";
 import GenerateInvoice from "./ServisesRequest/GenerateInvoice/index";
+import AllRequestProperty from "./ServisesRequest/AllRequest/AllRequestProperty/index";
 function App() {
     return (
         <BrowserRouter>
@@ -36,6 +37,10 @@ function App() {
                 <Route
                     path="/generateinvoice"
                     element={<GenerateInvoice />}
+                ></Route>
+                <Route
+                    path="/allrequestproperty"
+                    element={<AllRequestProperty />}
                 ></Route>
             </Routes>
         </BrowserRouter>
