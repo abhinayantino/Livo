@@ -13,6 +13,8 @@ import CreateEvent from "./communityNotices/CreateEvent/index";
 import AllRequest from "./ServisesRequest/AllRequest/index";
 import GenerateInvoice from "./ServisesRequest/GenerateInvoice/index";
 import AllRequestProperty from "./ServisesRequest/AllRequest/AllRequestProperty/index";
+import GenerateInvoiceProperty from "./ServisesRequest/GenerateInvoice/GenerateInvoiceProperty/index";
+import ChargesCatalouge from "./ServisesRequest/ChargesCatalogue/index";
 function App() {
     return (
         <BrowserRouter>
@@ -41,6 +43,14 @@ function App() {
                 <Route
                     path="/allrequestproperty"
                     element={<AllRequestProperty />}
+                ></Route>
+                <Route
+                    path="generateinvoiceproperty"
+                    element={<GenerateInvoiceProperty />}
+                ></Route>
+                <Route
+                    path="/chargescatalouge"
+                    element={<ChargesCatalouge />}
                 ></Route>
             </Routes>
         </BrowserRouter>

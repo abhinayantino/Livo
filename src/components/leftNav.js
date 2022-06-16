@@ -43,8 +43,9 @@ export default function LeftNav() {
                         <Link to="/allrequest">
                             <ul>All request</ul>
                         </Link>
-
-                        <ul>Charges Catalogue</ul>
+                        <Link to="/chargescatalouge">
+                            <ul>Charges Catalogue</ul>
+                        </Link>
 
                         <Link to="/generateinvoice">
                             <ul>Generate invoice</ul>

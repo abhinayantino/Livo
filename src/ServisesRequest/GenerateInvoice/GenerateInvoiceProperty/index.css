@@ -1,0 +1,101 @@
+.datalist{
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
+    padding:"15px 0px 15px 15px";
+    height: 500px;
+}
+.selectinput{
+    width:200px;
+    padding: 7px 0px 7px 0px;
+}
+
+.gap{
+    column-gap: 15px;
+    
+}
+.electricpost{
+    height: 400px;
+    background-color: red;
+}
+.scrollbar{
+    height: 40vh;
+    overflow-y: scroll;
+    padding: 0px 10px 0px 10px;
+}
+.amount{
+    font-size: 20px;
+    font-weight: 600;
+    
+}
+.Rpayment{
+    width: 278px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: #0C344E;
+    color: #fff;
+}
+.dailogbox{
+    width: 500px;
+    height: 500px;
+    
+}
+.devider{
+    column-gap: 120px;
+}
+.invoice{
+    font-family: 'Barlow';
+        font-style: normal;
+        font-weight:400;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+}
+
+
+.psent{
+        font-family: 'Barlow';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        padding-top: 40px;
+}
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+   overflow-y: visible !important;
+}
+.tick{
+    position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        border: 10px solid #fff;
+        border-radius: 50%;
+        display: inline;
+        text-align: center;
+        width: 6rem;
+}
+.viewp{
+    background-color:#FFF7F3;
+    padding: 15px 0px 15px 0px;
+    border-radius: 0px 0px 12px 12px;
+}
+.view{
+    font-size: 14px;
+    font-weight: 700;
+    color: #0C344E;
+
+}
+
+
+
+/* 
+        position: absolute;
+        left: 50%;
+        /* top: 2%; */
+        /* left: 39%; */
+        /* top: -37%; */
+        /* transform: translate(-50%, -50%); */
+        /* border: 10px solid #fff; */
+        /* border-radius: 50%; */
+        /* display: inline; */
+        /* text-align: center; */
+        /* width: 6rem; */ 

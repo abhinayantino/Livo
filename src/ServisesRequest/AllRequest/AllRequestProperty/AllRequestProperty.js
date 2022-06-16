@@ -1,9 +1,5 @@
 import React from "react";
 import "./index.css";
-import img1 from "../../../assets/img1.png";
-import img2 from "../../../assets/img2.png";
-import img3 from "../../../assets/img3.png";
-import img4 from "../../../assets/img4.png";
 import { TextField } from "@mui/material";
 import { MenuItem } from "@mui/material";
 import Pdf from "../../../components/Pdf";

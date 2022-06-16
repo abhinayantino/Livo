@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
-
+import "./AllRequesttable.css";
 function createData(
     RequestID,
     Urgency,
@@ -142,10 +142,16 @@ export default function GenerateInvoicetable() {
                                 }}
                             >
                                 <TableCell align="center">
-                                    {row.RequestID}
+                                    <Link to="/generateinvoiceproperty">
+                                        {row.RequestID}
+                                    </Link>
                                 </TableCell>
                                 <TableCell align="center">
-                                    <Link to="/adduser">{row.Urgency}</Link>
+                                    {row.Urgency ? (
+                                        <div className=" bgurgent d-flex justify-content-center align-items-center gbgcolor">
+                                            {row.Urgency}
+                                        </div>
+                                    ) : null}
                                 </TableCell>
                                 <TableCell align="center">
                                     {row.unitNo}

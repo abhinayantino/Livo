@@ -163,9 +163,11 @@ export default function AllRequesttable() {
                                     </Link>
                                 </TableCell>
                                 <TableCell align="center">
-                                    <div className="bgurgent d-flex justify-content-center align-items-center">
-                                        {row.Urgency}
-                                    </div>
+                                    {row.Urgency ? (
+                                        <div className="bgurgent d-flex justify-content-center align-items-center">
+                                            {row.Urgency}
+                                        </div>
+                                    ) : null}
                                 </TableCell>
 
                                 <TableCell align="center">
@@ -186,9 +188,9 @@ export default function AllRequesttable() {
                                 <TableCell align="center">
                                     {row.UserName}
                                 </TableCell>
-                                <TableCell align="center">
+                                {/* <TableCell align="center">
                                     {row.EmailID}
-                                </TableCell>
+                                </TableCell> */}
                             </TableRow>
                         ))}
                     </TableBody>
