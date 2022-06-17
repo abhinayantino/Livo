@@ -40,14 +40,32 @@ export default function LeftNav() {
                         Service Requests
                     </Accordion.Header>
                     <Accordion.Body className="elements">
-                        <Link to="/allrequest">
+                        <Link
+                            to="/allrequest"
+                            style={{
+                                textDecoration: "none",
+                                color: "black",
+                            }}
+                        >
                             <ul>All request</ul>
                         </Link>
-                        <Link to="/chargescatalouge">
+                        <Link
+                            to="/chargescatalouge"
+                            style={{
+                                textDecoration: "none",
+                                color: "black",
+                            }}
+                        >
                             <ul>Charges Catalogue</ul>
                         </Link>
 
-                        <Link to="/generateinvoice">
+                        <Link
+                            to="/generateinvoice"
+                            style={{
+                                textDecoration: "none",
+                                color: "black",
+                            }}
+                        >
                             <ul>Generate invoice</ul>
                         </Link>
                     </Accordion.Body>

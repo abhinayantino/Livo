@@ -1,7 +1,7 @@
 import React from "react";
-import LeftNav from "../../components/leftNav";
-import TopNav from "../../components/topNav";
-import ChargesCatalouge from "./ChargesCatalouge";
+import LeftNav from "../../../components/leftNav";
+import TopNav from "../../../components/topNav";
+import EditCatalouge from "./EditCatalouge";
 
 const ChargesCatalougeMain = () => {
     return (
@@ -9,7 +9,7 @@ const ChargesCatalougeMain = () => {
             <TopNav />
             <div style={{ display: "flex", background: "#FFE3D2" }}>
                 <LeftNav />
-                <ChargesCatalouge />
+                <EditCatalouge />
             </div>
         </>
     );

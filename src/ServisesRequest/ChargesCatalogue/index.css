@@ -1,0 +1,52 @@
+.gap{
+    margin-right: 20px;
+}
+.Sbtn{
+    Width :80px;
+    Height: 48px;
+    background-color: #0C344E;
+    font-weight: bold;
+    color:white;
+    border-radius: 12px;
+    text-align: center;
+}
+.Cbtn {
+    Width: 80px;
+    Height: 48px;
+    background-color:white;
+    color: #0C344E;
+    font-weight: bold;
+    margin-right: 10px;
+    border-radius: 12px;
+    text-align: center;
+}
+.Abtn{
+    Width :200px;
+    Height: 48px;
+    font-weight: bold;
+    background-color:white;
+    color:#0C344E;
+    border-radius: 12px;
+    text-align: center;
+}
+.Cform{
+    width: 700px;
+    box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px 0px 20px 0px;
+    border-radius: 12px;
+
+}
+.addCharge{
+        height: 48px;
+        width: 274px;
+        font-weight: bold;
+        background-color:white;
+        border-radius: 12px;
+        color: #0C344E;
+}
+
+
+
+
+
+

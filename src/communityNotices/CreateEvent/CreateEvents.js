@@ -3,7 +3,7 @@ import InputFiled from "../CreateAnnouncement/InputFiled";
 
 const CreateEvents = () => {
     return (
-        <div 
+        <div
             className="container bg-white"
             style={{ borderTopLeftRadius: "50px" }}
         >

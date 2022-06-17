@@ -14,7 +14,8 @@ import AllRequest from "./ServisesRequest/AllRequest/index";
 import GenerateInvoice from "./ServisesRequest/GenerateInvoice/index";
 import AllRequestProperty from "./ServisesRequest/AllRequest/AllRequestProperty/index";
 import GenerateInvoiceProperty from "./ServisesRequest/GenerateInvoice/GenerateInvoiceProperty/index";
-import ChargesCatalouge from "./ServisesRequest/ChargesCatalogue/index";
+import ChargesCatalouge from "./ServisesRequest/ChargesCatalogue/CreateChargesCatalouge/index";
+import EditCatalouge from "./ServisesRequest/ChargesCatalogue/EditChargesCatalouge/index";
 function App() {
     return (
         <BrowserRouter>
@@ -49,8 +50,12 @@ function App() {
                     element={<GenerateInvoiceProperty />}
                 ></Route>
                 <Route
-                    path="/chargescatalouge"
+                    path="/createchargescatalouge"
                     element={<ChargesCatalouge />}
+                ></Route>
+                <Route
+                    path="/editchargescatalouge"
+                    element={<EditCatalouge />}
                 ></Route>
             </Routes>
         </BrowserRouter>
