@@ -1,14 +1,30 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import SearchBar from "../../components/SearchBar";
-import AllRequesttable from "../../components/AllRequesttable";
-const AllRequest = () => {
+import AllInvoicetable from "../../components/AllInvoicetable";
+import FilterModel from "./FIlterModel";
+const AllInvoice = () => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <>
             <div className="home">
+                <FilterModel
+                    open={open}
+                    setOpen={setOpen}
+                    handleClose={handleClose}
+                />
                 <div className="d-flex align-items-center">
                     <div className="Property" style={{ marginRight: "40px" }}>
-                        All Request
+                        All Invoices
                     </div>
                     <div
                         style={{
@@ -50,6 +66,7 @@ const AllRequest = () => {
                                 className="Button"
                                 variant="contained"
                                 color="success"
+                                onClick={handleClickOpen}
                                 style={{
                                     border: "1px solid #0C344E",
                                     color: "#0C344E",
@@ -64,10 +81,10 @@ const AllRequest = () => {
                     </div>
                 </div>
 
-                <AllRequesttable />
+                <AllInvoicetable />
             </div>
         </>
     );
 };
 
-export default AllRequest;
+export default AllInvoice;

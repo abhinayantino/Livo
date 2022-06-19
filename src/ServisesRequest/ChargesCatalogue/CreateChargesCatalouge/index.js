@@ -1,7 +1,7 @@
 import React from "react";
 import LeftNav from "../../../components/leftNav";
 import TopNav from "../../../components/topNav";
-import ChargesCatalouge from "./ChargesCatalouge";
+import CreateChargesCatalouge from "./CreateChargesCatalouge";
 
 const ChargesCatalougeMain = () => {
     return (
@@ -9,7 +9,7 @@ const ChargesCatalougeMain = () => {
             <TopNav />
             <div style={{ display: "flex", background: "#FFE3D2" }}>
                 <LeftNav />
-                <ChargesCatalouge />
+                <CreateChargesCatalouge />
             </div>
         </>
     );

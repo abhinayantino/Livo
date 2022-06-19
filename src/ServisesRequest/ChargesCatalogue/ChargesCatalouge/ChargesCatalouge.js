@@ -1,8 +1,9 @@
 import React from "react";
 import "../index.css";
-import { AiOutlinePlus } from "react-icons/ai";
 import CatalogForm from "./CatalogForm";
 import CatalogForm2 from "./CatalogForm2";
+import SearchBar from "../../../components/SearchBar";
+import RoundIcons from "../../../components/RoundIcons";
 
 const ChargesCatalouge = () => {
     return (
@@ -13,14 +14,15 @@ const ChargesCatalouge = () => {
             <div className="p-4">
                 <div className="d-flex justify-content-between align-items-center">
                     <div className="width:400px">
-                        <h5>Create Charges Catalogue</h5>
+                        <h5>Charges Catalogue</h5>
                     </div>
-                    <div className="align-items-center">
-                        <button className="gap Abtn">
-                            <AiOutlinePlus />
-                            &nbsp; Add New Category
-                        </button>
-                        <button className="Sbtn">Save</button>
+                    <div className=" d-flex align-items-center">
+                        <div>
+                            <SearchBar />
+                        </div>
+                        <RoundIcons />
+                        <button className="Cbtn">Create</button>
+                        <button className="Sbtn">Edit</button>
                     </div>
                 </div>
                 <div>

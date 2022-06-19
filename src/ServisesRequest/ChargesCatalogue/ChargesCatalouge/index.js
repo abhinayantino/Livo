@@ -1,18 +1,18 @@
 import React from "react";
 import LeftNav from "../../../components/leftNav";
 import TopNav from "../../../components/topNav";
-import EditCatalouge from "./EditCatalouge";
+import ChargesCatalouge from "./ChargesCatalouge";
 
-const CreateChargesCatalougeMain = () => {
+const ChargesCatalougeMain = () => {
     return (
         <>
             <TopNav />
             <div style={{ display: "flex", background: "#FFE3D2" }}>
                 <LeftNav />
-                <EditCatalouge />
+                <ChargesCatalouge />
             </div>
         </>
     );
 };
 
-export default CreateChargesCatalougeMain;
+export default ChargesCatalougeMain;

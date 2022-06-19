@@ -102,7 +102,16 @@ export default function LeftNav() {
                         />
                         Payments
                     </Accordion.Header>
-                    <Accordion.Body></Accordion.Body>
+                    <Accordion.Body>
+                        <Link to="/allinvoice">
+                            <ul>All Invoices</ul>
+                        </Link>
+
+                        <ul>Create an Invoice</ul>
+                        <ul>Budget</ul>
+                        <ul>Expenses</ul>
+                        <ul>Reminder</ul>
+                    </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="3" className="upper">
                     <Accordion.Header className="feature">

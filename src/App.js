@@ -14,8 +14,10 @@ import AllRequest from "./ServisesRequest/AllRequest/index";
 import GenerateInvoice from "./ServisesRequest/GenerateInvoice/index";
 import AllRequestProperty from "./ServisesRequest/AllRequest/AllRequestProperty/index";
 import GenerateInvoiceProperty from "./ServisesRequest/GenerateInvoice/GenerateInvoiceProperty/index";
-import ChargesCatalouge from "./ServisesRequest/ChargesCatalogue/CreateChargesCatalouge/index";
+import CreateChargesCatalouge from "./ServisesRequest/ChargesCatalogue/CreateChargesCatalouge/index";
 import EditCatalouge from "./ServisesRequest/ChargesCatalogue/EditChargesCatalouge/index";
+import ChargesCatalouge from "./ServisesRequest/ChargesCatalogue/ChargesCatalouge/index";
+import AllInvoice from "./Payment/AllInvoice/index";
 function App() {
     return (
         <BrowserRouter>
@@ -51,12 +53,17 @@ function App() {
                 ></Route>
                 <Route
                     path="/createchargescatalouge"
-                    element={<ChargesCatalouge />}
+                    element={<CreateChargesCatalouge />}
                 ></Route>
                 <Route
                     path="/editchargescatalouge"
                     element={<EditCatalouge />}
                 ></Route>
+                <Route
+                    path="/chargescatalouge"
+                    element={<ChargesCatalouge />}
+                ></Route>
+                <Route path="/allinvoice" element={<AllInvoice />}></Route>
             </Routes>
         </BrowserRouter>
     );
