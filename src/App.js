@@ -18,6 +18,8 @@ import CreateChargesCatalouge from "./ServisesRequest/ChargesCatalogue/CreateCha
 import EditCatalouge from "./ServisesRequest/ChargesCatalogue/EditChargesCatalouge/index";
 import ChargesCatalouge from "./ServisesRequest/ChargesCatalogue/ChargesCatalouge/index";
 import AllInvoice from "./Payment/AllInvoice/index";
+import CreateInvoice from "./Payment/CreateInvoice/index";
+import Reminder from "./Payment/Reminder/index";
 function App() {
     return (
         <BrowserRouter>
@@ -64,6 +66,11 @@ function App() {
                     element={<ChargesCatalouge />}
                 ></Route>
                 <Route path="/allinvoice" element={<AllInvoice />}></Route>
+                <Route
+                    path="/createinvoice"
+                    element={<CreateInvoice />}
+                ></Route>
+                <Route path="/reminder" element={<Reminder />}></Route>
             </Routes>
         </BrowserRouter>
     );

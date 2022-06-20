@@ -22,7 +22,7 @@ export default function SearchBar() {
                         height: "50px",
                         borderTopRightRadius: "4px",
                         borderBottomRightRadius: "4px",
-                        width: "400px",
+                        width: "100%",
                     }}
                     placeholder="Search"
                     inputProps={{ "aria-label": "Search" }}

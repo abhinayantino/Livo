@@ -1,0 +1,56 @@
+.spayment{
+    width:250px;
+    height: 48px;
+    font-weight: 500;
+    border-radius: 12px;
+    padding: 0px 10px;
+}
+.psubmit{
+    width: 286px;
+    height: 48px;
+    background-color: black;
+    color: white;
+    border-radius:12px;
+    margin-left: 15px;
+    
+}
+.dfilter{
+    width:150px;
+    height: 35px;
+    text-align: center;
+    display: flex;
+    justify-content:space-between;
+    padding: 0px 15px;
+    align-items: center;    
+    background-color:#D9DBE9;
+    border-radius: 15px;
+
+}
+.mgap{
+    margin-left:30px !important;
+}
+.mreminder{
+  border: 1px solid #0C344E;
+  background-color: #0C344E;
+  color: white;
+  border-radius:8px; 
+  height: 50px;
+  width: 170px;
+  padding: 0px 5px;
+}
+.rcancel{
+    border: none;
+    background-color: white;
+    color: #C24C4C;
+    width: 140px;
+    text-align: center;
+}
+.rsendmail{
+  width: 140px;
+  background-color: #0C344E;
+  text-align: center;
+  height: 40px;  
+  border-radius: 15px;
+  border: none;
+  color: white;
+}
