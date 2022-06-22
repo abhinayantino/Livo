@@ -79,6 +79,25 @@
     background-color: white;
     font-weight: 600;
 }
+.bgeditexpenses{
+    width: 100px;
+    height: 35px;
+    border: 1px solid #0C344E;
+    border-radius: 15px;
+    background-color:#0C344E;
+    color: white;
+    font-weight: 600;
+}
+.bgeditincome{
+        width: 100px;
+        height: 35px;
+        border: 1px solid #0C344E;
+        border-radius: 15px;
+        background-color:#0C344E;
+        color: white;
+        margin-right: 20px;
+        font-weight: 600;
+}
 .addrow{
         width: 220px;
         height: 48px;
@@ -86,5 +105,32 @@
         border-radius: 15px;
         background-color:white;
         font-weight: 600;
+        color: #0C344E;
+}
+.editbudgetdetail{
+    width: 130px;
+    height: 48px;
+    border: 1px solid #0C344E;
+    border-radius: 15px;
+    background-color:white;
+    font-weight: 600;
+}
+
+.active{
+        width: 100px;
+        height: 35px;
+        border: 1px solid #0C344E;
+        border-radius: 15px;
+        color: white;
+        font-weight: 600;
+        background-color: #0C344E;
+}
+.inactive{
+        width: 100px;
+        height: 35px;
+        border: 1px solid #0C344E;
+        border-radius: 15px;
+        font-weight: 600;
+        background-color:white;
         color: #0C344E;
 }

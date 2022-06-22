@@ -6,6 +6,7 @@ const Textfiled = ({
     type = "text",
     style = {},
     className = "",
+    value,
 }) => {
     return (
         <TextField
@@ -15,6 +16,7 @@ const Textfiled = ({
             label={label}
             className={className}
             placeholder={placeholder}
+            value={value}
             style={{
                 marginTop: "13px",
                 width: "255px",

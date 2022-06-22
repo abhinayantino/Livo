@@ -146,7 +146,9 @@ export default function BudgetTable() {
                                 }}
                             >
                                 <TableCell align="center">
-                                    <Link to="/">{row.BudgetName}</Link>
+                                    <Link to="/budgetdetail">
+                                        {row.BudgetName}
+                                    </Link>
                                 </TableCell>
                                 <TableCell align="center">
                                     {row.Property}

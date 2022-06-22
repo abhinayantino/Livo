@@ -1,4 +1,3 @@
-import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -124,7 +123,13 @@ import "./AllRequesttable.css";
 //     ),
 //];
 
-export default function AddExpensestable({ expenses, setExpenses }) {
+export default function AddExpensestable({
+    placeholder,
+    expense,
+    setExpenses,
+    data,
+}) {
+    console.log(data);
     return (
         <>
             <TableContainer component={Paper}>
@@ -173,7 +178,7 @@ export default function AddExpensestable({ expenses, setExpenses }) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {[...Array(2)].map((row) => (
+                        {data.map((row) => (
                             <TableRow
                                 sx={{
                                     "&:last-child td, &:last-child th": {
@@ -182,14 +187,9 @@ export default function AddExpensestable({ expenses, setExpenses }) {
                                 }}
                             >
                                 <TableCell align="center">
-                                    <Textfiled
-                                        placeholder={
-                                            expenses
-                                                ? "Expense Source"
-                                                : "Income Source"
-                                        }
-                                    />
+                                    <Textfiled placeholder={placeholder} />
                                 </TableCell>
+
                                 <TableCell align="center">
                                     <Textfiled style={{ width: "50px" }} />
                                 </TableCell>

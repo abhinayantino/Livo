@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
 import SelectInput from "../../CreateInvoice/SelectInput";
 import Textfiled from "../../../components/Textfiled";
@@ -6,7 +6,18 @@ import { AiOutlinePlus } from "react-icons/ai";
 import AddExpensestable from "../../../components/AddExpensestable";
 const AddBudget = () => {
     const [expenses, setExpenses] = React.useState(false);
-
+    const [addrow, setAddRow] = useState([]);
+    const handleAddRow = () => {
+        setAddRow([
+            ...addrow,
+            {
+                first: "",
+                second: "",
+                third: "",
+            },
+        ]);
+    };
+    console.log("add row", addrow);
     const handleExpenses = () => {
         setExpenses(true);
     };
@@ -45,27 +56,39 @@ const AddBudget = () => {
                 </div>
                 <div className="d-flex justify-content-between mt-5">
                     <div>
-                        <button className="editincome" onClick={handleIncome}>
+                        <button
+                            className={expenses ? "editincome" : "bgeditincome"}
+                            onClick={handleIncome}
+                        >
                             Income
                         </button>
                         <button
-                            className="editexpenses"
+                            className={
+                                expenses ? "bgeditexpenses" : "editexpenses"
+                            }
                             onClick={handleExpenses}
                         >
                             Expenses
                         </button>
                     </div>
                     <div>
-                        <button className="addrow">
+                        <button className="addrow" onClick={handleAddRow}>
                             <AiOutlinePlus /> &nbsp; Add New Row
                         </button>
                     </div>
                 </div>
                 <div className="mt-3">
-                    <AddExpensestable
-                        expenses={expenses}
-                        setExpenses={setExpenses}
-                    />
+                    {expenses ? (
+                        <AddExpensestable
+                            placeholder="Expenses Source"
+                            data={addrow}
+                        />
+                    ) : (
+                        <AddExpensestable
+                            placeholder="Income Source"
+                            data={addrow}
+                        />
+                    )}
                 </div>
             </div>
         </div>

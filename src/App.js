@@ -22,6 +22,7 @@ import CreateInvoice from "./Payment/CreateInvoice/index";
 import Reminder from "./Payment/Reminder/index";
 import Budget from "./Payment/Budget/index";
 import AddBudget from "./Payment/Budget/AddBudget/index.jsx";
+import EditBudget from "./Payment/Budget/BudgetDetail/index.jsx";
 
 function App() {
     return (
@@ -76,6 +77,7 @@ function App() {
                 <Route path="/reminder" element={<Reminder />}></Route>
                 <Route path="/budget" element={<Budget />}></Route>
                 <Route path="/addbudget" element={<AddBudget />}></Route>
+                <Route path="budgetdetail" element={<EditBudget />}></Route>
             </Routes>
         </BrowserRouter>
     );
