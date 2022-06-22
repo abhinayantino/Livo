@@ -4,6 +4,7 @@ import SearchBar from "../../components/SearchBar";
 import { AiOutlinePlus } from "react-icons/ai";
 import SelectInput from "./SelectInput";
 import { TextField } from "@mui/material";
+import Textfiled from "../../components/Textfiled";
 const CreateInvoice = () => {
     const [bulk, setbulk] = React.useState(true);
 
@@ -27,12 +28,17 @@ const CreateInvoice = () => {
                     </div>
                     <div className="d-flex gap-3 mt-4">
                         <button
-                            className="individual"
+                            className={
+                                bulk ? "individual-btn-active" : "individual"
+                            }
                             onClick={handleSearchHidden}
                         >
                             Individual
                         </button>
-                        <button className="bulk" onClick={handleSearchVisible}>
+                        <button
+                            className={bulk ? "bulk-btn-active" : "bulk"}
+                            onClick={handleSearchVisible}
+                        >
                             Bulk
                         </button>
                     </div>
@@ -57,29 +63,11 @@ const CreateInvoice = () => {
                                 </div>
                                 <div className="d-flex justify-content-between mt-4">
                                     <SelectInput label="Select Unit" />
-                                    <input
-                                        type="date"
-                                        className="form-control"
-                                        id="datestart"
-                                        placeholder="Due Date"
-                                        style={{
-                                            border: "none",
-                                            borderBottom: "1px solid #DFE0E0",
-                                            width: "255px",
-                                        }}
-                                    />
+                                    <Textfiled />
                                 </div>
                                 <div className="d-flex justify-content-between mt-4">
                                     <SelectInput label="Charges Category" />
-                                    <TextField
-                                        id="standard-helperText"
-                                        variant="standard"
-                                        placeholder="Total Amount (AED)"
-                                        style={{
-                                            marginTop: "13px",
-                                            width: "255px",
-                                        }}
-                                    />
+                                    <SelectInput label="Charges Category" />
                                 </div>
                             </div>
                             <div className="mt-3">

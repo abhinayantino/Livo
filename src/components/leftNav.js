@@ -106,11 +106,15 @@ export default function LeftNav() {
                         <Link to="/allinvoice">
                             <ul>All Invoices</ul>
                         </Link>
+                        <Link to="/createinvoice">
+                            <ul>Create an Invoice</ul>
+                        </Link>
 
-                        <ul>Create an Invoice</ul>
                         <ul>Budget</ul>
                         <ul>Expenses</ul>
-                        <ul>Reminder</ul>
+                        <Link to="/reminder">
+                            <ul>Reminder</ul>
+                        </Link>
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="3" className="upper">

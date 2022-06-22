@@ -1,0 +1,90 @@
+.spayment{
+    width:250px;
+    height: 48px;
+    font-weight: 500;
+    border-radius: 12px;
+    padding: 0px 10px;
+}
+.psubmit{
+    width: 286px;
+    height: 48px;
+    background-color: black;
+    color: white;
+    border-radius:12px;
+    margin-left: 15px;
+    
+}
+.dfilter{
+    width:150px;
+    height: 35px;
+    text-align: center;
+    display: flex;
+    justify-content:space-between;
+    padding: 0px 15px;
+    align-items: center;    
+    background-color:#D9DBE9;
+    border-radius: 15px;
+
+}
+.mgap{
+    margin-left:30px !important;
+}
+
+.addbudget{
+   width: 150px;
+   height: 48px;
+   background-color:#0C344E;
+   border-radius: 15px;
+   border:none; 
+   color: white;
+   font-weight: 600;
+}
+.bcancel{
+    width: 100px;
+    height: 48px;
+    background-color:white;
+    border-radius: 15px;
+    border:1px solid #0C344E; 
+    color: #0C344E;
+    font-weight: 600;
+}
+.bsave{
+    width: 100px;
+    height: 48px;
+    background-color:#0C344E;
+    border-radius: 15px;
+    border:1px solid #0C344E; 
+    color:white;
+    font-weight: 600;
+    margin-left: 20px;
+}
+.f-AddBudget{
+    width:600px;
+    margin-top: 50px;
+}
+.editincome{
+    width: 100px;
+    height: 35px;
+    border: 1px solid #0C344E;
+    border-radius: 15px;
+    background-color: white;
+    margin-right: 20px;
+    font-weight: 600;
+}
+.editexpenses{
+    width: 100px;
+    height: 35px;
+    border: 1px solid #0C344E;
+    border-radius: 15px;
+    background-color: white;
+    font-weight: 600;
+}
+.addrow{
+        width: 220px;
+        height: 48px;
+        border: 1px solid #0C344E;
+        border-radius: 15px;
+        background-color:white;
+        font-weight: 600;
+        color: #0C344E;
+}
