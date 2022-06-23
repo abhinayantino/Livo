@@ -109,8 +109,9 @@ export default function LeftNav() {
                         <Link to="/createinvoice">
                             <ul>Create an Invoice</ul>
                         </Link>
-
-                        <ul>Budget</ul>
+                        <Link to="/budget">
+                            <ul>Budget</ul>
+                        </Link>
                         <ul>Expenses</ul>
                         <Link to="/reminder">
                             <ul>Reminder</ul>

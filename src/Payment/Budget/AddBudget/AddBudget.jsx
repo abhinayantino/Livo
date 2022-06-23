@@ -7,6 +7,7 @@ import AddExpensestable from "../../../components/AddExpensestable";
 const AddBudget = () => {
     const [expenses, setExpenses] = React.useState(false);
     const [addrow, setAddRow] = useState([]);
+    console.log(addrow);
     const handleAddRow = () => {
         setAddRow([
             ...addrow,
@@ -40,7 +41,7 @@ const AddBudget = () => {
                         <button className="bcancel">Cancel</button>
                         <button className="bsave">Save</button>
                     </div>
-                </div>
+                </div>  
                 <div className=" f-AddBudget">
                     <div className="d-flex justify-content-between align-items-end mt-4">
                         <SelectInput label="Select Property" placeholder="" />
