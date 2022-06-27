@@ -9,24 +9,15 @@ import { Link } from "react-router-dom";
 import MenuPopupState from "../../components/Menu";
 import { BiEditAlt } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
-
+import HeaderAllPost from "../HeaderAllPost";
 const Post = () => {
     return (
         <div className="post">
             <div className="posttitle">
-                <h5 className="m-2">All Posts</h5>
-                <div className="d-flex justify-content-between mt-3 mb-3">
-                    <Link to="/allposts">
-                        <button className="round">Events</button>
-                    </Link>
-                    <button className="round spam">Announcements</button>
-                    <Link to="/reportedpost">
-                        <button className="round">Reported Posts</button>
-                    </Link>
-                </div>
+                <HeaderAllPost />
                 <div>
                     <div
-                        className="d-flex justify-content-start align-center "
+                        className="d-flex justify-content-start align-center"
                         style={{ columnGap: "180px" }}
                     >
                         <div

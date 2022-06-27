@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "../../components/SearchBar";
 import { MdDateRange } from "react-icons/md";
 import SinglePost from "./SinglePost";
+import HeaderAllPost from "../HeaderAllPost";
 const ReportedPost = () => {
     return (
         <div
@@ -24,7 +25,10 @@ const ReportedPost = () => {
                     <MdDateRange /> Filter
                 </button>
             </div>
-            <div className="d-flex justify-content-center mt-5">
+
+            <div className="d-flex justify-content-center align-items-center flex-column mt-5 lllll">
+                <HeaderAllPost />
+                <SinglePost />
                 <SinglePost />
             </div>
         </div>

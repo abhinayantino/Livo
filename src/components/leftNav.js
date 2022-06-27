@@ -112,7 +112,9 @@ export default function LeftNav() {
                         <Link to="/budget">
                             <ul>Budget</ul>
                         </Link>
+
                         <ul>Expenses</ul>
+
                         <Link to="/reminder">
                             <ul>Reminder</ul>
                         </Link>

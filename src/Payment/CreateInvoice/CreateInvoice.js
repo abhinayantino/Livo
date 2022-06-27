@@ -5,6 +5,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import SelectInput from "./SelectInput";
 import { TextField } from "@mui/material";
 import Textfiled from "../../components/Textfiled";
+import { InputTextArea } from "../../components/InputTextArea";
 const CreateInvoice = () => {
     const [bulk, setbulk] = React.useState(true);
 
@@ -71,18 +72,7 @@ const CreateInvoice = () => {
                                 </div>
                             </div>
                             <div className="mt-3">
-                                <TextField
-                                    id="filled-multiline-static"
-                                    multiline
-                                    rows={4}
-                                    placeholder="Add a note"
-                                    variant="filled"
-                                    style={{
-                                        borderRadius: "12px",
-                                        width: "600px",
-                                        border: "none",
-                                    }}
-                                />
+                                <InputTextArea placeholder="Add a note" />
                             </div>
                         </div>
                         <div className="mt-5">
@@ -91,6 +81,11 @@ const CreateInvoice = () => {
                                 <AiOutlinePlus /> &nbsp; Add Document
                             </button>
                         </div>
+                    </div>
+                    <div className="Gsection">
+                        <button className="Ginvoicebtn">
+                            Generate Invoice
+                        </button>
                     </div>
                 </div>
             </div>

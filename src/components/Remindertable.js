@@ -141,75 +141,75 @@ export default function Remindertable() {
                 <Table sx={{}} aria-label="simple table">
                     <TableHead className="thead">
                         <TableRow>
-                            <TableCell align="center" className="bold">
+                            <TableCell align="center" className="Sbold">
                                 <input type="checkbox" />
                             </TableCell>
                             <TableCell
                                 align="center"
-                                className="bold"
+                                className="Sbold"
                                 style={{ width: "7rem" }}
                             >
                                 Invoice No
                             </TableCell>
                             <TableCell
                                 align="center"
-                                className="bold"
+                                className="Sbold"
                                 style={{ width: "7rem" }}
                             >
                                 payment Status
                             </TableCell>
                             <TableCell
                                 align="center"
-                                className="bold"
+                                className="Sbold"
                                 style={{ width: "7rem" }}
                             >
                                 Amount
                             </TableCell>
                             <TableCell
                                 align="center"
-                                className="bold"
+                                className="Sbold"
                                 style={{ width: "10rem" }}
                             >
                                 Due Date
                             </TableCell>
                             <TableCell
                                 align="center"
-                                className="bold"
+                                className="Sbold"
                                 style={{ width: "10rem" }}
                             >
                                 Over Due Since
                             </TableCell>
                             <TableCell
                                 align="center"
-                                className="bold"
+                                className="Sbold"
                                 style={{ width: "10rem" }}
                             >
                                 Over Due Amount
                             </TableCell>
                             <TableCell
                                 align="center"
-                                className="bold"
+                                className="Sbold"
                                 style={{ width: "10rem" }}
                             >
                                 Invoice Type
                             </TableCell>
                             <TableCell
                                 align="center"
-                                className="bold"
+                                className="Sbold"
                                 style={{ width: "10rem" }}
                             >
                                 Category
                             </TableCell>
                             <TableCell
                                 align="center"
-                                className="bold"
+                                className="Sbold"
                                 style={{ width: "10rem" }}
                             >
                                 Unit No
                             </TableCell>
                             <TableCell
                                 align="center"
-                                className="bold"
+                                className="Sbold"
                                 style={{ width: "10rem" }}
                             >
                                 User Name

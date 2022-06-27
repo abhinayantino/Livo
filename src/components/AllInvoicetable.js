@@ -122,28 +122,28 @@ export default function AllInvoicetable() {
                 <Table sx={{}} aria-label="simple table">
                     <TableHead className="thead">
                         <TableRow>
-                            <TableCell align="center" className="bold">
+                            <TableCell align="center" className="Sbold">
                                 Invoice No
                             </TableCell>
-                            <TableCell align="center" className="bold">
+                            <TableCell align="center" className="Sbold">
                                 payment Status
                             </TableCell>
-                            <TableCell align="center" className="bold">
+                            <TableCell align="center" className="Sbold">
                                 Amount
                             </TableCell>
-                            <TableCell align="center" className="bold">
+                            <TableCell align="center" className="Sbold">
                                 Due Date
                             </TableCell>
-                            <TableCell align="center" className="bold">
+                            <TableCell align="center" className="Sbold">
                                 Invoice Type
                             </TableCell>
-                            <TableCell align="center" className="bold">
+                            <TableCell align="center" className="Sbold">
                                 Category
                             </TableCell>
-                            <TableCell align="center" className="bold">
+                            <TableCell align="center" className="Sbold">
                                 Staff Assigned
                             </TableCell>
-                            <TableCell align="center" className="bold">
+                            <TableCell align="center" className="Sbold">
                                 User Name
                             </TableCell>
                         </TableRow>
