@@ -5,7 +5,9 @@ import SearchIcon from "@mui/icons-material/Search";
 export default function SearchBar() {
     return (
         <>
-            <div className="d-flex">
+            <div
+                className="d-flex justify-content-around"
+                >
                 <SearchIcon
                     style={{
                         background: "#EFF0F6",

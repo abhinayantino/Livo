@@ -71,7 +71,6 @@ export default function User() {
                                     border: "1px solid #0C344E",
                                     color: "#0C344E",
                                     background: "white",
-                                    width: "80px",
                                     height: "48px",
                                     marginRight: "24px",
                                 }}

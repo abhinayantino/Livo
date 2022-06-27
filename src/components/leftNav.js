@@ -12,7 +12,7 @@ import ReportsImage from "../assets/Reports.svg";
 import SettingsImage from "../assets/settings.svg";
 import ServicesImage from "../assets/servicerequest.svg";
 import { Link } from "react-router-dom";
-
+import "../App.css";
 export default function LeftNav() {
     return (
         <>
@@ -21,7 +21,7 @@ export default function LeftNav() {
                     className="feature"
                     style={{ display: "flex", flexDirection: "row" }}
                 >
-                    <div style={{ marginLeft: "1.5rem" }}>
+                    <div style={{ margin: "1.5rem" }}>
                         <img
                             style={{ marginRight: "10px" }}
                             src={DashboardImage}
@@ -40,33 +40,15 @@ export default function LeftNav() {
                         Service Requests
                     </Accordion.Header>
                     <Accordion.Body className="elements">
-                        <Link
-                            to="/allrequest"
-                            style={{
-                                textDecoration: "none",
-                                color: "black",
-                            }}
-                        >
-                            <ul>All request</ul>
+                        <Link to="/allrequest" className="navlink">
+                            <ul className="navitem">All Request</ul>
                         </Link>
-                        <Link
-                            to="/chargescatalouge"
-                            style={{
-                                textDecoration: "none",
-                                color: "black",
-                            }}
-                        >
-                            <ul>Charges Catalogue</ul>
+                        <Link to="/chargescatalouge" className="navlink">
+                            <ul className="navitem">Charges Catalogue</ul>
                         </Link>
 
-                        <Link
-                            to="/generateinvoice"
-                            style={{
-                                textDecoration: "none",
-                                color: "black",
-                            }}
-                        >
-                            <ul>Generate invoice</ul>
+                        <Link to="/generateinvoice" className="navlink">
+                            <ul className="navitem">Generate Invoice</ul>
                         </Link>
                     </Accordion.Body>
                 </Accordion.Item>
@@ -84,11 +66,11 @@ export default function LeftNav() {
                             My Properties
                         </Accordion.Header>
                         <Accordion.Body className="elements">
-                            <ul>All Properties</ul>
-                            <ul>Units</ul>
-                            <ul>Users</ul>
-                            <ul>Amenities</ul>
-                            <ul>Staff</ul>
+                            <ul className="navitem">All Properties</ul>
+                            <ul className="navitem">Units</ul>
+                            <ul className="navitem">Users</ul>
+                            <ul className="navitem">Amenities</ul>
+                            <ul className="navitem">Staff</ul>
                         </Accordion.Body>
                     </Accordion.Item>
                 </div>
@@ -102,21 +84,22 @@ export default function LeftNav() {
                         />
                         Payments
                     </Accordion.Header>
-                    <Accordion.Body>
-                        <Link to="/allinvoice">
-                            <ul>All Invoices</ul>
+                    <Accordion.Body className="elements">
+                        <Link to="/allinvoice" className="navlink">
+                            <ul className="navitem">All Invoices</ul>
                         </Link>
-                        <Link to="/createinvoice">
-                            <ul>Create an Invoice</ul>
+                        <Link to="/createinvoice" className="navlink">
+                            <ul className="navitem">Create an Invoice</ul>
                         </Link>
-                        <Link to="/budget">
-                            <ul>Budget</ul>
+                        <Link to="/budget" className="navlink">
+                            <ul className="navitem">Budget</ul>
+                        </Link>
+                        <Link to="/expenses" className="navlink">
+                            <ul className="navitem">Expenses</ul>
                         </Link>
 
-                        <ul>Expenses</ul>
-
-                        <Link to="/reminder">
-                            <ul>Reminder</ul>
+                        <Link to="/reminder" className="navlink">
+                            <ul className="navitem">Reminder</ul>
                         </Link>
                     </Accordion.Body>
                 </Accordion.Item>
@@ -129,33 +112,15 @@ export default function LeftNav() {
                         />
                         Community Notices
                     </Accordion.Header>
-                    <Accordion.Body>
-                        <Link
-                            to="/allposts"
-                            style={{
-                                textDecoration: "none",
-                                color: "black",
-                            }}
-                        >
-                            <ul>All Posts</ul>
+                    <Accordion.Body className="elements">
+                        <Link to="/allposts" className="navlink">
+                            <ul className="navitem">All Posts</ul>
                         </Link>
-                        <Link
-                            to="/createannouncement"
-                            style={{
-                                textDecoration: "none",
-                                color: "black",
-                            }}
-                        >
-                            <ul>Create Announcement</ul>
+                        <Link to="/createannouncement" className="navlink">
+                            <ul className="navitem">Create Announcement</ul>
                         </Link>
-                        <Link
-                            to="/createvent"
-                            style={{
-                                textDecoration: "none",
-                                color: "black",
-                            }}
-                        >
-                            <ul>Create Event</ul>
+                        <Link to="/createvent" className="navlink">
+                            <ul className="navitem">Create Event</ul>
                         </Link>
                     </Accordion.Body>
                 </Accordion.Item>
@@ -169,19 +134,13 @@ export default function LeftNav() {
                             src={VisitorImage}
                             alt="My Properties"
                         />
-                        <Link
-                            to="/visitor"
-                            style={{
-                                textDecoration: "none",
-                                color: "black",
-                            }}
-                        >
+                        <Link to="/visitor" className="navlink">
                             Visitors Management
                         </Link>
                     </div>
                 </div>
 
-                <Accordion.Item eventKey="4">
+                <Accordion.Item eventKey="4" className="upper">
                     <Accordion.Header className="feature">
                         <img
                             style={{ marginRight: "10px" }}
@@ -190,9 +149,9 @@ export default function LeftNav() {
                         />
                         Reports
                     </Accordion.Header>
-                    <Accordion.Body></Accordion.Body>
+                    <Accordion.Body className="elements"></Accordion.Body>
                 </Accordion.Item>
-                <Accordion.Item eventKey="5">
+                <Accordion.Item eventKey="5" className="upper">
                     <Accordion.Header className="feature">
                         <img
                             style={{ marginRight: "10px" }}
@@ -201,7 +160,7 @@ export default function LeftNav() {
                         />
                         Settings
                     </Accordion.Header>
-                    <Accordion.Body></Accordion.Body>
+                    <Accordion.Body className="elements"></Accordion.Body>
                 </Accordion.Item>
             </Accordion>
         </>

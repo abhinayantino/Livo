@@ -41,7 +41,7 @@ const AddBudget = () => {
                         <button className="bcancel">Cancel</button>
                         <button className="bsave">Save</button>
                     </div>
-                </div>  
+                </div>
                 <div className=" f-AddBudget">
                     <div className="d-flex justify-content-between align-items-end mt-4">
                         <SelectInput label="Select Property" placeholder="" />
