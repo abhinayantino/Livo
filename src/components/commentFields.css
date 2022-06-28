@@ -1,0 +1,30 @@
+.usr_dtl {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+.nm {
+    display: flex;
+}
+.nm_tm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.nm h6, .nm p, .role p {
+    margin: 0;
+        
+}
+.role p{
+ margin-left: 10px;
+ font-size: 12px;
+}
+.hexagon{
+    clip-path: polygon(0 0, 13% 4%, 100% 4%, 100% 100%, 3% 100%, 3% 16%);
+    background-color:#FFEEDB;
+    width: 700px;
+    padding:15px 15px 15px 35px;
+    margin:10px 0px 0px 30px ;
+    border-radius: 7px;
+}

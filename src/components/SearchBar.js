@@ -1,18 +1,18 @@
 import React from "react";
 import InputBase from "@mui/material/InputBase";
-import IconButton from "@mui/material/IconButton";
+
 import SearchIcon from "@mui/icons-material/Search";
 export default function SearchBar() {
   return (
     <>
-      <div>
+      <div className="d-flex justify-content-around">
         <SearchIcon
           style={{
             background: "#EFF0F6",
             height: "50px",
-            borderTopLeftRadius: "15px",
-            borderBottomLeftRadius: "15px",
-            width: "40px",
+            borderTopLeftRadius: "4px",
+            borderBottomLeftRadius: "4px",
+            width: "50px",
             padding: "10px",
           }}
         />
@@ -20,9 +20,9 @@ export default function SearchBar() {
           style={{
             background: "#EFF0F6",
             height: "50px",
-            borderTopRightRadius: "15px",
-            borderBottomRightRadius: "15px",
-            width: "500px",
+            borderTopRightRadius: "4px",
+            borderBottomRightRadius: "4px",
+            width: "100%",
           }}
           placeholder="Search"
           inputProps={{ "aria-label": "Search" }}

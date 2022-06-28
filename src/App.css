@@ -86,9 +86,8 @@
   background: #FFE3D2;
 
 }
-
-.feature {
-  margin-top: 3rem;
+.feature{
+  margin-top: 1.5rem;
   /* margin-left: 2.5rem; */
   font-size: 1rem;
   font-weight: 800;
@@ -130,9 +129,7 @@ ul:hover {
   background: black;
 }
 
-.collapsed {}
-
-.upper {
+.upper{
   background-color: #FFE3D2;
   margin-top: -1.5rem;
 }
@@ -149,7 +146,7 @@ ul:hover {
 
 .container {
   max-width: 600px;
-  margin: 6rem auto 4rem;
+  /* margin: 6rem auto 4rem; */
   padding: 0 10px;
 }
 
@@ -211,3 +208,25 @@ ul:hover {
 /* .answer_wrapper.open {
   height: auto;
 } */
+
+
+.elements{
+  padding: 20px 0px 5px 0px !important;
+}
+.navitem{
+  padding: 10px 50px !important;
+  font-weight: 500;
+}
+.upper button:focus{
+  box-shadow: none;
+}
+.upper{
+  border-width: 0px !important;
+}
+.header{
+  width: 350px;
+}
+.navlink{
+  color:black;
+  text-decoration: none;
+}

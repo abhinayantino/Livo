@@ -1,0 +1,49 @@
+.headtitle{
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 10px;
+}
+.urgent{
+    background-color: #FFEAEA;
+    padding:5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color:#C24C4C;
+}
+.gap{
+    column-gap: 15px;
+    margin-top: 10px;
+}
+.assist{
+        font-family: 'Barlow';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+}
+.assign{
+    width: 200px;
+    border-radius: 5px;
+    height: 48px;
+    border: none;
+    color: #DFE0E0;
+
+}
+.paros {
+    box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+    margin: 0px;
+    padding: 0px 8px 0px 8px;
+    border-radius: 4px;
+}
+.description{
+    display: flex;
+    align-items: flex-end;
+    column-gap: 20px;
+}
+.prbtn{
+    width: 120px;
+    height: 48px;
+    border-radius: 12px;
+    border:2px solid #D9DBE9;
+    
+}

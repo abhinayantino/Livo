@@ -111,32 +111,38 @@ export default function PropertyName() {
   //   setComplete(false);
   //   setEditing(false);
   // };
+
+  // const onSubmit = async () => {
+  //   console.log("submitting");
+  //   setComplete(false);
+  //   setEditing(false);
+  // };
   return (
     <>
       <div className="home">
         <div className="Property-top">
-          <div className="details">Add New User</div>
+          <div className="details">User Details</div>
           <div className="properties-button">
             <Button
               className="Button"
               variant="contained"
               color="success"
-              // onClick={() => _ref.current.click()}
-              // onClick={() => SetDisabled(false)}
+              onClick={() => _ref.current.click()}
               style={{
                 border: "1px solid #0C344E",
                 color: "#0C344E",
                 background: "white",
                 width: "80px",
                 height: "48px",
-                marginRight: "1.5rem",
-                marginTop: "-1rem",
-                //   display: !disabled ? "none" : "block",
               }}
             >
-              Cancel
+              Edit
             </Button>
-            <Button
+
+            {/* <Button
+              variant="outline-success"
+              type="submit"
+              disabled={!complete}
               className="Button"
               variant="contained"
               color="success"
@@ -154,93 +160,20 @@ export default function PropertyName() {
             >
               Save
             </Button>
-
-            {/* <div style={{ display: "flex" }}>
-              <Button
-                variant="outline-success"
-                type="submit"
-                // disabled={!complete}
-                className="Button"
-                onClick={() => {
-                  SetDisabled(true);
-                  onSubmit();
-                }}
-                style={{
-                  border: "1px solid #0C344E",
-                  color: "#0C344E",
-                  background: "white",
-                  width: "80px",
-                  height: "48px",
-                  marginLeft: "12px",
-                  display: !disabled ? "block" : "none",
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                variant="outline-danger"
-                type="submit"
-                className="btn"
-                onClick={() => {
-                  SetDisabled(true);
-                }}
-                style={{
-                  border: "1px solid #0C344E",
-                  color: "#0C344E",
-                  background: "white",
-                  width: "80px",
-                  height: "48px",
-                  display: !disabled ? "block" : "none",
-                }}
-              >
-                Save
-              </Button>
-            </div> */}
+            <Button
+              variant="outline-danger"
+              type="submit"
+              className="btn"
+              onClick={() => {
+                setEditing(false);
+              }}
+            >
+              Cancel
+            </Button> */}
           </div>
         </div>
 
-        <ImageDetails images={[]} />
-        <div
-          className="details"
-          style={{ marginTop: "3.5rem", marginBottom: "1rem" }}
-        >
-          User Details
-        </div>
-        <div
-          className="details"
-          style={{
-            marginTop: "-2.2rem",
-            marginBottom: "1rem",
-            display: "flex",
-            flexDirection: "column",
-            marginLeft: "55rem",
-          }}
-        >
-          Attached Documents
-          <Button
-            variant="outline-success"
-            type="submit"
-            // disabled={!complete}
-            className="Button"
-            // onClick={() => {
-            //   SetDisabled(true);
-            //   onSubmit();
-            // }}
-            style={{
-              border: "1px dotted #0C344E",
-              color: "#0C344E",
-              borderRadius: "0.5rem",
-              background: "white",
-              width: "13rem",
-              height: "48px",
-              marginLeft: "0rem",
-              marginTop: "1rem",
-              //   display: !disabled ? "block" : "none",
-            }}
-          >
-            Add Document
-          </Button>
-        </div>
+        <ImageDetails images={[Userimage, Userimage, Userimage]} />
         <Box
           component="form"
           sx={{
@@ -248,15 +181,11 @@ export default function PropertyName() {
           }}
           noValidate
           autoComplete="off"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "-5rem",
-          }}
+          style={{ display: "flex", flexDirection: "column" }}
         >
           <TextField
             id="standard-multiline-flexible"
-            label="Mollak Owner Id"
+            label="User ID"
             multiline
             maxRows={4}
             value={propertyfields.userid}
@@ -268,7 +197,6 @@ export default function PropertyName() {
               fontWeight: 400,
               fontSize: "16px",
               lineHeight: "19px",
-              marginLeft: "-0.1rem",
             }}
           />
           <div>
@@ -288,7 +216,6 @@ export default function PropertyName() {
                 lineHeight: "19px",
                 width: "278px",
                 marginRight: "75px",
-                marginLeft: "-0.1rem",
               }}
             />
             <TextField
@@ -306,7 +233,6 @@ export default function PropertyName() {
                 fontSize: "16px",
                 lineHeight: "19px",
                 width: "278px",
-                marginLeft: "-0.1rem",
               }}
             />
           </div>
@@ -318,7 +244,6 @@ export default function PropertyName() {
             value={propertyfields.usertype}
             onChange={(event) => updatePropertyfields(event, "usertype")}
             variant="standard"
-            style={{ marginLeft: "-0.1rem" }}
           >
             {cities.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -334,7 +259,6 @@ export default function PropertyName() {
             value={propertyfields.nationality}
             onChange={(event) => updatePropertyfields(event, "nationality")}
             variant="standard"
-            style={{ marginLeft: "-0.1rem" }}
           >
             {Nationality.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -357,7 +281,6 @@ export default function PropertyName() {
               fontWeight: 400,
               fontSize: "16px",
               lineHeight: "19px",
-              marginLeft: "-0.1rem",
             }}
           />
 
@@ -375,7 +298,6 @@ export default function PropertyName() {
               fontWeight: 400,
               fontSize: "16px",
               lineHeight: "19px",
-              marginLeft: "-0.1rem",
             }}
           />
 
@@ -393,7 +315,6 @@ export default function PropertyName() {
               fontWeight: 400,
               fontSize: "16px",
               lineHeight: "19px",
-              marginLeft: "-0.1rem",
             }}
           />
           <div>
@@ -404,11 +325,7 @@ export default function PropertyName() {
               label="Ph. "
               onChange={(event) => updatePropertyfields(event, "countryCode")}
               variant="standard"
-              style={{
-                width: "55px",
-                marginRight: "16px",
-                marginLeft: "-0.1rem",
-              }}
+              style={{ width: "55px", marginRight: "16px" }}
             >
               {countrycode.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -419,11 +336,7 @@ export default function PropertyName() {
             <TextField
               id="standard-helperText"
               variant="standard"
-              style={{
-                marginTop: "24px",
-                width: "565px",
-                marginLeft: "-0.1rem",
-              }}
+              style={{ marginTop: "24px", width: "565px" }}
             />
           </div>
         </Box>
