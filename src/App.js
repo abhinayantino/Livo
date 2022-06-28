@@ -23,6 +23,7 @@ import Reminder from "./Payment/Reminder/index";
 import Budget from "./Payment/Budget/index";
 import AddBudget from "./Payment/Budget/AddBudget/index.jsx";
 import EditBudget from "./Payment/Budget/BudgetDetail/index.jsx";
+import Dashboard from "./DashBoard/index";
 
 function App() {
     return (
@@ -78,6 +79,7 @@ function App() {
                 <Route path="/budget" element={<Budget />}></Route>
                 <Route path="/addbudget" element={<AddBudget />}></Route>
                 <Route path="budgetdetail" element={<EditBudget />}></Route>
+                <Route path="/dashboard" element={<Dashboard />}></Route>
             </Routes>
         </BrowserRouter>
     );

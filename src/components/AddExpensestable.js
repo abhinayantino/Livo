@@ -113,11 +113,14 @@ export default function AddExpensestable({ placeholder, data }) {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Pagination
-                style={{ margin: "10px", float: "right" }}
-                count={10}
-                shape="rounded"
-            />
+            <div className="d-flex justify-content-between">
+                <p>ghghgkjjhf</p>
+                <Pagination
+                    style={{ margin: "10px", float: "right" }}
+                    count={10}
+                    shape="rounded"
+                />
+            </div>
         </>
     );
 }
