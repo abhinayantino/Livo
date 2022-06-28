@@ -121,28 +121,28 @@ export default function AllRequesttable() {
                 <Table sx={{}} aria-label="simple table">
                     <TableHead className="thead">
                         <TableRow>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Request ID
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Urgency
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Unit No.
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Request Type
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Category
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Request Status
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Staff Assigned
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 User Name
                             </TableCell>
                         </TableRow>

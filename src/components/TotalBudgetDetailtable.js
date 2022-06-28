@@ -95,43 +95,43 @@ export default function TotalBudgetDetailtable({ placeholder }) {
                 <Table sx={{}} aria-label="simple table">
                     <TableHead className="thead">
                         <TableRow>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Total
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Jan
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Feb
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Mar
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Apr
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 May
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Jun
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 July
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Aug
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Sep
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Oct
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Nov
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Dec
                             </TableCell>
                         </TableRow>

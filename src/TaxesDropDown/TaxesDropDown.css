@@ -1,0 +1,24 @@
+.taxes--drop{
+    align-items: center;
+    margin-top: 10rem;
+    margin-left: 35rem;
+    width: 63.6rem;
+}
+
+.taxes--checkbox--options{
+    
+}
+
+.taxes--heading--text{
+    margin-right: 15rem;
+    font-family: 'Barlow';
+}
+.taxes--heading{
+    display: flex;
+    flex-direction: row;
+}
+
+.taxes--checkbox{
+    display: flex;
+    flex-direction: column;
+}

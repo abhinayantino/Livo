@@ -1,0 +1,30 @@
+.details {
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+h2 {
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.Property-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.Button {
+
+    margin-right: auto;
+    order: 2;
+    border: 1px solid #0C344E;
+    box-sizing: border-box;
+    border-radius: 16px;
+}

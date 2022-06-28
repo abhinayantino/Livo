@@ -12,21 +12,14 @@ import ReportsImage from "../assets/Reports.svg";
 import SettingsImage from "../assets/settings.svg";
 import ServicesImage from "../assets/servicerequest.svg";
 import { Link } from "react-router-dom";
-import "../App.css";
+
 export default function LeftNav() {
   return (
     <>
-      <Accordion
-        className="header"
-        style={{ width: "20rem", marginTop: "-2rem" }}
-      >
+      <Accordion className="header">
         <div
           className="feature"
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            marginTop: "6rem",
-          }}
+          style={{ display: "flex", flexDirection: "row" }}
         >
           <div style={{ marginLeft: "1.5rem" }}>
             <img
@@ -37,17 +30,12 @@ export default function LeftNav() {
             Dashboard
           </div>
         </div>
+
         <div
           className="feature "
-          style={{
-            display: "flex",
-            flexDirection: "row",
-          }}
+          style={{ display: "flex", flexDirection: "row" }}
         >
-          <Accordion.Item
-            eventKey="1"
-            className="upper border border-0 border-dark"
-          >
+          <Accordion.Item eventKey="1" className="upper">
             <Accordion.Header>
               <img
                 style={{ marginRight: "10px" }}
@@ -57,35 +45,72 @@ export default function LeftNav() {
               My Properties
             </Accordion.Header>
             <Accordion.Body className="elements">
-              <ul>All Properties</ul>
-              <ul>Units</ul>
-              <ul>Users</ul>
-              <ul>Amenities</ul>
-              <ul>Staff</ul>
+              <Link
+                to="/"
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                <ul>All Properties</ul>
+              </Link>
+              <Link
+                to="/units"
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                <ul>Units</ul>
+              </Link>
+              <Link
+                to="/user"
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                <ul>Users</ul>
+              </Link>
+              {/* <Link
+                to="/aminities"
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                <ul>Amenities</ul>
+              </Link> */}
+              {/* <Link
+                to="/staff"
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                <ul>Staff</ul>
+              </Link> */}
             </Accordion.Body>
           </Accordion.Item>
         </div>
+        <div className="feature" style={{ marginLeft: "1rem" }}>
+          <img
+            style={{ marginRight: "10px" }}
+            src={VisitorImage}
+            alt="My Properties"
+          />
+          <Link
+            to="/visitor"
+            style={{
+              textDecoration: "none",
+              color: "black",
+            }}
+          >
+            Visitors Management
+          </Link>
+        </div>
 
-        <Accordion.Item
-          eventKey="2"
-          className="upper border border-0 border-dark"
-          style={{ marginTop: "-2.5rem" }}
-        >
-          <Accordion.Header className="feature">
-            <img
-              style={{ marginRight: "10px" }}
-              src={PaymentsImage}
-              alt="My Properties"
-            />
-            Payments
-          </Accordion.Header>
-          <Accordion.Body></Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item
-          eventKey="3"
-          className="upper"
-          style={{ marginTop: "-2.5rem" }}
-        >
+        <Accordion.Item eventKey="3" className="upper">
           <Accordion.Header className="feature">
             <img
               style={{ marginRight: "10px" }}
@@ -94,31 +119,87 @@ export default function LeftNav() {
             />
             Community Notices
           </Accordion.Header>
-          <Accordion.Body></Accordion.Body>
+          <Accordion.Body>
+            <Link
+              to="/allposts"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>All Posts</ul>
+            </Link>
+            <Link
+              to="/createannouncement"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Create Announcement</ul>
+            </Link>
+            <Link
+              to="/createvent"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Create Event</ul>
+            </Link>
+          </Accordion.Body>
         </Accordion.Item>
-        <div
-          className="feature"
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            marginTop: "-1.5rem",
-          }}
-        >
-          <div className="feature" style={{ marginLeft: "1rem" }}>
+        <Accordion.Item eventKey="2" className="upper">
+          <Accordion.Header className="feature">
             <img
               style={{ marginRight: "10px" }}
-              src={VisitorImage}
+              src={PaymentsImage}
               alt="My Properties"
             />
-            Visitors Management
-          </div>
-        </div>
+            Payments
+          </Accordion.Header>
+          <Accordion.Body>
+            <Link
+              to="/allinvoice"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>All Invoices</ul>
+            </Link>
+            <Link
+              to="/createinvoice"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Create an Invoice</ul>
+            </Link>
+            <Link
+              to="/budget"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Budget</ul>
+            </Link>
+            <ul>Expenses</ul>
+            <Link
+              to="/reminder"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Reminder</ul>
+            </Link>
+          </Accordion.Body>
+        </Accordion.Item>
 
-        <Accordion.Item
-          eventKey="4"
-          style={{ marginTop: "-1.5rem" }}
-          className="border border-0 border-dark"
-        >
+        <Accordion.Item eventKey="4">
           <Accordion.Header className="feature">
             <img
               style={{ marginRight: "10px" }}
@@ -129,11 +210,8 @@ export default function LeftNav() {
           </Accordion.Header>
           <Accordion.Body></Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item
-          eventKey="5"
-          style={{ marginTop: "-2rem" }}
-          className="border border-0 border-dark"
-        >
+
+        <Accordion.Item eventKey="5">
           <Accordion.Header className="feature">
             <img
               style={{ marginRight: "10px" }}
@@ -142,7 +220,35 @@ export default function LeftNav() {
             />
             Settings
           </Accordion.Header>
-          <Accordion.Body></Accordion.Body>
+          <Accordion.Body>
+            <Link
+              to="/profile"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Profile</ul>
+            </Link>
+            <Link
+              to="/preferences"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Preferences</ul>
+            </Link>
+            <Link
+              to="/notification"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Notifications</ul>
+            </Link>
+          </Accordion.Body>
         </Accordion.Item>
       </Accordion>
     </>

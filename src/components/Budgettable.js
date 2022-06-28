@@ -112,25 +112,25 @@ export default function BudgetTable() {
                 <Table sx={{}} aria-label="simple table">
                     <TableHead className="thead">
                         <TableRow>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Budget Name
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Property
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Fiscal Year
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Start Date
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 End Date
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Total Income
                             </TableCell>
-                            <TableCell align="center" className="Sbold">
+                            <TableCell align="center" className="bold">
                                 Total Expense
                             </TableCell>
                         </TableRow>

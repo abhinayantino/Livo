@@ -4,8 +4,8 @@
     width:100%;
 }
 
-.Sbold{
-    font-weight: 700 !important;
+.bold{
+    font-weight: bold;
 }
 .bgurgent{
     background-color: #FFEAEA;

@@ -4,6 +4,7 @@ import AllProperties from "./AllProperties/index";
 import Units from "./Units";
 import PropertyName from "./PropertyName";
 import MyProfile from "./MyProfile";
+import Preferences from "./Preferences";
 import User from "./User";
 import AddUser from "./AddUser";
 import VisitorManagement from "./VisitorManagement";
@@ -31,6 +32,10 @@ import Reminder from "./Payment/Reminder/index";
 import Budget from "./Payment/Budget/index";
 import AddBudget from "./Payment/Budget/AddBudget/index.jsx";
 import EditBudget from "./Payment/Budget/BudgetDetail/index.jsx";
+import ExpenseDetails from "./Payment/ExpensesDetails/index";
+import TaxesDropDown from "./TaxesDropDown/TaxesDropDown";
+import Notification from "./Notification";
+import Login from "./login/index";
 
 function App() {
   return (
@@ -42,6 +47,9 @@ function App() {
         <Route path="/editunitdetail" element={<EditUnitDetail />}></Route>
         <Route path="/property" element={<PropertyName />}></Route>
         <Route path="/profile" element={<MyProfile />}></Route>
+        <Route path="/preferences" element={<Preferences />}></Route>
+        <Route path="/taxesdropdown" element={<TaxesDropDown />}></Route>
+        <Route path="/notification" element={<Notification />}></Route>
         <Route path="/addnewproperty" element={<AddNewProperty />}></Route>
         <Route path="/editproperty" element={<EditProperty />}></Route>
         <Route path="/user" element={<User />}></Route>
@@ -50,6 +58,7 @@ function App() {
         <Route path="/edituserdetail" element={<EditUserDetail />}></Route>
         <Route path="/aminities" element={<Aminities />}></Route>
         <Route path="/visitor" element={<VisitorManagement />}></Route>
+        <Route path="/property" element={<PropertyName />}></Route>
         <Route path="/allposts" element={<AllPosts />}></Route>
         <Route path="/reportedpost" element={<ReportedPostMain />}></Route>
         <Route
@@ -78,10 +87,11 @@ function App() {
         <Route path="/reminder" element={<Reminder />}></Route>
         <Route path="/budget" element={<Budget />}></Route>
         <Route path="/addbudget" element={<AddBudget />}></Route>
-        <Route path="budgetdetail" element={<EditBudget />}></Route>
+        <Route path="/budgetdetail" element={<EditBudget />}></Route>
+        <Route path="/expensesdetails" element={<ExpenseDetails />}></Route>
+        <Route path="/login" element={<Login />}></Route>
       </Routes>
     </BrowserRouter>
   );
 }
-
 export default App;

@@ -1,0 +1,7 @@
+.service-options{
+    display: flex;
+    flex-direction: row;
+}
+.service-options-text{
+    margin-left: 20px;
+}
