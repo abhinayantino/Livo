@@ -3,6 +3,7 @@ import React from "react";
 import { useRef, useState, useEffect, useContext } from "react";
 import AuthContext from "./AuthProvider";
 import "./index.css";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const { setAuth, auth } = useContext(AuthContext);
@@ -56,17 +57,10 @@ const Login = () => {
       errRef.current.focus();
     }
   };
-  console.log(auth, "abc");
   return (
     <>
       {success ? (
-        <section>
-          <h1>You are logged in!</h1>
-          <br />
-          <p>
-            <a href="#">Go to Home</a>
-          </p>
-        </section>
+        <Navigate to="/dashboard" />
       ) : (
         <section>
           <p

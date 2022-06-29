@@ -1,0 +1,81 @@
+.d-addfilter {
+    width: 130px;
+    height: 48px;
+    background-color: white;
+    border: 1px solid #0C344E;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+.card {
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    box-shadow: 0px 3px 9px rgba(112, 112, 112, 0.22);
+    border-radius: 12px;
+}
+
+.card-increse {
+    width: 330px;
+    height: 280px;
+    background-color: white;
+    box-shadow: 0px 3px 9px rgba(112, 112, 112, 0.22);
+    border-radius: 12px;
+}
+
+.c-dinfo {
+    font-size: 14px;
+    color: #727272;
+}
+
+.info {
+    width: 150px;
+}
+
+.card-title {
+    font-size: 18px;
+    color: #727272;
+}
+
+.loader,
+.loader:after {
+    border-radius: 50%;
+    width: 15em;
+    height: 15em;
+}
+
+.loader {
+    font-size: 10px;
+    position: relative;
+    border-top: 1.1em solid #96F9C2;
+    border-right: 1.1em solid #96F9C2;
+    border-bottom: 1.1em solid #96F9C2;
+    border-left: 1.1em solid #F1B2B2;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load8 1.1s infinite linear;
+    animation: load8 1.1s infinite linear;
+    padding-top: 40px;
+}
+
+/* @-webkit-keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+} */

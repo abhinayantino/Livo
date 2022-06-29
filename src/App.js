@@ -36,12 +36,13 @@ import ExpenseDetails from "./Payment/ExpensesDetails/index";
 import TaxesDropDown from "./TaxesDropDown/TaxesDropDown";
 import Notification from "./Notification";
 import Login from "./login/index";
+import Dashboard from "./Dashboard/index";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AllProperties />}></Route>
+        <Route path="/allproperties" element={<AllProperties />}></Route>
         <Route path="/units" element={<Units />}></Route>
         <Route path="/unitdetail" element={<UnitDetail />}></Route>
         <Route path="/editunitdetail" element={<EditUnitDetail />}></Route>
@@ -89,7 +90,8 @@ function App() {
         <Route path="/addbudget" element={<AddBudget />}></Route>
         <Route path="/budgetdetail" element={<EditBudget />}></Route>
         <Route path="/expensesdetails" element={<ExpenseDetails />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/" element={<Login />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
       </Routes>
     </BrowserRouter>
   );

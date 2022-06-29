@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Accordion } from "react-bootstrap";
+import "../App.css";
 
 // import NotificationImage from "../assets/notification.svg";
 import DashboardImage from "../assets/Dashboard.svg";
@@ -21,13 +22,22 @@ export default function LeftNav() {
           className="feature"
           style={{ display: "flex", flexDirection: "row" }}
         >
-          <div style={{ marginLeft: "1.5rem" }}>
+          <div style={{ margin: "1.5rem" }}>
             <img
               style={{ marginRight: "10px" }}
               src={DashboardImage}
               alt="My Properties"
             />
-            Dashboard
+            <Link
+              to="/dashboard"
+              className="l-dashboard"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              Dashboard
+            </Link>
           </div>
         </div>
 
@@ -109,7 +119,45 @@ export default function LeftNav() {
             Visitors Management
           </Link>
         </div>
-
+        <Accordion.Item eventKey="6" className="upper">
+          <Accordion.Header className="feature">
+            <img
+              style={{ marginRight: "10px" }}
+              src={ServicesImage}
+              alt="My Properties"
+            />
+            Service Request
+          </Accordion.Header>
+          <Accordion.Body>
+            <Link
+              to="/allrequest"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>All Requests</ul>
+            </Link>
+            <Link
+              to="/generateinvoice"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Generate Invoice</ul>
+            </Link>
+            <Link
+              to="/chargescatalouge"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Charges Catalouge</ul>
+            </Link>
+          </Accordion.Body>
+        </Accordion.Item>
         <Accordion.Item eventKey="3" className="upper">
           <Accordion.Header className="feature">
             <img
