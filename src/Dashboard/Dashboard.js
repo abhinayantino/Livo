@@ -66,26 +66,32 @@ const Dashboard = () => {
                     <div className="card card-increse">
                         <div className="card-body">
                             <h6 className="card-title">Properties Overview</h6>
-                            <div className="d-flex justify-content-between flex-wrap mt-3">
-                                <div className="info">
-                                    <div className="loader">
-                                        <div className="d-flex justify-content-center  align-items-center flex-column mt-">
-                                            <h5>12%</h5>
-                                            <p>Collected</p>
+                            <div className="mt-3">
+                                <div className="d-flex justify-content-between">
+                                    <div className="info">
+                                        <div className="loader">
+                                            <div className="d-flex justify-content-center  align-items-center flex-column mt-">
+                                                <h5>12%</h5>
+                                                <p>Collected</p>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div>
+                                        <h5>200000</h5>
+                                        <p className="c-dinfo">Pending</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h2>200000</h2>
-                                    <p className="c-dinfo">Pending</p>
-                                </div>
-                                <div className="mt-1">
-                                    <h2>100000</h2>
-                                    <p className="c-dinfo">Total Payable</p>
-                                </div>
-                                <div className="mt-1">
-                                    <h2>157587</h2>
-                                    <p className="c-dinfo">Total Collected</p>
+                                <div className="d-flex justify-content-between">
+                                    <div>
+                                        <h5>100000</h5>
+                                        <p className="c-dinfo">Total Payable</p>
+                                    </div>
+                                    <div className="mt-1">
+                                        <h5>157587</h5>
+                                        <p className="c-dinfo">
+                                            Total Collected
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -93,18 +99,28 @@ const Dashboard = () => {
                     <div className="card">
                         <div className="card-body">
                             <h6 className="card-title">Properties Overview</h6>
-                            <div className="d-flex justify-content-between flex-wrap mt-3">
-                                <div className="info">
-                                    <h2>05</h2>
-                                    <p className="c-dinfo">Total Properties</p>
+                            <div className="mt-3">
+                                <div className="d-flex justify-content-between">
+                                    <div>
+                                        <h5>254</h5>
+                                        <p className="c-dinfo">Pending</p>
+                                    </div>
+                                    <div>
+                                        <h5>200000</h5>
+                                        <p className="c-dinfo">Pending</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h2>265</h2>
-                                    <p className="c-dinfo">Total Units</p>
-                                </div>
-                                <div>
-                                    <h2>465</h2>
-                                    <p className="c-dinfo">Total Residents</p>
+                                <div className="d-flex justify-content-between">
+                                    <div>
+                                        <h5>100000</h5>
+                                        <p className="c-dinfo">Total Payable</p>
+                                    </div>
+                                    <div className="mt-1">
+                                        <h5>157587</h5>
+                                        <p className="c-dinfo">
+                                            Total Collected
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -112,22 +128,28 @@ const Dashboard = () => {
                     <div className="card">
                         <div className="card-body">
                             <h6 className="card-title">User Overview</h6>
-                            <div className="d-flex justify-content-between flex-wrap mt-3">
-                                <div className="info">
-                                    <h2>05</h2>
-                                    <p className="c-dinfo">Total Units</p>
+                            <div className="mt-3">
+                                <div className="d-flex justify-content-between">
+                                    <div>
+                                        <h5>254</h5>
+                                        <p className="c-dinfo">Pending</p>
+                                    </div>
+                                    <div>
+                                        <h5>200000</h5>
+                                        <p className="c-dinfo">Pending</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h2>265</h2>
-                                    <p className="c-dinfo">Occupied</p>
-                                </div>
-                                <div>
-                                    <h2>465</h2>
-                                    <p className="c-dinfo">Total Residents</p>
-                                </div>
-                                <div>
-                                    <h2>465</h2>
-                                    <p className="c-dinfo">Tenants</p>
+                                <div className="d-flex justify-content-between">
+                                    <div>
+                                        <h5>100000</h5>
+                                        <p className="c-dinfo">Total Payable</p>
+                                    </div>
+                                    <div className="mt-1">
+                                        <h5>157587</h5>
+                                        <p className="c-dinfo">
+                                            Total Collected
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -135,14 +157,16 @@ const Dashboard = () => {
                     <div className="card">
                         <div className="card-body">
                             <h6 className="card-title">Visitor Management</h6>
-                            <div className="d-flex justify-content-between flex-wrap mt-3">
-                                <div className="info">
-                                    <h2>05</h2>
-                                    <p className="c-dinfo">Total Move In</p>
-                                </div>
-                                <div>
-                                    <h2>265</h2>
-                                    <p className="c-dinfo">Total Move outs</p>
+                            <div className="mt-3">
+                                <div className="d-flex justify-content-between">
+                                    <div>
+                                        <h5>254</h5>
+                                        <p className="c-dinfo">Pending</p>
+                                    </div>
+                                    <div>
+                                        <h5>200000</h5>
+                                        <p className="c-dinfo">Pending</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -152,18 +176,22 @@ const Dashboard = () => {
                             <h6 className="card-title">
                                 Expenses Overview (AED)
                             </h6>
-                            <div className="d-flex justify-content-between flex-wrap mt-3">
-                                <div className="info">
-                                    <h2>05</h2>
-                                    <p className="c-dinfo">Total Properties</p>
+                            <div className="mt-3">
+                                <div className="d-flex justify-content-between">
+                                    <div>
+                                        <h5>254</h5>
+                                        <p className="c-dinfo">Pending</p>
+                                    </div>
+                                    <div>
+                                        <h5>200000</h5>
+                                        <p className="c-dinfo">Pending</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h2>265</h2>
-                                    <p className="c-dinfo">Total Paid</p>
-                                </div>
-                                <div>
-                                    <h2>465</h2>
-                                    <p className="c-dinfo">Total Due</p>
+                                <div className="d-flex justify-content-between">
+                                    <div>
+                                        <h5>100000</h5>
+                                        <p className="c-dinfo">Total Payable</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -171,18 +199,23 @@ const Dashboard = () => {
                     <div className="card">
                         <div className="card-body">
                             <h6 className="card-title">User Overview</h6>
-                            <div className="d-flex justify-content-between flex-wrap mt-3">
-                                <div className="info">
-                                    <h2>05</h2>
-                                    <p className="c-dinfo">Active User</p>
+                            <div className="mt-3">
+                                <div className="d-flex justify-content-between">
+                                    <div>
+                                        <h5>254</h5>
+                                        <p className="c-dinfo">Pending</p>
+                                    </div>
+                                    <div>
+                                        <h5>200000</h5>
+                                        <p className="c-dinfo">Pending</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h2>265</h2>
-                                    <p className="c-dinfo">Inactive User</p>
-                                </div>
-                                <div>
-                                    <h2>465</h2>
-                                    <p className="c-dinfo">Total User</p>
+                                <div className="d-flex justify-content-between">
+                                    <div>
+                                        <h5>100000</h5>
+                                        <p className="c-dinfo">Total Payable</p>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

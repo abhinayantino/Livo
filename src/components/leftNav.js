@@ -21,14 +21,16 @@ export default function LeftNav() {
                     className="feature"
                     style={{ display: "flex", flexDirection: "row" }}
                 >
-                    <div style={{ margin: "1.5rem" }}>
-                        <img
-                            style={{ marginRight: "10px" }}
-                            src={DashboardImage}
-                            alt="My Properties"
-                        />
-                        Dashboard
-                    </div>
+                    <Link to="/dashboard" className="l-dashboard">
+                        <div style={{ margin: "1.5rem" }}>
+                            <img
+                                style={{ marginRight: "10px" }}
+                                src={DashboardImage}
+                                alt="My Properties"
+                            />
+                            Dashboard
+                        </div>
+                    </Link>
                 </div>
                 <Accordion.Item eventKey="8" className="upper">
                     <Accordion.Header>
