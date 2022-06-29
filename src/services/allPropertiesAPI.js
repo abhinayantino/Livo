@@ -27,3 +27,7 @@ export const AllUserAPI = async () => {
   const resp = await axiosClient.get(`${BASE_URL}/master-users`);
   return resp;
 };
+export const AllUnitAPI = async () => {
+  const resp = await axiosClient.get(`${BASE_URL}/flats/admin`);
+  return resp;
+};

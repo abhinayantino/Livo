@@ -5,7 +5,7 @@ import AuthContext from "./AuthProvider";
 import "./index.css";
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth, auth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
@@ -28,17 +28,18 @@ const Login = () => {
     try {
       const response = await axios.post(
         `http://18.117.40.59/api/v1/admins/login`,
-        JSON.stringify({ username, password }),
         {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
+          username,
+          password,
         }
       );
       console.log(JSON.stringify(response?.data));
       //console.log(JSON.stringify(response));
-      const accessToken = response?.data?.token;
+      const accessToken = response?.data?.data?.token;
       const roles = response?.data?.a_t;
-      setAuth({ username, password, roles, accessToken });
+      setAuth({ username, password, accessToken, roles });
+
+      localStorage.setItem("accessToken", accessToken);
       setUsername("");
       setPassword("");
       setSuccess(true);
@@ -55,6 +56,7 @@ const Login = () => {
       errRef.current.focus();
     }
   };
+  console.log(auth, "abc");
   return (
     <>
       {success ? (

@@ -8,6 +8,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { AllUnitAPI } from "../services/allPropertiesAPI";
 
 function createData(
   unitno,
@@ -150,36 +152,55 @@ const rows = [
 ];
 
 export default function UserTable() {
+  const [units, setUnit] = useState([]);
+  const header = [
+    "Name",
+    "اسم",
+    "floor",
+    "size",
+    "Bedroom",
+    "Bathroom",
+    "Villa",
+  ];
+  useEffect(() => {
+    AllUnitAPI().then((response) => {
+      setUnit(response.data.data.rows);
+    });
+  }, []);
   return (
     <>
       <TableContainer component={Paper}>
         <Table sx={{}} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="center">Unit No</TableCell>
-              <TableCell align="center">Floor No.</TableCell>
-              <TableCell align="center">Unit Category</TableCell>
-              <TableCell align="center">Status</TableCell>
-              <TableCell align="center">Contact From</TableCell>
-              <TableCell align="center">Contact To</TableCell>
-              <TableCell align="center">Property Mollak ID</TableCell>
+              {header.map((h) => (
+                <TableCell
+                  align="center"
+                  className="fw-bold"
+                  style={{
+                    backgroundColor: "#FFF7F3",
+                  }}
+                >
+                  {h}
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {units.map((row) => (
               <TableRow
                 key={row.name}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="center">
-                  <Link to="/unitdetail">{row.unitno}</Link>
+                  <Link to="/unitdetail">{row.name_en}</Link>
                 </TableCell>
-                <TableCell align="center">{row.floorno}</TableCell>
-                <TableCell align="center">{row.unitcat}</TableCell>
-                <TableCell align="center">{row.status}</TableCell>
-                <TableCell align="center">{row.contractfrom}</TableCell>
-                <TableCell align="center">{row.contractto}</TableCell>
-                <TableCell align="center">{row.propertyMollakID}</TableCell>
+                <TableCell align="center">{row.name_ar}</TableCell>
+                <TableCell align="center">{row.floor}</TableCell>
+                <TableCell align="center">{row.size}</TableCell>
+                {/* <TableCell align="center">{row.flatInfo.bedroom}</TableCell>
+                <TableCell align="center">{row.flatInfo.bathroom}</TableCell> */}
+                <TableCell align="center">{row.isVilla}</TableCell>
               </TableRow>
             ))}
           </TableBody>

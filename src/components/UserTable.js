@@ -12,196 +12,12 @@ import { AllUserAPI } from "../services/allPropertiesAPI";
 import { useEffect } from "react";
 import { useState } from "react";
 
-function createData(
-  Userid,
-  firstName,
-  lastName,
-  userType,
-  unitNumber,
-  Nationality,
-  contactNumber,
-  EmailID
-) {
-  return {
-    Userid,
-    firstName,
-    lastName,
-    userType,
-    unitNumber,
-    Nationality,
-    contactNumber,
-    EmailID,
-  };
-}
-
-const rows = [
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-  createData(
-    "ID Number",
-    "First Name",
-    "Last Name",
-    "Owner",
-    "AH-123",
-    "Nationality",
-    9876543210,
-    "email@email"
-  ),
-];
-
 export default function UserTable() {
   const [users, setUsers] = useState([]);
-  const header = [
-    "User ID",
-    "First Name",
-    "Last Name",
-    "User Type",
-    "Unit Number",
-    "Nationality",
-    "ContactNumber",
-    "Email ID",
-  ];
+  const header = ["Name", "Email ID", "Country-Code", "Mobile Number"];
   useEffect(() => {
     AllUserAPI().then((response) => {
-      setUsers(response.data.rows);
+      setUsers(response.data.data.rows);
     });
   }, []);
 
@@ -223,57 +39,9 @@ export default function UserTable() {
                 </TableCell>
               ))}
             </TableRow>
-            {/* <TableRow>
-                            <TableCell
-                                align="center"
-                                className="bg-success fw-bold"
-
-                            >
-                                User ID
-                            </TableCell>
-                            <TableCell
-                                className="bg-success fw-bold"
-                                align="center"
-                            >
-                                First Name
-                            </TableCell>
-                            <TableCell
-                                className="bg-success fw-bold"
-                                align="center"
-                            >
-                                Last Name
-                            </TableCell>
-                            <TableCell
-                                className="bg-success fw-bold"
-                                align="center"
-                            >
-                                User Type
-                            </TableCell>
-                            <TableCell className="fw-bold" align="center">
-                                Unit Number
-                            </TableCell>
-                            <TableCell
-                                className="bg-success fw-bold"
-                                align="center"
-                            >
-                                Nationality
-                            </TableCell>
-                            <TableCell
-                                className="bg-success fw-bold"
-                                align="center"
-                            >
-                                Contact Detail
-                            </TableCell>
-                            <TableCell
-                                className="bg-success fw-bold"
-                                align="center"
-                            >
-                                E-mail ID
-                            </TableCell>
-                        </TableRow> */}
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {users.map((row) => (
               <TableRow
                 key={row.name}
                 sx={{
@@ -283,15 +51,11 @@ export default function UserTable() {
                 }}
               >
                 <TableCell align="center">
-                  <Link to="/userdetail">{users.id}</Link>
+                  <Link to="/userdetail">{row.name}</Link>
                 </TableCell>
-                <TableCell align="center">{row.firstName}</TableCell>
-                <TableCell align="center">{row.lastName}</TableCell>
-                <TableCell align="center">{row.userType}</TableCell>
-                <TableCell align="center">{row.unitNumber}</TableCell>
-                <TableCell align="center">{row.Nationality}</TableCell>
-                <TableCell align="center">{row.contactNumber}</TableCell>
-                <TableCell align="center">{row.EmailID}</TableCell>
+                <TableCell align="center">{row.email}</TableCell>
+                <TableCell align="center">{row.countryCode}</TableCell>
+                <TableCell align="center">{row.mobileNumber}</TableCell>
               </TableRow>
             ))}
           </TableBody>

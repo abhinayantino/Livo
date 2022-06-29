@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AllProperties from "./AllProperties/index";
-import Units from "./Units";
+import Units from "./Units/index";
 import PropertyName from "./PropertyName";
 import MyProfile from "./MyProfile";
 import Preferences from "./Preferences";
