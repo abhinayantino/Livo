@@ -202,9 +202,13 @@ ul:hover{
   border-width: 0px !important;
 }
 .header{
-  width: 350px;
+  width: 328px;
 }
 .navlink{
   color:black;
   text-decoration: none;
+}
+.l-dashboard{
+  text-decoration: none;
+  color: black;
 }

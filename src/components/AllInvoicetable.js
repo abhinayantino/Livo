@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,6 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
+import { getAllInvoice } from "../services/paymentApi";
 import "./AllRequesttable.css";
 function createData(
     InvoiceNo,
@@ -116,6 +117,15 @@ const rows = [
 ];
 
 export default function AllInvoicetable() {
+    const [invoice, setInvoice] = React.useState([]);
+
+    const AllInvoice = async () => {
+        const resp = await getAllInvoice();
+        setInvoice(resp.data.data.rows);
+    };
+    useEffect(() => {
+        AllInvoice();
+    }, []);
     return (
         <>
             <TableContainer component={Paper}>
@@ -149,7 +159,7 @@ export default function AllInvoicetable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {invoice.map((row) => (
                             <TableRow
                                 key={row.name}
                                 sx={{

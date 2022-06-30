@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,13 +8,13 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
+import { getAllRequests } from "../services/allServisesApi";
 import "./AllRequesttable.css";
 function createData(
     RequestID,
     Urgency,
     unitNo,
     RequestType,
-    Category,
     RequestStatus,
     StaffAssigned,
     UserName
@@ -24,97 +24,106 @@ function createData(
         Urgency,
         unitNo,
         RequestType,
-        Category,
         RequestStatus,
         StaffAssigned,
         UserName,
     };
 }
 
-const rows = [
-    createData(
-        "000123456",
-        "Urgen",
-        "123",
-        "Request Type",
-        "Accomodation",
-        "In Process",
-        "Yes",
-        "Inzamamul Haq"
-    ),
-    createData(
-        "00002673",
-        "",
-        "123",
-        "Maintenance",
-        "Plumbing",
-        "Plumbing",
-        "No",
-        "Faiz Abdullah"
-    ),
-    createData(
-        "243453455",
-        "urgent",
-        "123",
-        "Other Charges",
-        "Electrical",
-        "Pending",
-        "yes",
-        "Inzamamul Haq"
-    ),
-    createData(
-        "355536464",
-        "Urgent",
-        "123",
-        "Individual",
-        "Other",
-        "Complted",
-        "Yes",
-        "Inzamamul Haq"
-    ),
-    createData(
-        "3454636",
-        "",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "1 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Guest",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "2 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Courier",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "1 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-    createData(
-        "Guest",
-        "Visitor Name",
-        "123",
-        "9876543210",
-        "02 Feb.,2022",
-        "2 Day",
-        "00:00AM",
-        "00:00AM"
-    ),
-];
+// const rows = [
+//     createData(
+//         "000123456",
+//         "Urgen",
+//         "123",
+//         "Request Type",
+//         "Accomodation",
+//         "In Process",
+//         "Yes",
+//         "Inzamamul Haq"
+//     ),
+//     createData(
+//         "00002673",
+//         "",
+//         "123",
+//         "Maintenance",
+//         "Plumbing",
+//         "Plumbing",
+//         "No",
+//         "Faiz Abdullah"
+//     ),
+//     createData(
+//         "243453455",
+//         "urgent",
+//         "123",
+//         "Other Charges",
+//         "Electrical",
+//         "Pending",
+//         "yes",
+//         "Inzamamul Haq"
+//     ),
+//     createData(
+//         "355536464",
+//         "Urgent",
+//         "123",
+//         "Individual",
+//         "Other",
+//         "Complted",
+//         "Yes",
+//         "Inzamamul Haq"
+//     ),
+//     createData(
+//         "3454636",
+//         "",
+//         "123",
+//         "9876543210",
+//         "02 Feb.,2022",
+//         "1 Day",
+//         "00:00AM",
+//         "00:00AM"
+//     ),
+//     createData(
+//         "Guest",
+//         "Visitor Name",
+//         "123",
+//         "9876543210",
+//         "02 Feb.,2022",
+//         "2 Day",
+//         "00:00AM",
+//         "00:00AM"
+//     ),
+//     createData(
+//         "Courier",
+//         "Visitor Name",
+//         "123",
+//         "9876543210",
+//         "02 Feb.,2022",
+//         "1 Day",
+//         "00:00AM",
+//         "00:00AM"
+//     ),
+//     createData(
+//         "Guest",
+//         "Visitor Name",
+//         "123",
+//         "9876543210",
+//         "02 Feb.,2022",
+//         "2 Day",
+//         "00:00AM",
+//         "00:00AM"
+//     ),
+// ];
 
 export default function AllRequesttable() {
+    const [requests, setRequests] = useState([]);
+
+    const allRequestData = async () => {
+        const resp = await getAllRequests();
+        setRequests(resp.data.data.rows);
+    };
+    useEffect(() => {
+        allRequestData();
+    }, []);
+
     return (
         <>
             <TableContainer component={Paper}>
@@ -134,9 +143,6 @@ export default function AllRequesttable() {
                                 Request Type
                             </TableCell>
                             <TableCell align="center" className="Sbold">
-                                Category
-                            </TableCell>
-                            <TableCell align="center" className="Sbold">
                                 Request Status
                             </TableCell>
                             <TableCell align="center" className="Sbold">
@@ -148,7 +154,7 @@ export default function AllRequesttable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {requests.map((row) => (
                             <TableRow
                                 key={row.name}
                                 sx={{
@@ -159,38 +165,37 @@ export default function AllRequesttable() {
                             >
                                 <TableCell align="center">
                                     <Link to="/allrequestproperty">
-                                        {row.RequestID}
+                                        {row.requestId}
                                     </Link>
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.Urgency ? (
+                                    {row.isUrgent ? (
                                         <div className="bgurgent d-flex justify-content-center align-items-center">
-                                            {row.Urgency}
+                                            {row.isurgent}
                                         </div>
                                     ) : null}
                                 </TableCell>
 
                                 <TableCell align="center">
-                                    {row.unitNo}
+                                    {row.user.flat.name_ar}
+                                </TableCell>
+                                <TableCell
+                                    align="center"
+                                    className={
+                                        row.type == "success" ? "green" : "pink"
+                                    }
+                                >
+                                    {row.type}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.RequestType}
+                                    {row.status}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.Category}
+                                    {row.staff == null ? <p>-</p> : row.staff}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.RequestStatus}
+                                    {row.user.name}
                                 </TableCell>
-                                <TableCell align="center">
-                                    {row.StaffAssigned}
-                                </TableCell>
-                                <TableCell align="center">
-                                    {row.UserName}
-                                </TableCell>
-                                {/* <TableCell align="center">
-                                    {row.EmailID}
-                                </TableCell> */}
                             </TableRow>
                         ))}
                     </TableBody>

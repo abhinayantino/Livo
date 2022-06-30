@@ -24,6 +24,7 @@ import Budget from "./Payment/Budget/index";
 import AddBudget from "./Payment/Budget/AddBudget/index.jsx";
 import EditBudget from "./Payment/Budget/BudgetDetail/index.jsx";
 import Dashboard from "./DashBoard/index";
+import Login from "./login/login";
 
 function App() {
     return (
@@ -80,6 +81,7 @@ function App() {
                 <Route path="/addbudget" element={<AddBudget />}></Route>
                 <Route path="budgetdetail" element={<EditBudget />}></Route>
                 <Route path="/dashboard" element={<Dashboard />}></Route>
+                <Route path="/login" element={<Login />}></Route>
             </Routes>
         </BrowserRouter>
     );

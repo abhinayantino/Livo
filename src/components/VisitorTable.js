@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,7 +8,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
-
+import "./AllRequesttable.css";
+import { getVisitorManagement } from "../services/allServisesApi";
 function createData(
     visitorCategory,
     visitorName,
@@ -185,26 +186,49 @@ const rows = [
 ];
 
 export default function UserTable() {
+    const [visitor, setVisitor] = useState([]);
+
+    const VisitorData = async () => {
+        const resp = await getVisitorManagement();
+        setVisitor(resp.data.data.rows);
+    };
+    useEffect(() => {
+        VisitorData();
+    }, []);
     return (
         <>
             <TableContainer component={Paper}>
                 <Table sx={{}} aria-label="simple table">
-                    <TableHead>
+                    <TableHead className="thead">
                         <TableRow>
-                            <TableCell align="center">
+                            <TableCell className="Sbold" align="center">
                                 Visitor Category
                             </TableCell>
-                            <TableCell align="center">Vistiors Name</TableCell>
-                            <TableCell align="center">Unit No.</TableCell>
-                            <TableCell align="center">Contact No.</TableCell>
-                            <TableCell align="center">Date of Visit</TableCell>
-                            <TableCell align="center">Duration</TableCell>
-                            <TableCell align="center">In Time</TableCell>
-                            <TableCell align="center">Out Time</TableCell>
+                            <TableCell className="Sbold" align="center">
+                                Vistiors Name
+                            </TableCell>
+                            <TableCell className="Sbold" align="center">
+                                Unit No.
+                            </TableCell>
+                            <TableCell className="Sbold" align="center">
+                                Contact No.
+                            </TableCell>
+                            <TableCell className="Sbold" align="center">
+                                Date of Visit
+                            </TableCell>
+                            <TableCell className="Sbold" align="center">
+                                Duration
+                            </TableCell>
+                            <TableCell className="Sbold" align="center">
+                                In Time
+                            </TableCell>
+                            <TableCell className="Sbold" align="center">
+                                Out Time
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((row) => (
+                        {visitor.map((row) => (
                             <TableRow
                                 key={row.name}
                                 sx={{
@@ -236,9 +260,6 @@ export default function UserTable() {
                                 </TableCell>
                                 <TableCell align="center">
                                     {row.outTime}
-                                </TableCell>
-                                <TableCell align="center">
-                                    {row.EmailID}
                                 </TableCell>
                             </TableRow>
                         ))}
