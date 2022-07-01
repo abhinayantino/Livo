@@ -34,6 +34,12 @@ function createData(
 
 export default function UserTable() {
   const [visitors, setVisitors] = useState([]);
+  const [count, setCount] = useState(0);
+  const [page, setPage] = useState(1);
+  const params = {
+    page: page,
+    limit: 10,
+  };
   const header = [
     "Category",
     "Vistior's Name",
@@ -44,10 +50,18 @@ export default function UserTable() {
     "Duration",
   ];
   useEffect(() => {
-    AllVisitorsAPI().then((response) => {
-      setVisitors(response.data.data.rows);
+    AllVisitorsAPI(params).then((response) => {
+      setCount(Math.ceil(response.data.data.count / 10));
+      const resp = response.data.data.rows;
+      setVisitors(resp);
     });
-  }, []);
+  }, [page]);
+  const handlePageClick = (e) => {
+    const selectedPage = e.target.innerText;
+
+    console.log(selectedPage);
+    setPage(selectedPage);
+  };
   return (
     <>
       <TableContainer component={Paper}>
@@ -70,7 +84,7 @@ export default function UserTable() {
           <TableBody>
             {visitors.map((row) => (
               <TableRow
-                key={row.name}
+                key={row.id}
                 sx={{
                   "&:last-child td, &:last-child th": {
                     border: 0,
@@ -81,6 +95,7 @@ export default function UserTable() {
                 <TableCell align="center">{row.name}</TableCell>
                 <TableCell align="center">{row.name_en}</TableCell>
                 <TableCell align="center">{row.mobileNumber}</TableCell>
+
                 <TableCell align="center">{row.inTime}</TableCell>
                 <TableCell align="center">{row.outTime}</TableCell>
                 <TableCell align="center">{row.duration}</TableCell>
@@ -89,11 +104,21 @@ export default function UserTable() {
           </TableBody>
         </Table>
       </TableContainer>
-      <Pagination
-        style={{ margin: "10px", float: "right" }}
-        count={10}
-        shape="rounded"
-      />
+      <div className="d-flex justify-content-between height-200px mt-2">
+        <div className="">
+          <p>
+            Showing {page} out of {count} entries
+          </p>
+        </div>
+        <div className="">
+          <Pagination
+            count={count}
+            onChange={handlePageClick}
+            shape="rounded"
+            style={{ margin: "10px", float: "right" }}
+          />
+        </div>
+      </div>
     </>
   );
 }

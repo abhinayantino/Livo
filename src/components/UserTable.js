@@ -11,27 +11,30 @@ import { Link } from "react-router-dom";
 import { AllUserAPI } from "../services/allPropertiesAPI";
 import { useEffect } from "react";
 import { useState } from "react";
-import ReactPaginate from "react-paginate";
 
 export default function UserTable() {
   const [users, setUsers] = useState([]);
-  const [offset, setOffset] = useState(0);
-  const [perPage] = useState(10);
-  const [pageCount, setPageCount] = useState(0);
+  const [count, setCount] = useState(2);
+  const [page, setPage] = useState(1);
+  const params = {
+    page: page,
+    limit: 10,
+  };
+
   const header = ["Name", "Email ID", "Country-Code", "Mobile Number"];
   useEffect(() => {
-    AllUserAPI().then((response) => {
+    AllUserAPI(params).then((response) => {
+      setCount(Math.ceil(response.data.data.count / 10));
       const resp = response.data.data.rows;
-      setUsers(resp.slice(offset, offset + perPage));
-      setPageCount(Math.ceil(resp.length / perPage));
+      setUsers(resp);
     });
-  }, [offset]);
+  }, [page]);
 
   const handlePageClick = (e) => {
-    const selectedPage = e.selected;
-    console.log(selectedPage * perPage);
+    const selectedPage = e.target.innerText;
 
-    setOffset((selectedPage + 1) * perPage);
+    console.log(selectedPage);
+    setPage(selectedPage);
   };
 
   return (
@@ -56,7 +59,7 @@ export default function UserTable() {
           <TableBody>
             {users.map((row) => (
               <TableRow
-                key={row.name}
+                key={row.id}
                 sx={{
                   "&:last-child td, &:last-child th": {
                     border: 0,
@@ -76,21 +79,16 @@ export default function UserTable() {
       </TableContainer>
       <div className="d-flex justify-content-between height-200px mt-2">
         <div className="">
-          <p>Showing 7 out of 10 entries</p>
+          <p>
+            Showing {page} out of {count} entries
+          </p>
         </div>
         <div className="">
-          <ReactPaginate
-            previousLabel={"prev"}
-            nextLabel={"next"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={handlePageClick}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}
+          <Pagination
+            count={count}
+            onChange={handlePageClick}
+            shape="rounded"
+            style={{ margin: "10px", float: "right" }}
           />
         </div>
       </div>

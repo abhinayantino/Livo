@@ -28,7 +28,7 @@ const Dashboard = () => {
           <div>
             <h4>Dashboard</h4>
           </div>
-          <div>
+          {/* <div>
             <svg
               width="48"
               height="48"
@@ -52,7 +52,7 @@ const Dashboard = () => {
               />
             </svg>
             <button className="d-addfilter">Add Filter</button>
-          </div>
+          </div> */}
         </div>
         <div className="d-flex justify-content-around flex-wrap gap-4 mt-4">
           <div className="card card-increse">

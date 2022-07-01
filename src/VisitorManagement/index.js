@@ -2,7 +2,7 @@ import React from "react";
 
 import LeftNav from "../components/leftNav";
 import TopNav from "../components/topNav";
-import User from "./VisitorManagement";
+import Visitor from "./VisitorManagement";
 
 export default function PropertyName() {
   return (
@@ -10,7 +10,7 @@ export default function PropertyName() {
       <TopNav />
       <div style={{ display: "flex", background: "#FFE3D2" }}>
         <LeftNav />
-        <User />
+        <Visitor />
       </div>
     </>
   );

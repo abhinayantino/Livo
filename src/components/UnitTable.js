@@ -33,6 +33,12 @@ function createData(
 
 export default function UserTable() {
   const [units, setUnit] = useState([]);
+  const [count, setCount] = useState(2);
+  const [page, setPage] = useState(1);
+  const params = {
+    page: page,
+    limit: 10,
+  };
   const header = [
     "Name",
     "اسم",
@@ -40,13 +46,20 @@ export default function UserTable() {
     "size",
     "Bedroom",
     "Bathroom",
+    "Status",
     "Villa",
   ];
   useEffect(() => {
-    AllUnitAPI().then((response) => {
-      setUnit(response.data.data.rows);
+    AllUnitAPI(params).then((response) => {
+      setCount(Math.ceil(response.data.data.count / 10));
+      const resp = response.data.data.rows;
+      setUnit(resp);
     });
-  }, []);
+  }, [page]);
+  const handlePageClick = (e) => {
+    const selectedPage = e.target.innerText;
+    setPage(selectedPage);
+  };
   return (
     <>
       <TableContainer component={Paper}>
@@ -69,7 +82,7 @@ export default function UserTable() {
           <TableBody>
             {units.map((row) => (
               <TableRow
-                key={row.name}
+                key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="center">
@@ -80,17 +93,35 @@ export default function UserTable() {
                 <TableCell align="center">{row.size}</TableCell>
                 <TableCell align="center">{row?.flatInfo?.bedroom}</TableCell>
                 <TableCell align="center">{row?.flatInfo?.bathroom}</TableCell>
-                <TableCell align="center">{row.isVilla}</TableCell>
+                <TableCell align="center">
+                  {row?.contractDetails === null ||
+                  row?.contractDetails?.isExpired === false
+                    ? "Vacant"
+                    : "Occupied"}
+                </TableCell>
+                <TableCell align="center">
+                  {row?.isVilla === true ? "Yes" : "No"}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <Pagination
-        style={{ margin: "10px", float: "right" }}
-        count={10}
-        shape="rounded"
-      />
+      <div className="d-flex justify-content-between height-200px mt-2">
+        <div className="">
+          <p>
+            Showing {page} out of {count} entries
+          </p>
+        </div>
+        <div className="">
+          <Pagination
+            count={count}
+            onChange={handlePageClick}
+            shape="rounded"
+            style={{ margin: "10px", float: "right" }}
+          />
+        </div>
+      </div>
     </>
   );
 }

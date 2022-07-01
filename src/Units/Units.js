@@ -10,7 +10,7 @@ export default function Units() {
       <div className="home">
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="Property" style={{ marginRight: "40px" }}>
-            Unit
+            Units
           </div>
           <div
             style={{

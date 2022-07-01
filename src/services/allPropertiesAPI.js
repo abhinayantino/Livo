@@ -23,15 +23,21 @@ export const createNewOwnerAPI = async (data) => {
   const resp = await axiosClient.post(`${BASE_URL}/flats`, data);
   return resp;
 };
-export const AllUserAPI = async () => {
-  const resp = await axiosClient.get(`${BASE_URL}/master-users`);
+export const AllUserAPI = async (params) => {
+  const resp = await axiosClient.get(
+    `${BASE_URL}/master-users?page=${params.page}&limit=${params.limit}`
+  );
   return resp;
 };
-export const AllUnitAPI = async () => {
-  const resp = await axiosClient.get(`${BASE_URL}/flats/admin`);
+export const AllUnitAPI = async (params) => {
+  const resp = await axiosClient.get(
+    `${BASE_URL}/flats/admin?page=${params.page}&limit=${params.limit}`
+  );
   return resp;
 };
-export const AllVisitorsAPI = async () => {
-  const resp = await axiosClient.get(`${BASE_URL}/visitings/logs`);
+export const AllVisitorsAPI = async (params) => {
+  const resp = await axiosClient.get(
+    `${BASE_URL}/visitings/logs?page=${params.page}&limit=${params.limit}`
+  );
   return resp;
 };
