@@ -31,126 +31,6 @@ function createData(
   };
 }
 
-const rows = [
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-  createData(
-    "0123",
-    "01",
-    "1 BHK",
-    "Occupied",
-    "2 Feb. 2022",
-    "2 feb. 2023",
-    "Property MollakID"
-  ),
-];
-
 export default function UserTable() {
   const [units, setUnit] = useState([]);
   const header = [
@@ -198,8 +78,8 @@ export default function UserTable() {
                 <TableCell align="center">{row.name_ar}</TableCell>
                 <TableCell align="center">{row.floor}</TableCell>
                 <TableCell align="center">{row.size}</TableCell>
-                {/* <TableCell align="center">{row.flatInfo.bedroom}</TableCell>
-                <TableCell align="center">{row.flatInfo.bathroom}</TableCell> */}
+                <TableCell align="center">{row?.flatInfo?.bedroom}</TableCell>
+                <TableCell align="center">{row?.flatInfo?.bathroom}</TableCell>
                 <TableCell align="center">{row.isVilla}</TableCell>
               </TableRow>
             ))}

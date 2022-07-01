@@ -1,4 +1,4 @@
-import * as React from "react";
+import { React, useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,6 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
+import { AllVisitorsAPI } from "../services/allPropertiesAPI";
 
 function createData(
   visitorCategory,
@@ -31,178 +32,43 @@ function createData(
   };
 }
 
-const rows = [
-  createData(
-    "Courier",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "1 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Guest",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "2 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Courier",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "1 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Guest",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "2 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Courier",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "1 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Guest",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "2 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Courier",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "1 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Guest",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "2 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Courier",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "1 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Guest",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "2 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Courier",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "1 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Guest",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "2 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Courier",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "1 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Guest",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "2 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-  createData(
-    "Courier",
-    "Visitor Name",
-    "123",
-    "9876543210",
-    "02 Feb.,2022",
-    "1 Day",
-    "00:00AM",
-    "00:00AM"
-  ),
-];
-
 export default function UserTable() {
+  const [visitors, setVisitors] = useState([]);
+  const header = [
+    "Category",
+    "Vistior's Name",
+    "Flat No.",
+    "Mobile Number",
+    "In Time",
+    "Out Time",
+    "Duration",
+  ];
+  useEffect(() => {
+    AllVisitorsAPI().then((response) => {
+      setVisitors(response.data.data.rows);
+    });
+  }, []);
   return (
     <>
       <TableContainer component={Paper}>
         <Table sx={{}} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="center">Visitor Category</TableCell>
-              <TableCell align="center">Vistiors Name</TableCell>
-              <TableCell align="center">Unit No.</TableCell>
-              <TableCell align="center">Contact No.</TableCell>
-              <TableCell align="center">Date of Visit</TableCell>
-              <TableCell align="center">Duration</TableCell>
-              <TableCell align="center">In Time</TableCell>
-              <TableCell align="center">Out Time</TableCell>
+              {header.map((h) => (
+                <TableCell
+                  align="center"
+                  className="fw-bold"
+                  style={{
+                    backgroundColor: "#FFF7F3",
+                  }}
+                >
+                  {h}
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {visitors.map((row) => (
               <TableRow
                 key={row.name}
                 sx={{
@@ -211,15 +77,13 @@ export default function UserTable() {
                   },
                 }}
               >
-                <TableCell align="center">{row.visitorCategory}</TableCell>
-                <TableCell align="center">{row.visitorName}</TableCell>
-                <TableCell align="center">{row.unitNo}</TableCell>
-                <TableCell align="center">{row.contactNo}</TableCell>
-                <TableCell align="center">{row.dateOfVisit}</TableCell>
-                <TableCell align="center">{row.duration}</TableCell>
+                <TableCell align="center">{row.category_en}</TableCell>
+                <TableCell align="center">{row.name}</TableCell>
+                <TableCell align="center">{row.name_en}</TableCell>
+                <TableCell align="center">{row.mobileNumber}</TableCell>
                 <TableCell align="center">{row.inTime}</TableCell>
                 <TableCell align="center">{row.outTime}</TableCell>
-                <TableCell align="center">{row.EmailID}</TableCell>
+                <TableCell align="center">{row.duration}</TableCell>
               </TableRow>
             ))}
           </TableBody>

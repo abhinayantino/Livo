@@ -9,6 +9,7 @@ import MenuPopupState from "../../components/Menu";
 import { BiEditAlt } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import HeaderAllPost from "../HeaderAllPost";
+import "./index.css";
 const Post = () => {
   return (
     <>

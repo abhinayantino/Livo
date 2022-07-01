@@ -11,15 +11,28 @@ import { Link } from "react-router-dom";
 import { AllUserAPI } from "../services/allPropertiesAPI";
 import { useEffect } from "react";
 import { useState } from "react";
+import ReactPaginate from "react-paginate";
 
 export default function UserTable() {
   const [users, setUsers] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const [perPage] = useState(10);
+  const [pageCount, setPageCount] = useState(0);
   const header = ["Name", "Email ID", "Country-Code", "Mobile Number"];
   useEffect(() => {
     AllUserAPI().then((response) => {
-      setUsers(response.data.data.rows);
+      const resp = response.data.data.rows;
+      setUsers(resp.slice(offset, offset + perPage));
+      setPageCount(Math.ceil(resp.length / perPage));
     });
-  }, []);
+  }, [offset]);
+
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    console.log(selectedPage * perPage);
+
+    setOffset((selectedPage + 1) * perPage);
+  };
 
   return (
     <>
@@ -66,7 +79,19 @@ export default function UserTable() {
           <p>Showing 7 out of 10 entries</p>
         </div>
         <div className="">
-          <Pagination count={10} shape="rounded" />
+          <ReactPaginate
+            previousLabel={"prev"}
+            nextLabel={"next"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={pageCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}
+          />
         </div>
       </div>
     </>

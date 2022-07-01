@@ -31,3 +31,7 @@ export const AllUnitAPI = async () => {
   const resp = await axiosClient.get(`${BASE_URL}/flats/admin`);
   return resp;
 };
+export const AllVisitorsAPI = async () => {
+  const resp = await axiosClient.get(`${BASE_URL}/visitings/logs`);
+  return resp;
+};
