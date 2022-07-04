@@ -2,8 +2,9 @@ import axios from "axios";
 import React from "react";
 import { useRef, useState, useEffect, useContext } from "react";
 import AuthContext from "./AuthProvider";
-import "./index.css";
+import "./login.css";
 import { Navigate } from "react-router-dom";
+import logo from ".././assets/logo.svg";
 
 const Login = () => {
   const { setAuth, auth } = useContext(AuthContext);
@@ -62,46 +63,49 @@ const Login = () => {
       {success ? (
         <Navigate to="/dashboard" />
       ) : (
-        <section>
-          <p
-            ref={errRef}
-            className={errMsg ? "errmsg" : "offscreen"}
-            aria-live="assertive"
-          >
-            {errMsg}
-          </p>
-          <h1>Sign In</h1>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              ref={userRef}
-              autoComplete="off"
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
-              required
-            />
+        <div className="toplogin">
+          <div className="login-logo">
+            <img className="logo" src={logo} alt="logo" />
+          </div>
+          <div className="login">
+            <section>
+              <p
+                ref={errRef}
+                className={errMsg ? "errmsg" : "offscreen"}
+                aria-live="assertive"
+              >
+                {errMsg}
+              </p>
+              <h1>Sign In</h1>
+              <form onSubmit={handleSubmit}>
+                <label className="login-label" htmlFor="username">
+                  <p style={{ fontSize: "1.5rem" }}>Username:</p>
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  ref={userRef}
+                  autoComplete="off"
+                  onChange={(e) => setUsername(e.target.value)}
+                  value={username}
+                  required
+                />
 
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              required
-            />
-            <button>Sign In</button>
-          </form>
-          <p>
-            Need an Account?
-            <br />
-            <span className="line">
-              {/*put router link here*/}
-              <a href="#">Sign Up</a>
-            </span>
-          </p>
-        </section>
+                <label htmlFor="password">
+                  <p style={{ fontSize: "1.5rem" }}>Password:</p>
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  required
+                />
+                <button className="login-button">Sign In</button>
+              </form>
+            </section>
+          </div>
+        </div>
       )}
     </>
   );

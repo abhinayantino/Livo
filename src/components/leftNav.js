@@ -55,7 +55,7 @@ export default function LeftNav() {
               My Properties
             </Accordion.Header>
             <Accordion.Body className="elements">
-              <Link
+              {/* <Link
                 to="/"
                 style={{
                   textDecoration: "none",
@@ -63,7 +63,7 @@ export default function LeftNav() {
                 }}
               >
                 <ul>All Properties</ul>
-              </Link>
+              </Link> */}
               <Link
                 to="/units"
                 style={{

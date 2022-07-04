@@ -1,76 +1,92 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-html {
-    font-family: 'Nunito', sans-serif;
-    font-size: 22px;
-    color: #fff;
-}
-
-body {
+.toplogin{
     min-height: 100vh;
-    background-color: dodgerblue;
+    background-color: #FFE3D2;
 }
 
-.App {
+.login{
+   
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+.login-logo{
+    padding: 1rem;
+
+}
+
+/* .App {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 1rem 0.5rem;
-}
+} */
 
 section {
     width: 100%;
-    max-width: 420px;
-    min-height: 400px;
+    max-width: 460px;
+    min-height: 580px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(87, 86, 86, 0.4);
+    border-bottom-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    z-index:55;
+    
 }
 
-form {
+ form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     flex-grow: 1;
     padding-bottom: 1rem;
-}
+} 
 
-a,
+/* a,
 a:visited {
     color: #fff;
-}
+} */
 
 input[type="text"],
 input[type="password"],
 button,
 textarea {
-    font-family: 'Nunito', sans-serif;
     font-size: 22px;
     padding: 0.25rem;
     border-radius: 0.5rem;
 }
 
-label,
-button {
+login-label{
+    font-size: 2rem;
+}
+login-button {
     margin-top: 1rem;
+    font-size: 2rem;
 }
 
 button {
     padding: 0.5rem;
 }
 
+
 .instructions {
-    font-size: 0.75rem;
+    font-size: 1rem;
     border-radius: 0.5rem;
     background: #000;
     color: #fff;
@@ -112,4 +128,4 @@ button {
 
 .line {
     display: inline-block;
-} */
+} 
