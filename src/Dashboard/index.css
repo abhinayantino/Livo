@@ -1,40 +1,36 @@
-.d-addfilter {
+.d-addfilter{
     width: 130px;
     height: 48px;
-    background-color: white;
-    border: 1px solid #0C344E;
+    background-color:white;
+    border:1px solid #0C344E;
     border-radius: 15px;
     font-weight: 500;
 }
 
-.card {
+.card{
     width: 300px;
     height: 200px;
-    background-color: white;
+    background-color:white;
     box-shadow: 0px 3px 9px rgba(112, 112, 112, 0.22);
     border-radius: 12px;
 }
-
-.card-increse {
+.card-increse{
     width: 330px;
     height: 280px;
-    background-color: white;
+    background-color:white;
     box-shadow: 0px 3px 9px rgba(112, 112, 112, 0.22);
     border-radius: 12px;
 }
-
-.c-dinfo {
+.c-dinfo{
     font-size: 14px;
-    color: #727272;
+    color:#727272;
 }
-
-.info {
+.info{
     width: 150px;
 }
-
-.card-title {
+.card-title{
     font-size: 18px;
-    color: #727272;
+    color:#727272;
 }
 
 .loader,
@@ -79,3 +75,6 @@
         transform: rotate(360deg);
     }
 } */
+
+
+

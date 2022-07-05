@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,6 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
+import { getAllInvoice } from "../services/paymentApi";
 import "./AllRequesttable.css";
 function createData(
   InvoiceNo,
@@ -116,40 +117,49 @@ const rows = [
 ];
 
 export default function AllInvoicetable() {
+  const [invoice, setInvoice] = React.useState([]);
+
+  const AllInvoice = async () => {
+    const resp = await getAllInvoice();
+    setInvoice(resp.data.data.rows);
+  };
+  useEffect(() => {
+    AllInvoice();
+  }, []);
   return (
     <>
       <TableContainer component={Paper}>
         <Table sx={{}} aria-label="simple table">
           <TableHead className="thead">
             <TableRow>
-              <TableCell align="center" className="bold">
+              <TableCell align="center" className="Sbold">
                 Invoice No
               </TableCell>
-              <TableCell align="center" className="bold">
+              <TableCell align="center" className="Sbold">
                 payment Status
               </TableCell>
-              <TableCell align="center" className="bold">
+              <TableCell align="center" className="Sbold">
                 Amount
               </TableCell>
-              <TableCell align="center" className="bold">
+              <TableCell align="center" className="Sbold">
                 Due Date
               </TableCell>
-              <TableCell align="center" className="bold">
+              <TableCell align="center" className="Sbold">
                 Invoice Type
               </TableCell>
-              <TableCell align="center" className="bold">
+              <TableCell align="center" className="Sbold">
                 Category
               </TableCell>
-              <TableCell align="center" className="bold">
+              <TableCell align="center" className="Sbold">
                 Staff Assigned
               </TableCell>
-              <TableCell align="center" className="bold">
+              <TableCell align="center" className="Sbold">
                 User Name
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {invoice.map((row) => (
               <TableRow
                 key={row.name}
                 sx={{
@@ -158,7 +168,9 @@ export default function AllInvoicetable() {
                   },
                 }}
               >
-                <TableCell align="center">{row.InvoiceNo}</TableCell>
+                <TableCell align="center">
+                  <Link to="/">{row.InvoiceNo}</Link>
+                </TableCell>
                 <TableCell align="center">
                   {row.PaymentStatus ? (
                     <div className="bgurgent d-flex justify-content-center align-items-center">

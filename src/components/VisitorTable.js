@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,8 +8,9 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
-import { AllVisitorsAPI } from "../services/allPropertiesAPI";
-
+import "./AllRequesttable.css";
+import { getVisitorManagement } from "../services/allServisesApi";
+import { formatAMPM } from "../util";
 function createData(
   visitorCategory,
   visitorName,
@@ -33,56 +34,66 @@ function createData(
 }
 
 export default function UserTable() {
-  const [visitors, setVisitors] = useState([]);
-  const [count, setCount] = useState(0);
-  const [page, setPage] = useState(1);
-  const params = {
-    page: page,
-    limit: 10,
-  };
-  const header = [
-    "Category",
-    "Vistior's Name",
-    "Flat No.",
-    "Mobile Number",
-    "In Time",
-    "Out Time",
-    "Duration",
-  ];
-  useEffect(() => {
-    AllVisitorsAPI(params).then((response) => {
-      setCount(Math.ceil(response.data.data.count / 10));
-      const resp = response.data.data.rows;
-      setVisitors(resp);
-    });
-  }, [page]);
-  const handlePageClick = (e) => {
-    const selectedPage = e.target.innerText;
+  const [visitor, setVisitor] = useState([]);
+  const [totalCount, settotalCount] = useState(0);
+  const [postPerpage, setPostPerPage] = useState(10);
+  const [currentPage, setcurrentPage] = useState(1);
 
-    console.log(selectedPage);
-    setPage(selectedPage);
+  const VisitorData = async () => {
+    const resp = await getVisitorManagement(
+      currentPage,
+      postPerpage,
+      "10/03/2022",
+      "10/03/2052"
+    );
+    let totalData = resp.data.data.count;
+    console.log(resp.data.data.count);
+    let pagesCount = Math.ceil(totalData / postPerpage);
+    settotalCount(pagesCount);
+
+    setVisitor(resp.data.data.rows);
   };
+  useEffect(() => {
+    VisitorData();
+
+    return () => {
+      setVisitor([]);
+    };
+  }, [currentPage]);
   return (
     <>
       <TableContainer component={Paper}>
         <Table sx={{}} aria-label="simple table">
-          <TableHead>
+          <TableHead className="thead">
             <TableRow>
-              {header.map((h) => (
-                <TableCell
-                  align="center"
-                  className="fw-bold"
-                  style={{
-                    backgroundColor: "#FFF7F3",
-                  }}
-                >
-                  {h}
-                </TableCell>
-              ))}
+              <TableCell className="Sbold" align="center">
+                Visitor Category
+              </TableCell>
+              <TableCell className="Sbold" align="center">
+                Vistiors Name
+              </TableCell>
+              <TableCell className="Sbold" align="center">
+                Unit No.
+              </TableCell>
+              <TableCell className="Sbold" align="center">
+                Contact No.
+              </TableCell>
+              <TableCell className="Sbold" align="center">
+                Date of Visit
+              </TableCell>
+              <TableCell className="Sbold" align="center">
+                Duration
+              </TableCell>
+              <TableCell className="Sbold" align="center">
+                In Time
+              </TableCell>
+              <TableCell className="Sbold" align="center">
+                Out Time
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {visitors.map((row) => (
+            {visitor.map((row) => (
               <TableRow
                 key={row.id}
                 sx={{
@@ -92,33 +103,30 @@ export default function UserTable() {
                 }}
               >
                 <TableCell align="center">{row.category_en}</TableCell>
-                <TableCell align="center">{row.name}</TableCell>
+                <TableCell align="center">
+                  <Link to="/adduser">{row.name}</Link>
+                </TableCell>
                 <TableCell align="center">{row.name_en}</TableCell>
                 <TableCell align="center">{row.mobileNumber}</TableCell>
-
-                <TableCell align="center">{row.inTime}</TableCell>
-                <TableCell align="center">{row.outTime}</TableCell>
+                <TableCell align="center">
+                  {row.inTime?.split("T")[0]}
+                </TableCell>
                 <TableCell align="center">{row.duration}</TableCell>
+                <TableCell align="center">{formatAMPM(row.inTime)}</TableCell>
+                <TableCell align="center">{formatAMPM(row.outTime)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <div className="d-flex justify-content-between height-200px mt-2">
-        <div className="">
-          <p>
-            Showing {page} out of {count} entries
-          </p>
-        </div>
-        <div className="">
-          <Pagination
-            count={count}
-            onChange={handlePageClick}
-            shape="rounded"
-            style={{ margin: "10px", float: "right" }}
-          />
-        </div>
-      </div>
+      <Pagination
+        style={{ margin: "10px", float: "right" }}
+        count={totalCount}
+        onChange={(event, value) => {
+          setcurrentPage(value);
+        }}
+        shape="rounded"
+      />
     </>
   );
 }
