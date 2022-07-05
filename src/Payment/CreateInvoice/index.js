@@ -4,15 +4,15 @@ import TopNav from "../../components/topNav";
 import CreateInvoice from "./CreateInvoice";
 
 const AllInvoiceMain = () => {
-    return (
-        <>
-            <TopNav />
-            <div style={{ display: "flex", background: "#FFE3D2" }}>
-                <LeftNav />
-                <CreateInvoice />
-            </div>
-        </>
-    );
+  return (
+    <>
+      <TopNav />
+      <div className="top-level-container">
+        <LeftNav />
+        <CreateInvoice />
+      </div>
+    </>
+  );
 };
 
 export default AllInvoiceMain;

@@ -4,15 +4,15 @@ import LeftNav from "../../components/leftNav";
 import CreateEvents from "./CreateEvents";
 
 const EventMain = () => {
-    return (
-        <>
-            <TopNav />
-            <div style={{ display: "flex", background: "#FFE3D2" }}>
-                <LeftNav />
-                <CreateEvents />
-            </div>
-        </>
-    );
+  return (
+    <>
+      <TopNav />
+      <div className="top-level-container">
+        <LeftNav />
+        <CreateEvents />
+      </div>
+    </>
+  );
 };
 
 export default EventMain;

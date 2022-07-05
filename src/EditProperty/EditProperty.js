@@ -120,7 +120,7 @@ const EditProperty = () => {
   return (
     <>
       <TopNav />
-      <div style={{ display: "flex", background: "#FFE3D2" }}>
+      <div className="top-level-container">
         <LeftNav />
         <div className="home">
           <div className="Property-top">

@@ -4,15 +4,15 @@ import TopNav from "../../../components/topNav";
 import BudgetDetail from "./BudgetDetail";
 
 const AddBudgetMain = () => {
-    return (
-        <>
-            <TopNav />
-            <div style={{ display: "flex", background: "#FFE3D2" }}>
-                <LeftNav />
-                <BudgetDetail />
-            </div>
-        </>
-    );
+  return (
+    <>
+      <TopNav />
+      <div className="top-level-container">
+        <LeftNav />
+        <BudgetDetail />
+      </div>
+    </>
+  );
 };
 
 export default AddBudgetMain;

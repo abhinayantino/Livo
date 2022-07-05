@@ -4,15 +4,15 @@ import TopNav from "../../../components/topNav";
 import GenerateInvoiceProperty from "./GenerateInvoiceProperty";
 
 const GenerateInvoicePropertyMain = () => {
-    return (
-        <>
-            <TopNav />
-            <div style={{ display: "flex", background: "#FFE3D2" }}>
-                <LeftNav />
-                <GenerateInvoiceProperty />
-            </div>
-        </>
-    );
+  return (
+    <>
+      <TopNav />
+      <div className="top-level-container">
+        <LeftNav />
+        <GenerateInvoiceProperty />
+      </div>
+    </>
+  );
 };
 
 export default GenerateInvoicePropertyMain;

@@ -4,15 +4,15 @@ import TopNav from "../../../components/topNav";
 import CreateChargesCatalouge from "./CreateChargesCatalouge";
 
 const ChargesCatalougeMain = () => {
-    return (
-        <>
-            <TopNav />
-            <div style={{ display: "flex", background: "#FFE3D2" }}>
-                <LeftNav />
-                <CreateChargesCatalouge />
-            </div>
-        </>
-    );
+  return (
+    <>
+      <TopNav />
+      <div className="top-level-container">
+        <LeftNav />
+        <CreateChargesCatalouge />
+      </div>
+    </>
+  );
 };
 
 export default ChargesCatalougeMain;

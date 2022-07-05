@@ -256,3 +256,9 @@ ul:hover {
   border-radius: 8px;
   margin-top: 5px;
 }
+
+.top-level-container{
+  background: #FFE3D2;
+  display: flex;
+  min-height: 92vh;
+}

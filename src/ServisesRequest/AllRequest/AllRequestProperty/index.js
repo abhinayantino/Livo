@@ -4,15 +4,15 @@ import TopNav from "../../../components/topNav";
 import AllRequestProperty from "./AllRequestProperty";
 
 const AllRequestpropertyMain = () => {
-    return (
-        <>
-            <TopNav />
-            <div style={{ display: "flex", background: "#FFE3D2" }}>
-                <LeftNav />
-                <AllRequestProperty />
-            </div>
-        </>
-    );
+  return (
+    <>
+      <TopNav />
+      <div className="top-level-container">
+        <LeftNav />
+        <AllRequestProperty />
+      </div>
+    </>
+  );
 };
 
 export default AllRequestpropertyMain;

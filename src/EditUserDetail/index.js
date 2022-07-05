@@ -8,7 +8,7 @@ export default function EditUserDetail() {
   return (
     <>
       <TopNav />
-      <div style={{ display: "flex", background: "#FFE3D2" }}>
+      <div className="top-level-container">
         <LeftNav />
         <EditUserDetailPage />
       </div>

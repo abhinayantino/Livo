@@ -8,7 +8,7 @@ export default function Aminities() {
   return (
     <>
       <TopNav />
-      <div style={{ display: "flex", background: "#FFE3D2" }}>
+      <div className="top-level-container">
         <LeftNav />
         <AminitiesPage />
       </div>

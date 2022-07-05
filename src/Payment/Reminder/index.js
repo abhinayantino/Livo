@@ -4,15 +4,15 @@ import TopNav from "../../components/topNav";
 import AllInvoice from "./Reminder";
 
 const ReminderMain = () => {
-    return (
-        <>
-            <TopNav />
-            <div style={{ display: "flex", background: "#FFE3D2" }}>
-                <LeftNav />
-                <AllInvoice />
-            </div>
-        </>
-    );
+  return (
+    <>
+      <TopNav />
+      <div className="top-level-container">
+        <LeftNav />
+        <AllInvoice />
+      </div>
+    </>
+  );
 };
 
 export default ReminderMain;
