@@ -103,7 +103,7 @@
 }
 ul{
   left: 0px;
-  top: 195px;
+  /* top: 195px; */
 }
 ul:hover{
   background-color:white ;
@@ -211,4 +211,30 @@ ul:hover{
 .l-dashboard{
   text-decoration: none;
   color: black;
+}
+
+
+
+.pending{
+  background-color: #FFE3D2;
+  color:#D65400 ;
+  padding: 4px;
+  padding: 8px 15px;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.inprocess{ 
+  background-color: #EFF0F6;
+  color: #0C344E;
+  padding: 8px 15px;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+.success {
+  background-color: #D7FFE9;
+  color: green;
+  padding: 8px 15px;
+  border-radius: 8px;
+  margin-top: 5px;
 }

@@ -52,7 +52,7 @@ function App() {
                     element={<GenerateInvoice />}
                 ></Route>
                 <Route
-                    path="/allrequestproperty"
+                    path="/allrequest/:id"
                     element={<AllRequestProperty />}
                 ></Route>
                 <Route

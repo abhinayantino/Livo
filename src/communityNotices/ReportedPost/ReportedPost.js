@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SearchBar from "../../components/SearchBar";
 import { MdDateRange } from "react-icons/md";
 import SinglePost from "./SinglePost";
 import HeaderAllPost from "../HeaderAllPost";
+import { getReportedPosts } from "../../services/allCommunityApi";
 const ReportedPost = () => {
+    const [post, setPost] = useState([]);
+    const ReportedPost = async () => {
+        const response = await getReportedPosts();
+        setPost(response.data.data);
+        console.log(response.data);
+    };
+
+    useEffect(() => {
+        ReportedPost();
+    }, []);
     return (
         <div
             className="container bg-white"
@@ -28,8 +39,9 @@ const ReportedPost = () => {
 
             <div className="d-flex justify-content-center align-items-center flex-column mt-5 lllll">
                 <HeaderAllPost />
-                <SinglePost />
-                <SinglePost />
+                {post.map((item, index) => (
+                    <SinglePost item={item} />
+                ))}
             </div>
         </div>
     );

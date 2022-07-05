@@ -10,6 +10,7 @@ import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
 import "./AllRequesttable.css";
 import { getVisitorManagement } from "../services/allServisesApi";
+import { formatAMPM } from "../util";
 function createData(
     visitorCategory,
     visitorName,
@@ -187,14 +188,31 @@ const rows = [
 
 export default function UserTable() {
     const [visitor, setVisitor] = useState([]);
+    const [totalCount, settotalCount] = useState(0);
+    const [postPerpage, setPostPerPage] = useState(10);
+    const [currentPage, setcurrentPage] = useState(1);
 
     const VisitorData = async () => {
-        const resp = await getVisitorManagement();
+        const resp = await getVisitorManagement(
+            currentPage,
+            postPerpage,
+            "10/03/2022",
+            "10/03/2052"
+        );
+        let totalData = resp.data.data.count;
+        console.log(resp.data.data.count);
+        let pagesCount = Math.ceil(totalData / postPerpage);
+        settotalCount(pagesCount);
+
         setVisitor(resp.data.data.rows);
     };
     useEffect(() => {
         VisitorData();
-    }, []);
+
+        return () => {
+            setVisitor([]);
+        };
+    }, [currentPage]);
     return (
         <>
             <TableContainer component={Paper}>
@@ -230,7 +248,7 @@ export default function UserTable() {
                     <TableBody>
                         {visitor.map((row) => (
                             <TableRow
-                                key={row.name}
+                                key={row.id}
                                 sx={{
                                     "&:last-child td, &:last-child th": {
                                         border: 0,
@@ -238,28 +256,28 @@ export default function UserTable() {
                                 }}
                             >
                                 <TableCell align="center">
-                                    {row.visitorCategory}
+                                    {row.category_en}
                                 </TableCell>
                                 <TableCell align="center">
-                                    <Link to="/adduser">{row.visitorName}</Link>
+                                    <Link to="/adduser">{row.name}</Link>
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.unitNo}
+                                    {row.name_en}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.contactNo}
+                                    {row.mobileNumber}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.dateOfVisit}
+                                    {row.inTime?.split("T")[0]}
                                 </TableCell>
                                 <TableCell align="center">
                                     {row.duration}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.inTime}
+                                    {formatAMPM(row.inTime)}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.outTime}
+                                    {formatAMPM(row.outTime)}
                                 </TableCell>
                             </TableRow>
                         ))}
@@ -268,7 +286,10 @@ export default function UserTable() {
             </TableContainer>
             <Pagination
                 style={{ margin: "10px", float: "right" }}
-                count={10}
+                count={totalCount}
+                onChange={(event, value) => {
+                    setcurrentPage(value);
+                }}
                 shape="rounded"
             />
         </>

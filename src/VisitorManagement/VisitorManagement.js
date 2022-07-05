@@ -67,6 +67,7 @@ export default function User() {
                                 className="Button"
                                 variant="contained"
                                 color="success"
+                                onClick={handleShow}
                                 style={{
                                     border: "1px solid #0C344E",
                                     color: "#0C344E",
@@ -76,49 +77,6 @@ export default function User() {
                                 }}
                             >
                                 Add Filter
-                            </Button>
-                        </div>
-                        <div className="properties-button">
-                            <Button
-                                className="Button"
-                                variant="contained"
-                                color="success"
-                                style={{
-                                    border: "1px solid #0C344E",
-                                    color: "#0C344E",
-                                    background: "white",
-                                    width: "187px",
-                                    height: "48px",
-                                    fontFamily: "Barlow",
-                                    fontStyle: "normal",
-                                    fontweight: "500",
-                                    fontSize: "16px",
-                                    lineHeight: "19px",
-                                }}
-                            >
-                                <svg
-                                    width="24"
-                                    height="24"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M12 5V19"
-                                        stroke="#0C344E"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                    <path
-                                        d="M5 12H19"
-                                        stroke="#0C344E"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                                Add New Property
                             </Button>
                         </div>
                     </div>

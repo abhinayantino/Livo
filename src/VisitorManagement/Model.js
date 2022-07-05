@@ -1,7 +1,11 @@
+import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import "./index.css";
 function Model({ show, handleClose }) {
+    const [startDate, setstartDate] = useState("");
+    const [endDate, setendDate] = useState("");
+    const [reportFormet, setreportFormet] = useState("");
     return (
         <>
             <Modal show={show} onHide={handleClose}>
@@ -20,6 +24,10 @@ function Model({ show, handleClose }) {
                                             className="form-control"
                                             data-placeholder="Date of birth"
                                             id="formet"
+                                            value={startDate}
+                                            onChange={(e) =>
+                                                setstartDate(e.target.value)
+                                            }
                                             style={{
                                                 border: "none",
                                                 borderBottom:
@@ -36,6 +44,10 @@ function Model({ show, handleClose }) {
                                             className="form-control"
                                             id="datestart"
                                             placeholder=""
+                                            value={endDate}
+                                            onChange={(e) =>
+                                                setendDate(e.target.value)
+                                            }
                                             style={{
                                                 border: "none",
                                                 borderBottom:
@@ -47,6 +59,10 @@ function Model({ show, handleClose }) {
                                 <div className="d-flex justify-content-evenly">
                                     <div>
                                         <select
+                                            value={reportFormet}
+                                            onChange={(e) =>
+                                                setreportFormet(e.target.value)
+                                            }
                                             style={{
                                                 width: "180px",
                                                 height: "48px",

@@ -115,9 +115,13 @@ function createData(
 
 export default function AllRequesttable() {
     const [requests, setRequests] = useState([]);
+    const [active, setActive] = useState("");
+    // const [startIndex, setstartIndex] = useState(0);
+    // const [endIndex, setendIndex] = useState(10);
 
     const allRequestData = async () => {
         const resp = await getAllRequests();
+        console.log("response all request", resp);
         setRequests(resp.data.data.rows);
     };
     useEffect(() => {
@@ -154,50 +158,60 @@ export default function AllRequesttable() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {requests.map((row) => (
-                            <TableRow
-                                key={row.name}
-                                sx={{
-                                    "&:last-child td, &:last-child th": {
-                                        border: 0,
-                                    },
-                                }}
-                            >
-                                <TableCell align="center">
-                                    <Link to="/allrequestproperty">
-                                        {row.requestId}
-                                    </Link>
-                                </TableCell>
-                                <TableCell align="center">
-                                    {row.isUrgent ? (
-                                        <div className="bgurgent d-flex justify-content-center align-items-center">
-                                            {row.isurgent}
-                                        </div>
-                                    ) : null}
-                                </TableCell>
-
-                                <TableCell align="center">
-                                    {row.user.flat.name_ar}
-                                </TableCell>
-                                <TableCell
-                                    align="center"
-                                    className={
-                                        row.type == "success" ? "green" : "pink"
-                                    }
-                                >
-                                    {row.type}
-                                </TableCell>
-                                <TableCell align="center">
-                                    {row.status}
-                                </TableCell>
-                                <TableCell align="center">
-                                    {row.staff == null ? <p>-</p> : row.staff}
-                                </TableCell>
-                                <TableCell align="center">
-                                    {row.user.name}
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                        {requests.map((row) => {
+                            return (
+                                <TableRow key={row.requestId}>
+                                    <TableCell align="center">
+                                        <Link to={`/allrequest/${row.id}`}>
+                                            {row.requestId}
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {row.isUrgent ? (
+                                            <div className="bgurgent d-flex justify-content-center align-items-center">
+                                                Urgent
+                                            </div>
+                                        ) : null}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {row.user?.flat?.name_ar}
+                                    </TableCell>
+                                    <TableCell
+                                        align="center"
+                                        className={
+                                            row.type == "success"
+                                                ? "green"
+                                                : "pink"
+                                        }
+                                    >
+                                        {row.type}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {row.status == "Pending" && (
+                                            <span className="pending">
+                                                {row.status}
+                                            </span>
+                                        )}
+                                        {row.status == "In-Process" && (
+                                            <span className="inprocess">
+                                                {row.status}
+                                            </span>
+                                        )}
+                                        {row.status == "Completed" && (
+                                            <span className="success">
+                                                {row.status}
+                                            </span>
+                                        )}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {row.staff ? row.staff?.name : <p>-</p>}
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        {row.user.name}
+                                    </TableCell>
+                                </TableRow>
+                            );
+                        })}
                     </TableBody>
                 </Table>
             </TableContainer>

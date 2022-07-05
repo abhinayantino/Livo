@@ -170,7 +170,7 @@ export default function GenerateInvoicetable() {
                                 <TableCell align="center">
                                     {row.isUrgent ? (
                                         <div className=" bgurgent d-flex justify-content-center align-items-center gbgcolor">
-                                            {row.isurgent}
+                                            Urgent
                                         </div>
                                     ) : null}
                                 </TableCell>
@@ -179,10 +179,24 @@ export default function GenerateInvoicetable() {
                                 </TableCell>
                                 <TableCell align="center">{row.type}</TableCell>
                                 <TableCell align="center">
-                                    {row.status}
+                                    {row.status == "Pending" && (
+                                        <span className="pending">
+                                            {row.status}
+                                        </span>
+                                    )}
+                                    {row.status == "In-Process" && (
+                                        <span className="inprocess">
+                                            {row.status}
+                                        </span>
+                                    )}
+                                    {row.status == "Completed" && (
+                                        <span className="success">
+                                            {row.status}
+                                        </span>
+                                    )}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {row.staff == null ? <p>-</p> : row.staff}
+                                    {row.staff ? <p>-</p> : row.staff}
                                 </TableCell>
                                 <TableCell align="center">
                                     {row.user.name}
