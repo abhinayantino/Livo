@@ -81,6 +81,7 @@ const countrycode = [
 ];
 
 const EditUserDetailPage = () => {
+  const [disabled, SetDisabled] = useState(true);
   const [propertyfields, setPropertyfields] = useState({
     userid: "",
     firstname: "",
@@ -92,7 +93,6 @@ const EditUserDetailPage = () => {
     Email: "",
     countryCode: "",
   });
-  const _ref = useRef();
   const updatePropertyfields = (event, key) => {
     setPropertyfields((preState) => {
       return {
@@ -102,19 +102,15 @@ const EditUserDetailPage = () => {
     });
   };
 
-  // const onSubmit = async () => {
-  //   console.log("submitting");
-  //   setComplete(false);
-  //   setEditing(false);
-  // };
+  const onSubmit = async () => {
+    console.log("submitting");
+    // await buildingsAPI(propertyfields);
+  };
   return (
     <>
       <div className="home">
         <div className="Property-top">
           <div className="details">UserName</div>
-          <p style={{ marginLeft: "-58.5rem", marginTop: "1.5rem" }}>
-            Unit Number-AH 123
-          </p>
           <div className="properties-button">
             <Button
               className="Button"
@@ -154,7 +150,7 @@ const EditUserDetailPage = () => {
               Save
             </Button>
 
-            {/* <div style={{ display: "flex" }}>
+            <div style={{ display: "flex" }}>
               <Button
                 variant="outline-success"
                 type="submit"
@@ -194,10 +190,9 @@ const EditUserDetailPage = () => {
               >
                 Save
               </Button>
-            </div> */}
+            </div>
           </div>
         </div>
-
         <ImageDetails images={[Userimage]} />
         <div
           className="details"

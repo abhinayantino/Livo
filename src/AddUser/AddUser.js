@@ -5,6 +5,7 @@ import "./index.css";
 import { MenuItem } from "@mui/material";
 import Button from "@mui/material/Button";
 import Userimage from "../assets/user.jpg";
+import { AddUserAPI } from "../services/allPropertiesAPI";
 
 import ImageDetails from "../components/ImageDetails";
 
@@ -81,23 +82,25 @@ const countrycode = [
   },
 ];
 
-export default function PropertyName() {
-  // const [editing, setEditing] = useState(false);
-
-  // const [complete, setComplete] = useState(false);
+export default function AddUser() {
+  const [editing, setEditing] = useState(false);
+  const [disabled, SetDisabled] = useState(true);
+  const [complete, setComplete] = useState(false);
   const [propertyfields, setPropertyfields] = useState({
+    profilePicture: "",
     userid: "",
     firstname: "",
     lastname: "",
     usertype: "",
     nationality: "",
     nationalityid: "",
-    passportno: "",
-    Email: "",
+    mobileNumber: "",
+    email: "",
     countryCode: "",
   });
-  const _ref = useRef();
+
   const updatePropertyfields = (event, key) => {
+    console.log(event, key, "hello");
     setPropertyfields((preState) => {
       return {
         ...preState,
@@ -111,12 +114,13 @@ export default function PropertyName() {
   //   setComplete(false);
   //   setEditing(false);
   // };
+  console.log("hello", propertyfields);
+  const onSubmit = async () => {
+    console.log("submitting");
+    setComplete(false);
+    await AddUserAPI(propertyfields);
+  };
 
-  // const onSubmit = async () => {
-  //   console.log("submitting");
-  //   setComplete(false);
-  //   setEditing(false);
-  // };
   return (
     <>
       <div className="home">
@@ -127,53 +131,73 @@ export default function PropertyName() {
               className="Button"
               variant="contained"
               color="success"
-              onClick={() => _ref.current.click()}
+              onClick={() => SetDisabled(false)}
               style={{
                 border: "1px solid #0C344E",
                 color: "#0C344E",
                 background: "white",
-                width: "80px",
+                width: "160px",
                 height: "48px",
-              }}
-            >
-              Edit
-            </Button>
-
-            {/* <Button
-              variant="outline-success"
-              type="submit"
-              disabled={!complete}
-              className="Button"
-              variant="contained"
-              color="success"
-              // onClick={() => _ref.current.click()}
-              // onClick={() => SetDisabled(false)}
-              style={{
-                border: "1px solid #0C344E",
-                color: "white",
-                background: "#0C344E",
-                width: "80px",
-                height: "48px",
+                borderRadius: "0.5rem",
                 marginTop: "-1rem",
-                //   display: !disabled ? "none" : "block",
+                display: !disabled ? "none" : "block",
               }}
             >
-              Save
+              Add New User
             </Button>
-            <Button
-              variant="outline-danger"
-              type="submit"
-              className="btn"
-              onClick={() => {
-                setEditing(false);
-              }}
-            >
-              Cancel
-            </Button> */}
+            <div style={{ display: "flex" }}>
+              <Button
+                variant="outline-success"
+                type="submit"
+                // disabled={!complete}
+                className="Button"
+                onClick={() => {
+                  SetDisabled(true);
+                }}
+                style={{
+                  border: "1px solid #0C344E",
+                  color: "#0C344E",
+                  background: "white",
+                  width: "80px",
+                  height: "48px",
+                  marginRight: "1.5rem",
+                  marginTop: "-1rem",
+                  display: !disabled ? "block" : "none",
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="outline-danger"
+                type="submit"
+                className="btn"
+                onClick={() => {
+                  SetDisabled(true);
+                  onSubmit();
+                }}
+                style={{
+                  border: "1px solid #0C344E",
+                  color: "white",
+                  background: "#0C344E",
+                  width: "80px",
+                  height: "48px",
+                  marginTop: "-1rem",
+                  marginRight: "1rem",
+                  display: !disabled ? "block" : "none",
+                }}
+              >
+                Add
+              </Button>
+            </div>
           </div>
         </div>
 
-        <ImageDetails images={[Userimage, Userimage, Userimage]} />
+        <ImageDetails
+          disabled={disabled}
+          value={propertyfields.profilePicture}
+          onChange={(event) => updatePropertyfields(event, "profilePicture")}
+          images={[propertyfields.profilePicture, Userimage]}
+        />
         <Box
           component="form"
           sx={{
@@ -188,6 +212,7 @@ export default function PropertyName() {
             label="User ID"
             multiline
             maxRows={4}
+            disabled={disabled}
             value={propertyfields.userid}
             onChange={(event) => updatePropertyfields(event, "userid")}
             variant="standard"
@@ -205,7 +230,8 @@ export default function PropertyName() {
               label="First Name"
               multiline
               maxRows={4}
-              value={propertyfields.firstname}
+              disabled={disabled}
+              value={propertyfields.name}
               onChange={(event) => updatePropertyfields(event, "firstname")}
               variant="standard"
               style={{
@@ -223,7 +249,8 @@ export default function PropertyName() {
               label="Last Name"
               multiline
               maxRows={4}
-              value={propertyfields.lastname}
+              disabled={disabled}
+              value={propertyfields.name}
               onChange={(event) => updatePropertyfields(event, "lastname")}
               variant="standard"
               style={{
@@ -241,6 +268,7 @@ export default function PropertyName() {
             id="User Type"
             select
             label="User Type"
+            disabled={disabled}
             value={propertyfields.usertype}
             onChange={(event) => updatePropertyfields(event, "usertype")}
             variant="standard"
@@ -256,6 +284,7 @@ export default function PropertyName() {
             id="Nationality"
             select
             label="Nationality"
+            disabled={disabled}
             value={propertyfields.nationality}
             onChange={(event) => updatePropertyfields(event, "nationality")}
             variant="standard"
@@ -272,25 +301,9 @@ export default function PropertyName() {
             label="Nationality ID"
             multiline
             maxRows={4}
-            value={propertyfields.nationalityid}
+            disabled={disabled}
+            value={propertyfields.emiratesId}
             onChange={(event) => updatePropertyfields(event, "nationalityid")}
-            variant="standard"
-            style={{
-              fontFamily: "Barlow",
-              fontStyle: "normal",
-              fontWeight: 400,
-              fontSize: "16px",
-              lineHeight: "19px",
-            }}
-          />
-
-          <TextField
-            id="standard-multiline-flexible"
-            label="Passport Number"
-            multiline
-            maxRows={4}
-            value={propertyfields.passportno}
-            onChange={(event) => updatePropertyfields(event, "passportno")}
             variant="standard"
             style={{
               fontFamily: "Barlow",
@@ -306,8 +319,9 @@ export default function PropertyName() {
             label="Email ID"
             multiline
             maxRows={4}
-            value={propertyfields.Email}
-            onChange={(event) => updatePropertyfields(event, "Email")}
+            disabled={disabled}
+            value={propertyfields.email}
+            onChange={(event) => updatePropertyfields(event, "email")}
             variant="standard"
             style={{
               fontFamily: "Barlow",
@@ -323,6 +337,7 @@ export default function PropertyName() {
               select
               value={propertyfields.countryCode}
               label="Ph. "
+              disabled={disabled}
               onChange={(event) => updatePropertyfields(event, "countryCode")}
               variant="standard"
               style={{ width: "55px", marginRight: "16px" }}
@@ -335,6 +350,8 @@ export default function PropertyName() {
             </TextField>
             <TextField
               id="standard-helperText"
+              disabled={disabled}
+              onChange={(event) => updatePropertyfields(event, "mobileNumber")}
               variant="standard"
               style={{ marginTop: "24px", width: "565px" }}
             />

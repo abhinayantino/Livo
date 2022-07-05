@@ -68,7 +68,7 @@ const Login = () => {
             <img className="logo" src={logo} alt="logo" />
           </div>
           <div className="login">
-            <section>
+            <section className="down-login">
               <p
                 ref={errRef}
                 className={errMsg ? "errmsg" : "offscreen"}

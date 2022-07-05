@@ -29,12 +29,24 @@ export const AllUserAPI = async (params) => {
   );
   return resp;
 };
+
+export const AddUserAPI = async (data) => {
+  const resp = await axiosClient.post(`${BASE_URL}/master-users`, data);
+  return resp;
+};
+
+export const EditUserAPI = async (data) => {
+  const resp = await axiosClient.patch(`${BASE_URL}/master-users`, data);
+  return resp;
+};
+
 export const AllUnitAPI = async (params) => {
   const resp = await axiosClient.get(
     `${BASE_URL}/flats/admin?page=${params.page}&limit=${params.limit}`
   );
   return resp;
 };
+
 export const AllVisitorsAPI = async (params) => {
   const resp = await axiosClient.get(
     `${BASE_URL}/visitings/logs?page=${params.page}&limit=${params.limit}`

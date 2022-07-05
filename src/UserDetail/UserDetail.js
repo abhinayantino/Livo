@@ -6,6 +6,7 @@ import { MenuItem } from "@mui/material";
 import Button from "@mui/material/Button";
 import Userimage from "../assets/user.jpg";
 import ImageDetails from "../components/ImageDetails";
+import { EditUserAPI } from "../services/allPropertiesAPI";
 
 const Nationality = [
   {
@@ -81,6 +82,9 @@ const countrycode = [
 ];
 
 const UserDetailPage = () => {
+  const [editing, setEditing] = useState(false);
+  const [disabled, SetDisabled] = useState(true);
+  const [complete, setComplete] = useState(false);
   const [propertyfields, setPropertyfields] = useState({
     userid: "",
     firstname: "",
@@ -107,34 +111,80 @@ const UserDetailPage = () => {
   //   setComplete(false);
   //   setEditing(false);
   // };
+  const onSubmit = async () => {
+    console.log("submitting");
+    setComplete(false);
+    await EditUserAPI(propertyfields);
+  };
   return (
     <>
       <div className="home">
         <div className="Property-top">
           <div className="details">UserName</div>
-          <p style={{ marginLeft: "-63.5rem", marginTop: "1.5rem" }}>
-            Unit Number-AH 123
-          </p>
+
           <div className="properties-button">
             <Button
               className="Button"
               variant="contained"
               color="success"
-              // onClick={() => _ref.current.click()}
-              // onClick={() => SetDisabled(false)}
+              onClick={() => SetDisabled(false)}
               style={{
                 border: "1px solid #0C344E",
                 color: "#0C344E",
                 background: "white",
                 width: "80px",
                 height: "48px",
-                marginRight: "1.5rem",
+                borderRadius: "0.5rem",
                 marginTop: "-1rem",
-                //   display: !disabled ? "none" : "block",
+                display: !disabled ? "none" : "block",
               }}
             >
               Edit
             </Button>
+            <div style={{ display: "flex" }}>
+              <Button
+                variant="outline-success"
+                type="submit"
+                // disabled={!complete}
+                className="Button"
+                onClick={() => {
+                  SetDisabled(true);
+                  onSubmit();
+                }}
+                style={{
+                  border: "1px solid #0C344E",
+                  color: "#0C344E",
+                  background: "white",
+                  width: "80px",
+                  height: "48px",
+                  marginRight: "1.5rem",
+                  marginTop: "-1rem",
+                  display: !disabled ? "block" : "none",
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="outline-danger"
+                type="submit"
+                className="btn"
+                onClick={() => {
+                  SetDisabled(true);
+                }}
+                style={{
+                  border: "1px solid #0C344E",
+                  color: "white",
+                  background: "#0C344E",
+                  width: "80px",
+                  height: "48px",
+                  marginTop: "-1rem",
+                  marginRight: "1rem",
+                  display: !disabled ? "block" : "none",
+                }}
+              >
+                Save
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -234,6 +284,7 @@ const UserDetailPage = () => {
             label="Mollak Owner Id"
             multiline
             maxRows={4}
+            disabled={disabled}
             value={propertyfields.userid}
             onChange={(event) => updatePropertyfields(event, "userid")}
             variant="standard"
@@ -252,7 +303,8 @@ const UserDetailPage = () => {
               label="First Name"
               multiline
               maxRows={4}
-              value={propertyfields.firstname}
+              disabled={disabled}
+              value={propertyfields.name}
               onChange={(event) => updatePropertyfields(event, "firstname")}
               variant="standard"
               style={{
@@ -271,7 +323,8 @@ const UserDetailPage = () => {
               label="Last Name"
               multiline
               maxRows={4}
-              value={propertyfields.lastname}
+              disabled={disabled}
+              value={propertyfields.name}
               onChange={(event) => updatePropertyfields(event, "lastname")}
               variant="standard"
               style={{
@@ -290,6 +343,7 @@ const UserDetailPage = () => {
             id="User Type"
             select
             label="User Type"
+            disabled={disabled}
             value={propertyfields.usertype}
             onChange={(event) => updatePropertyfields(event, "usertype")}
             variant="standard"
@@ -306,6 +360,7 @@ const UserDetailPage = () => {
             id="Nationality"
             select
             label="Nationality"
+            disabled={disabled}
             value={propertyfields.nationality}
             onChange={(event) => updatePropertyfields(event, "nationality")}
             variant="standard"
@@ -323,7 +378,8 @@ const UserDetailPage = () => {
             label="Nationality ID"
             multiline
             maxRows={4}
-            value={propertyfields.nationalityid}
+            disabled={disabled}
+            value={propertyfields.emiratesId}
             onChange={(event) => updatePropertyfields(event, "nationalityid")}
             variant="standard"
             style={{
@@ -336,7 +392,7 @@ const UserDetailPage = () => {
             }}
           />
 
-          <TextField
+          {/* <TextField
             id="standard-multiline-flexible"
             label="Passport Number"
             multiline
@@ -352,14 +408,15 @@ const UserDetailPage = () => {
               lineHeight: "19px",
               marginLeft: "-0.1rem",
             }}
-          />
+          /> */}
 
           <TextField
             id="standard-multiline-flexible"
             label="Email ID"
             multiline
             maxRows={4}
-            value={propertyfields.Email}
+            disabled={disabled}
+            value={propertyfields.email}
             onChange={(event) => updatePropertyfields(event, "Email")}
             variant="standard"
             style={{
@@ -377,6 +434,7 @@ const UserDetailPage = () => {
               select
               value={propertyfields.countryCode}
               label="Ph. "
+              disabled={disabled}
               onChange={(event) => updatePropertyfields(event, "countryCode")}
               variant="standard"
               style={{
@@ -394,6 +452,7 @@ const UserDetailPage = () => {
             <TextField
               id="standard-helperText"
               variant="standard"
+              disabled={disabled}
               style={{
                 marginTop: "24px",
                 width: "565px",
