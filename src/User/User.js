@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
-import BasicTable from "../components/BasicTable";
 import SearchBar from "../components/SearchBar";
 import Button from "@mui/material/Button";
 import UserTable from "../components/UserTable";

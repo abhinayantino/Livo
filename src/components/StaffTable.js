@@ -8,38 +8,44 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Pagination from "@mui/material/Pagination";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { AllUnitAPI } from "../services/allPropertiesAPI";
+import { AllStaffsAPI } from "../services/allPropertiesAPI";
+import { useEffect } from "react";
+import { useState } from "react";
 
-export default function UnitTable() {
-  const [units, setUnit] = useState([]);
+export default function StaffTable() {
+  const [staffs, setStaffs] = useState([]);
   const [count, setCount] = useState(2);
   const [page, setPage] = useState(1);
   const params = {
     page: page,
     limit: 10,
   };
+
   const header = [
     "Name",
-    "اسم",
-    "floor",
-    "size",
-    "Bedroom",
-    "Bathroom",
-    "Status",
-    "Villa",
+    "Email ID",
+    "Country-Code",
+    "Mobile Number",
+    "Department",
+    "Designation",
+    "Appointment",
+    "Nationality",
   ];
   useEffect(() => {
-    AllUnitAPI(params).then((response) => {
+    AllStaffsAPI(params).then((response) => {
       setCount(Math.ceil(response.data.data.count / 10));
       const resp = response.data.data.rows;
-      setUnit(resp);
+      setStaffs(resp);
     });
   }, [page]);
+
   const handlePageClick = (e) => {
     const selectedPage = e.target.innerText;
+
+    console.log(selectedPage);
     setPage(selectedPage);
   };
+
   return (
     <>
       <TableContainer component={Paper}>
@@ -60,28 +66,23 @@ export default function UnitTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {units.map((row) => (
+            {staffs.map((row) => (
               <TableRow
                 key={row.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                sx={{
+                  "&:last-child td, &:last-child th": {
+                    border: 0,
+                  },
+                }}
               >
-                <TableCell align="center">
-                  <Link to="/unitdetail">{row.name_en}</Link>
-                </TableCell>
-                <TableCell align="center">{row.name_ar}</TableCell>
-                <TableCell align="center">{row.floor}</TableCell>
-                <TableCell align="center">{row.size}</TableCell>
-                <TableCell align="center">{row?.flatInfo?.bedroom}</TableCell>
-                <TableCell align="center">{row?.flatInfo?.bathroom}</TableCell>
-                <TableCell align="center">
-                  {row?.contractDetails === null ||
-                  row?.contractDetails?.isExpired === false
-                    ? "Vacant"
-                    : "Occupied"}
-                </TableCell>
-                <TableCell align="center">
-                  {row?.isVilla === true ? "Yes" : "No"}
-                </TableCell>
+                <TableCell align="center">{row.name}</TableCell>
+                <TableCell align="center">{row.email}</TableCell>
+                <TableCell align="center">{row.countryCode}</TableCell>
+                <TableCell align="center">{row.mobileNumber}</TableCell>
+                <TableCell align="center">{row.department}</TableCell>
+                <TableCell align="center">{row.designation}</TableCell>
+                <TableCell align="center">{row.appointment}</TableCell>
+                <TableCell align="center">{row.nationality}</TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -82,7 +82,7 @@ export default function LeftNav() {
               >
                 <ul>Users</ul>
               </Link>
-              {/* <Link
+              <Link
                 to="/aminities"
                 style={{
                   textDecoration: "none",
@@ -90,8 +90,8 @@ export default function LeftNav() {
                 }}
               >
                 <ul>Amenities</ul>
-              </Link> */}
-              {/* <Link
+              </Link>
+              <Link
                 to="/staff"
                 style={{
                   textDecoration: "none",
@@ -99,7 +99,7 @@ export default function LeftNav() {
                 }}
               >
                 <ul>Staff</ul>
-              </Link> */}
+              </Link>
             </Accordion.Body>
           </Accordion.Item>
         </div>

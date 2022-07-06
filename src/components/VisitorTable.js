@@ -11,27 +11,6 @@ import { Link } from "react-router-dom";
 import "./AllRequesttable.css";
 import { getVisitorManagement } from "../services/allServisesApi";
 import { formatAMPM } from "../util";
-function createData(
-  visitorCategory,
-  visitorName,
-  unitNo,
-  contactNo,
-  dateOfVisit,
-  duration,
-  inTime,
-  outTime
-) {
-  return {
-    visitorCategory,
-    visitorName,
-    unitNo,
-    contactNo,
-    dateOfVisit,
-    duration,
-    inTime,
-    outTime,
-  };
-}
 
 export default function UserTable() {
   const [visitor, setVisitor] = useState([]);
@@ -119,14 +98,21 @@ export default function UserTable() {
           </TableBody>
         </Table>
       </TableContainer>
-      <Pagination
-        style={{ margin: "10px", float: "right" }}
-        count={totalCount}
-        onChange={(event, value) => {
-          setcurrentPage(value);
-        }}
-        shape="rounded"
-      />
+      <div className="d-flex justify-content-between height-200px mt-2">
+        <div style={{ margin: "10px", float: "right" }}>
+          <p>
+            Showing {currentPage} out of {totalCount} entries
+          </p>
+        </div>
+        <Pagination
+          style={{ margin: "10px", float: "right" }}
+          count={totalCount}
+          onChange={(event, value) => {
+            setcurrentPage(value);
+          }}
+          shape="rounded"
+        />
+      </div>
     </>
   );
 }

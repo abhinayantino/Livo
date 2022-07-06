@@ -86,8 +86,8 @@ export default function AddUser() {
   const [editing, setEditing] = useState(false);
   const [disabled, SetDisabled] = useState(true);
   const [complete, setComplete] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [propertyfields, setPropertyfields] = useState({
-    profilePicture: "",
     userid: "",
     firstname: "",
     lastname: "",
@@ -127,24 +127,6 @@ export default function AddUser() {
         <div className="Property-top">
           <div className="details">User Details</div>
           <div className="properties-button">
-            <Button
-              className="Button"
-              variant="contained"
-              color="success"
-              onClick={() => SetDisabled(false)}
-              style={{
-                border: "1px solid #0C344E",
-                color: "#0C344E",
-                background: "white",
-                width: "160px",
-                height: "48px",
-                borderRadius: "0.5rem",
-                marginTop: "-1rem",
-                display: !disabled ? "none" : "block",
-              }}
-            >
-              Add New User
-            </Button>
             <div style={{ display: "flex" }}>
               <Button
                 variant="outline-success"
@@ -162,7 +144,7 @@ export default function AddUser() {
                   height: "48px",
                   marginRight: "1.5rem",
                   marginTop: "-1rem",
-                  display: !disabled ? "block" : "none",
+                  display: !disabled ? "none" : "block",
                 }}
               >
                 Cancel
@@ -183,17 +165,16 @@ export default function AddUser() {
                   height: "48px",
                   marginTop: "-1rem",
                   marginRight: "1rem",
-                  display: !disabled ? "block" : "none",
+                  display: !disabled ? "none" : "block",
                 }}
               >
-                Add
+                Save
               </Button>
             </div>
           </div>
         </div>
 
         <ImageDetails
-          disabled={disabled}
           value={propertyfields.profilePicture}
           onChange={(event) => updatePropertyfields(event, "profilePicture")}
           images={[propertyfields.profilePicture, Userimage]}
@@ -212,7 +193,6 @@ export default function AddUser() {
             label="User ID"
             multiline
             maxRows={4}
-            disabled={disabled}
             value={propertyfields.userid}
             onChange={(event) => updatePropertyfields(event, "userid")}
             variant="standard"
@@ -230,7 +210,6 @@ export default function AddUser() {
               label="First Name"
               multiline
               maxRows={4}
-              disabled={disabled}
               value={propertyfields.name}
               onChange={(event) => updatePropertyfields(event, "firstname")}
               variant="standard"
@@ -249,7 +228,6 @@ export default function AddUser() {
               label="Last Name"
               multiline
               maxRows={4}
-              disabled={disabled}
               value={propertyfields.name}
               onChange={(event) => updatePropertyfields(event, "lastname")}
               variant="standard"
@@ -268,7 +246,6 @@ export default function AddUser() {
             id="User Type"
             select
             label="User Type"
-            disabled={disabled}
             value={propertyfields.usertype}
             onChange={(event) => updatePropertyfields(event, "usertype")}
             variant="standard"
@@ -284,7 +261,6 @@ export default function AddUser() {
             id="Nationality"
             select
             label="Nationality"
-            disabled={disabled}
             value={propertyfields.nationality}
             onChange={(event) => updatePropertyfields(event, "nationality")}
             variant="standard"
@@ -301,7 +277,6 @@ export default function AddUser() {
             label="Nationality ID"
             multiline
             maxRows={4}
-            disabled={disabled}
             value={propertyfields.emiratesId}
             onChange={(event) => updatePropertyfields(event, "nationalityid")}
             variant="standard"
@@ -319,7 +294,6 @@ export default function AddUser() {
             label="Email ID"
             multiline
             maxRows={4}
-            disabled={disabled}
             value={propertyfields.email}
             onChange={(event) => updatePropertyfields(event, "email")}
             variant="standard"
@@ -337,7 +311,6 @@ export default function AddUser() {
               select
               value={propertyfields.countryCode}
               label="Ph. "
-              disabled={disabled}
               onChange={(event) => updatePropertyfields(event, "countryCode")}
               variant="standard"
               style={{ width: "55px", marginRight: "16px" }}
@@ -350,7 +323,6 @@ export default function AddUser() {
             </TextField>
             <TextField
               id="standard-helperText"
-              disabled={disabled}
               onChange={(event) => updatePropertyfields(event, "mobileNumber")}
               variant="standard"
               style={{ marginTop: "24px", width: "565px" }}

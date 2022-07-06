@@ -59,7 +59,7 @@ export default function Units() {
                 Add Filter
               </Button>
             </div>
-            {/* <div className="properties-button">
+            <div className="properties-button">
               <Button
                 className="Button"
                 variant="contained"
@@ -100,8 +100,8 @@ export default function Units() {
                   />
                 </svg>
                 Add New Unit
-              </Button> */}
-            {/* </div> */}
+              </Button>
+            </div>
           </div>
         </div>
 

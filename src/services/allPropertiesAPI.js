@@ -53,3 +53,10 @@ export const AllVisitorsAPI = async (params) => {
   );
   return resp;
 };
+
+export const AllStaffsAPI = async (params) => {
+  const resp = await axiosClient.get(
+    `${BASE_URL}/staffs?page=${params.page}&limit=${params.limit}`
+  );
+  return resp;
+};

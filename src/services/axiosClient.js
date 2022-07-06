@@ -1,8 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = "http://18.117.40.59/api/v1";
-
-// export const BASE_URL = "http://localhost:4000/api/v1";
+export const BASE_URL = "https://devapi.livo.ae/api/v1";
 
 const axiosClient = axios.create({
   baseURL: BASE_URL,

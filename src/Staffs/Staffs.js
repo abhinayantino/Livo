@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Aminities.css";
-import BasicTable from "../components/BasicTable";
+import "./index.css";
 import SearchBar from "../components/SearchBar";
 import Button from "@mui/material/Button";
-export default function AminitiesPage() {
+import StaffTable from "../components/StaffTable";
+export default function Home() {
   return (
     <>
       <div className="home">
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="Property" style={{ marginRight: "40px" }}>
-            Amenity
+            Staffs
           </div>
           <div
             style={{
@@ -61,7 +61,7 @@ export default function AminitiesPage() {
               </Button>
             </div>
             <div className="properties-button">
-              <Link to="/addnewproperty" style={{ textDecoration: "none" }}>
+              <Link to="/adduser" style={{ textDecoration: "none" }}>
                 <Button
                   className="Button"
                   variant="contained"
@@ -102,14 +102,14 @@ export default function AminitiesPage() {
                       stroke-linejoin="round"
                     />
                   </svg>
-                  Add New Amenity
+                  Add New Staff
                 </Button>
               </Link>
             </div>
           </div>
         </div>
 
-        <BasicTable />
+        <StaffTable />
       </div>
     </>
   );

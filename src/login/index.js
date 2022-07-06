@@ -29,7 +29,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        `http://18.117.40.59/api/v1/admins/login`,
+        `https://devapi.livo.ae/api/v1/admins/login`,
         {
           username,
           password,

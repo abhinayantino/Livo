@@ -6,6 +6,7 @@ import PropertyName from "./PropertyName";
 import MyProfile from "./MyProfile";
 import Preferences from "./Preferences";
 import User from "./User";
+import Staff from "./Staffs";
 import AddUser from "./AddUser";
 import VisitorManagement from "./VisitorManagement";
 import AddNewProperty from "./AllProperties/AddNewProperty";
@@ -58,6 +59,7 @@ function App() {
         <Route path="/userdetail" element={<UserDetail />}></Route>
         <Route path="/edituserdetail" element={<EditUserDetail />}></Route>
         <Route path="/aminities" element={<Aminities />}></Route>
+        <Route path="/staff" element={<Staff />}></Route>
         <Route path="/visitor" element={<VisitorManagement />}></Route>
         <Route path="/property" element={<PropertyName />}></Route>
         <Route path="/allposts" element={<AllPosts />}></Route>
