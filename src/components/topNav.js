@@ -19,18 +19,20 @@ export default function TopNav() {
             <AllPropertyNav style={{ marginleft: "200px" }} />
           ) : null}
           <div className="Top">
-            <div className="Notification">
+            <div
+              className="Notification"
+              style={{ marginRight: "1.2rem", marginTop: "0.9rem" }}
+            >
               <IoMdNotificationsOutline
                 style={{
-                  width: "24px",
-                  height: "24px",
-                  // marginRight: "30rem",
-                  marginTop: "0.8rem",
+                  width: "32px",
+                  height: "32px",
+                  // marginRight: "3rem",
                 }}
               />
             </div>
-            <div style={{ marginRight: "12px", marginTop: "0.8rem" }}>
-              <p>Admin Name</p>
+            <div style={{ marginRight: "20px", marginTop: "1.2rem" }}>
+              <b>Omaar Apartment</b>
             </div>
             <div className="profile-badge">
               <img

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Aminities.css";
-import BasicTable from "../components/BasicTable";
+import AmenitiesTable from "../components/AmenitiesTable";
 import SearchBar from "../components/SearchBar";
 import Button from "@mui/material/Button";
 export default function AminitiesPage() {
@@ -10,7 +10,7 @@ export default function AminitiesPage() {
       <div className="home">
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="Property" style={{ marginRight: "40px" }}>
-            Amenity
+            Amenities
           </div>
           <div
             style={{
@@ -109,7 +109,7 @@ export default function AminitiesPage() {
           </div>
         </div>
 
-        <BasicTable />
+        <AmenitiesTable />
       </div>
     </>
   );

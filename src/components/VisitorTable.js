@@ -61,7 +61,7 @@ export default function UserTable() {
                 Date of Visit
               </TableCell>
               <TableCell className="Sbold" align="center">
-                Duration
+                Out Date
               </TableCell>
               <TableCell className="Sbold" align="center">
                 In Time
@@ -90,7 +90,9 @@ export default function UserTable() {
                 <TableCell align="center">
                   {row.inTime?.split("T")[0]}
                 </TableCell>
-                <TableCell align="center">{row.duration}</TableCell>
+                <TableCell align="center">
+                  {row.outTime?.split("T")[0]}
+                </TableCell>
                 <TableCell align="center">{formatAMPM(row.inTime)}</TableCell>
                 <TableCell align="center">{formatAMPM(row.outTime)}</TableCell>
               </TableRow>

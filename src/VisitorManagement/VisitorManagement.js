@@ -6,9 +6,20 @@ import VisitorTable from "../components/VisitorTable";
 import Model from "./Model";
 export default function User() {
   const [show, setShow] = useState(false);
+  const [search, setSearch] = useState();
+  const [filteredName, setFilteredname] = useState();
+  const [visitor, setVisitor] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handelsearchbar = (query) => {
+    setSearch(query);
+    visitor.map((searchedQuery) => {
+      if (searchedQuery.includes(query));
+      setFilteredname(searchedQuery);
+      setVisitor(searchedQuery);
+    });
+  };
   return (
     <>
       <Model
@@ -29,7 +40,10 @@ export default function User() {
               order: 2,
             }}
           >
-            <SearchBar style={{ marginRight: "40px" }} />
+            <SearchBar
+              style={{ marginRight: "40px" }}
+              handleSearch={handelsearchbar}
+            />
             <Button onClick={handleShow}>
               <svg
                 width="48"
