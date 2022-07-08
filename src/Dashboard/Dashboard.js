@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
+import { DashboardAPI } from "../services/DashboardApi";
 const Dashboard = () => {
+  const [dashboard, setDashboard] = useState([]);
+  const params = {
+    startDate: "18/05/2022",
+    endDate: "20/05/2022",
+  };
+
+  useEffect(() => {
+    DashboardAPI(params).then((response) => {
+      const resp = response.data.data;
+      setDashboard(resp);
+    });
+  }, []);
+  console.log(dashboard);
   const data = [
     {
       id: 1,
@@ -22,13 +36,13 @@ const Dashboard = () => {
     },
   ];
   return (
-    <div className="container bg-white" style={{ borderTopLeftRadius: "50px" }}>
+    <div className="home bg-white home" style={{ borderTopLeftRadius: "50px" }}>
       <div className="p-4">
         <div className="d-flex justify-content-between mt-3">
           <div>
             <h4>Dashboard</h4>
           </div>
-          <div>
+          {/* <div>
             <svg
               width="48"
               height="48"
@@ -52,7 +66,7 @@ const Dashboard = () => {
               />
             </svg>
             <button className="d-addfilter">Add Filter</button>
-          </div>
+          </div> */}
         </div>
         <div className="d-flex justify-content-around flex-wrap gap-4 mt-4">
           <div className="card card-increse">
@@ -63,30 +77,34 @@ const Dashboard = () => {
                   <div className="info">
                     <div className="loader">
                       <div className="d-flex justify-content-center  align-items-center flex-column mt-">
-                        <h5>12%</h5>
-                        <p>Collected</p>
+                        <h5>
+                          {Math.ceil(
+                            ((dashboard?.flatOverview?.totalFlats -
+                              dashboard?.flatOverview?.flatsOccupied) *
+                              100) /
+                              dashboard?.flatOverview?.totalFlats
+                          )}
+                          %
+                        </h5>
+                        <p>Vacant</p>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <h5>200000</h5>
-                    <p className="c-dinfo">Pending</p>
+                    <h5>{dashboard?.buildingOverview?.totalBuildings}</h5>
+                    <p className="c-dinfo">Total Buildings</p>
                   </div>
                 </div>
                 <div className="d-flex justify-content-between">
                   <div>
-                    <h5>100000</h5>
-                    <p className="c-dinfo">Total Payable</p>
-                  </div>
-                  <div className="mt-1">
-                    <h5>157587</h5>
-                    <p className="c-dinfo">Total Collected</p>
+                    <h5>{dashboard?.buildingOverview?.totalResidents}</h5>
+                    <p className="c-dinfo">Total Users</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="card">
+          {/* <div className="card">
             <div className="card-body">
               <h6 className="card-title">Properties Overview</h6>
               <div className="mt-3">
@@ -156,25 +174,29 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="card">
             <div className="card-body">
-              <h6 className="card-title">Expenses Overview (AED)</h6>
+              <h6 className="card-title">Charges Overview (AED)</h6>
               <div className="mt-3">
                 <div className="d-flex justify-content-between">
                   <div>
-                    <h5>254</h5>
-                    <p className="c-dinfo">Pending</p>
+                    <h5>{dashboard?.chargeOverview?.totalAmount}</h5>
+                    <p className="c-dinfo">Toal Amounut</p>
                   </div>
                   <div>
-                    <h5>200000</h5>
+                    <h5>{dashboard?.chargeOverview?.pending}</h5>
                     <p className="c-dinfo">Pending</p>
                   </div>
                 </div>
                 <div className="d-flex justify-content-between">
                   <div>
-                    <h5>100000</h5>
-                    <p className="c-dinfo">Total Payable</p>
+                    <h5>
+                      {dashboard?.chargeOverview?.totalCollected === null
+                        ? 0
+                        : dashboard?.chargeOverview?.totalCollected}
+                    </h5>
+                    <p className="c-dinfo">Total Collected</p>
                   </div>
                 </div>
               </div>
@@ -182,22 +204,22 @@ const Dashboard = () => {
           </div>
           <div className="card">
             <div className="card-body">
-              <h6 className="card-title">User Overview</h6>
+              <h6 className="card-title">Flat Overview</h6>
               <div className="mt-3">
                 <div className="d-flex justify-content-between">
                   <div>
-                    <h5>254</h5>
-                    <p className="c-dinfo">Pending</p>
+                    <h5>{dashboard?.flatOverview?.totalFlats}</h5>
+                    <p className="c-dinfo">Total Flats</p>
                   </div>
                   <div>
-                    <h5>200000</h5>
-                    <p className="c-dinfo">Pending</p>
+                    <h5>{dashboard?.flatOverview?.flatsOccupied}</h5>
+                    <p className="c-dinfo">Occupied Flats</p>
                   </div>
                 </div>
                 <div className="d-flex justify-content-between">
                   <div>
-                    <h5>100000</h5>
-                    <p className="c-dinfo">Total Payable</p>
+                    <h5>{dashboard?.flatOverview?.tenants}</h5>
+                    <p className="c-dinfo">Tenants</p>
                   </div>
                 </div>
               </div>

@@ -22,7 +22,7 @@ export default function LeftNav() {
           className="feature"
           style={{ display: "flex", flexDirection: "row" }}
         >
-          <div style={{ margin: "1.5rem" }}>
+          <div style={{ margin: "1.2rem" }}>
             <img
               style={{ marginRight: "10px" }}
               src={DashboardImage}
@@ -40,22 +40,17 @@ export default function LeftNav() {
             </Link>
           </div>
         </div>
-
-        <div
-          className="feature "
-          style={{ display: "flex", flexDirection: "row" }}
-        >
-          <Accordion.Item eventKey="1" className="upper">
-            <Accordion.Header>
-              <img
-                style={{ marginRight: "10px" }}
-                src={MyPropertiesImage}
-                alt="My Properties"
-              />
-              My Properties
-            </Accordion.Header>
-            <Accordion.Body className="elements">
-              {/* <Link
+        <Accordion.Item eventKey="1" className="upper">
+          <Accordion.Header>
+            <img
+              style={{ marginRight: "10px" }}
+              src={MyPropertiesImage}
+              alt="My Properties"
+            />
+            My Properties
+          </Accordion.Header>
+          <Accordion.Body className="elements">
+            {/* <Link
                 to="/"
                 style={{
                   textDecoration: "none",
@@ -64,46 +59,49 @@ export default function LeftNav() {
               >
                 <ul>All Properties</ul>
               </Link> */}
-              <Link
-                to="/units"
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                }}
-              >
-                <ul>Units</ul>
-              </Link>
-              <Link
-                to="/user"
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                }}
-              >
-                <ul>Users</ul>
-              </Link>
-              <Link
-                to="/aminities"
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                }}
-              >
-                <ul>Amenities</ul>
-              </Link>
-              <Link
-                to="/staff"
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                }}
-              >
-                <ul>Staff</ul>
-              </Link>
-            </Accordion.Body>
-          </Accordion.Item>
-        </div>
-        <div className="feature" style={{ marginLeft: "1rem" }}>
+            <Link
+              to="/units"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Units</ul>
+            </Link>
+            <Link
+              to="/user"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Users</ul>
+            </Link>
+            <Link
+              to="/aminities"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Amenities</ul>
+            </Link>
+            <Link
+              to="/staff"
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+            >
+              <ul>Staff</ul>
+            </Link>
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <div
+          className="feature"
+          style={{ marginLeft: "1.2rem", marginTop: "1rem" }}
+        >
           <img
             style={{ marginRight: "10px" }}
             src={VisitorImage}
@@ -119,6 +117,7 @@ export default function LeftNav() {
             Visitors Management
           </Link>
         </div>
+
         <Accordion.Item eventKey="6" className="upper">
           <Accordion.Header className="feature">
             <img
@@ -158,7 +157,7 @@ export default function LeftNav() {
             </Link>
           </Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item eventKey="3" className="upper">
+        {/* <Accordion.Item eventKey="3" className="upper">
           <Accordion.Header className="feature">
             <img
               style={{ marginRight: "10px" }}
@@ -257,7 +256,7 @@ export default function LeftNav() {
             Reports
           </Accordion.Header>
           <Accordion.Body></Accordion.Body>
-        </Accordion.Item>
+        </Accordion.Item> */}
 
         <Accordion.Item eventKey="5">
           <Accordion.Header className="feature">

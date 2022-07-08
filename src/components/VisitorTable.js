@@ -26,12 +26,13 @@ export default function UserTable() {
       "10/03/2052"
     );
     let totalData = resp.data.data.count;
-    console.log(resp.data.data.count);
+    console.log(resp.data.data.rows);
     let pagesCount = Math.ceil(totalData / postPerpage);
     settotalCount(pagesCount);
 
     setVisitor(resp.data.data.rows);
   };
+
   useEffect(() => {
     VisitorData();
 
